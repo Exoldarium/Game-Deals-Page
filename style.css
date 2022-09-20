@@ -8,9 +8,23 @@ html {
     box-sizing: inherit;
 }
 
+body {
+    background: #E7825E;
+}
+
 .wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    background:#383838;
+}
+
+.bar {
+    display: flex;
+}
+
+.text {
+    padding: 10px 50px;
+    text-align: center;
 }
