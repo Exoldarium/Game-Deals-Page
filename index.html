@@ -7,10 +7,12 @@
     </head>
     <body>
         <div class="wrapper landing">
-            <form class="search bar">
-                <input type="text" class="search text" name="inputnames" placeholder="Enter game name">
-                <input type="submit" class="search submit" name="inputnames">
+            <form class="search bar" method="post" action="game-list.html">
+                <input type="text" class="search text" name="inputnames" placeholder>
+                <input type="submit" class="search submit" name="inputnames" value="🔎︎">
             </form>
+            <ul class="list game">
+            </ul>
         </div>
 
         <script src="script.js"></script>
