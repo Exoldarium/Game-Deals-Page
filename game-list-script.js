@@ -33,6 +33,12 @@ function displayData() {
     }).join(' ');
     
     list.innerHTML = showData;
+
+    if (inputGame.value === '') {
+        list.classList.add('opacityList');
+    } else {
+        list.classList.remove('opacityList');
+    }
     
 }
 
