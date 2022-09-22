@@ -39,6 +39,13 @@ body {
     flex-direction: column;
 }
 
+.wrapperList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
 .bar {
     display: flex;
     position: relative;
