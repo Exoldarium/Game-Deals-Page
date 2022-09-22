@@ -24,8 +24,14 @@ function displayData() {
             </li>
         `
     }).join(' ');
+    
     list.innerHTML = showData;
-    console.log(matchedArray);
+    
+    if (inputText.value === '') {
+        list.classList.add('opacityList');
+    } else {
+        list.classList.remove('opacityList');
+    }
 }
 
 inputText.addEventListener('keyup', displayData);

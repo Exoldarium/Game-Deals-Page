@@ -41,11 +41,12 @@ body {
 
 .bar {
     display: flex;
+    position: relative;
 }
 
 .submit {
-    background: #A06E20;
-    border: #A06E20;
+    background: #ddaf64;
+    border: #ddaf64;
     border-radius: 5px;
 }
 .text {
@@ -53,7 +54,7 @@ body {
     text-align: center;
     min-width: 40vh;
     border-radius: 5px;
-    background: #A06E20;
+    background: #ddaf64;
     color: black;
 }
 
@@ -64,15 +65,16 @@ body {
 
 .game {
     align-items: center;
-    margin: 0 auto;
+    top: 495px;
     padding-right: 60px;
+    position: absolute;
 }
 
 li {
-    background: #A06E20;
+    background: #ddaf64;
     list-style: none;
     border-bottom: 1px solid #2E3441;
-    box-shadow: 0 0 5px #A06E20;
+    box-shadow: 0 0 5px #ddaf64;
     padding: 20px;
     transition: background 2s;
     justify-content: center;
@@ -85,4 +87,8 @@ span {
     font-size: 20px;
     text-align: left;
     justify-content: center;
+}
+
+.opacityList {
+    opacity: 0;
 }
