@@ -2,6 +2,7 @@ const endpoint = 'https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=
 const games = [];
 const inputText = document.querySelector('.text');
 const list = document.querySelector('.game');
+const form = document.querySelector('.bar');
 
 fetch(endpoint)
     .then(blob => blob.json())
@@ -9,7 +10,7 @@ fetch(endpoint)
 
 
 function searchData(input, value) {
-    return value.filter (game => {
+    return value.filter(game => {
         const regex = new RegExp (input, 'gi');
         return game.title.match(regex);
     });
@@ -32,7 +33,16 @@ function displayData() {
     } else {
         list.classList.remove('opacityList');
     }
+
+}
+
+function submitForm(e) {
+    e.preventDefault();
+    const inputValue = inputText.value;
+    localStorage.setItem('objectToPass', inputValue);
+    window.location = 'game-list.html';
 }
 
 inputText.addEventListener('keyup', displayData);
 inputText.addEventListener('change', displayData);
+form.addEventListener('submit', submitForm);

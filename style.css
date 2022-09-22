@@ -68,6 +68,7 @@ body {
     top: 495px;
     padding-right: 60px;
     position: absolute;
+
 }
 
 li {
@@ -80,6 +81,7 @@ li {
     justify-content: center;
     text-transform: capitalize;
     min-width: 40vh;
+    max-width: 5vh;
     margin: 0px 5px;
 }
 
