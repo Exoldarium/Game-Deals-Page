@@ -19,9 +19,9 @@ function displayData() {
     const matchedArray = searchData(this.value, games);
     const showData = matchedArray.slice(0, 5).map(games => {
         return `
-        <li class="list display">
-        <span class="title">${games.title}</span>
-        </li>
+            <li class="list display">
+                <span class="title">${games.title}</span>
+            </li>
         `
     }).join(' ');
     
