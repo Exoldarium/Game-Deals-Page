@@ -5,8 +5,8 @@ const list = document.querySelector('.game');
 const form = document.querySelector('.bar');
 
 fetch(endpoint)
-.then(blob => blob.json())
-.then(data => games.push(...data))
+    .then(blob => blob.json())
+    .then(data => games.push(...data))
 
 function searchData(input, value) {
     return value.filter(game => {
