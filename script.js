@@ -5,9 +5,8 @@ const list = document.querySelector('.game');
 const form = document.querySelector('.bar');
 
 fetch(endpoint)
-    .then(blob => blob.json())
-    .then(data => games.push(...data))
-
+.then(blob => blob.json())
+.then(data => games.push(...data))
 
 function searchData(input, value) {
     return value.filter(game => {
@@ -20,12 +19,13 @@ function displayData() {
     const matchedArray = searchData(this.value, games);
     const showData = matchedArray.slice(0, 5).map(games => {
         return `
-            <li class="list display">
-                <span class="title">${games.title}</span>
-            </li>
+        <li class="list display">
+        <span class="title">${games.title}</span>
+        </li>
         `
     }).join(' ');
     
+    localStorage.setItem('objectToTransfer', JSON.stringify(matchedArray));
     list.innerHTML = showData;
     
     if (inputText.value === '') {
@@ -33,7 +33,7 @@ function displayData() {
     } else {
         list.classList.remove('opacityList');
     }
-
+    
 }
 
 function submitForm(e) {

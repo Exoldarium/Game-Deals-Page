@@ -1,46 +1,23 @@
-const endpoint = 'https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15';
-const games = [];
 const inputValue = localStorage.getItem('objectToPass');
+const listValue = JSON.parse(localStorage.getItem('objectToTransfer'));
 const inputGame = document.querySelector('.textGame');
-const form = document.querySelector('.listGameBar');
 const list = document.querySelector('.gameList');
+// add local storage to new variable
 const displayGames = inputValue;
+// pass local storage as input
 inputGame.value = displayGames;
-console.log(displayGames);
-// alert('Inserted Data' + inputValue);
-// localStorage.removeItem('objectToPass');
 
-fetch(endpoint)
-    .then(blob => blob.json())
-    .then(data => games.push(...data))
-
-
-function searchData(input, value) {
-    return value.filter(game => {
-        const regex = new RegExp (input, 'gi');
-        return game.title.match(regex);
-    });
-}
-
-function displayData() {
-    const matchedArray = searchData(this.value, games);
-    const showData = matchedArray.slice(0, 5).map(games => {
+function mapGames() {
+    list.innerHTML = listValue.map(game => {
         return `
             <li class="list display">
-                <span class="title">${games.title}</span>
+                <span class="title">${game.title}</span>
             </li>
         `
-    }).join(' ');
-    
-    list.innerHTML = showData;
-
-    if (inputGame.value === '') {
-        list.classList.add('opacityList');
-    } else {
-        list.classList.remove('opacityList');
-    }
-    
+    }).join('');
 }
+mapGames();
 
-inputGame.addEventListener('keyup', displayData);
-inputGame.addEventListener('change', displayData);
+console.log(listValue);
+
+
