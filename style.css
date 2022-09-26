@@ -12,24 +12,7 @@ body {
     background:#383838;
 }
 
-/* input {
-    width: 100%;
-    padding: 20px;
-}
-
-.game li {
-    background: white;
-    list-style: none;
-    border-bottom: 1px solid white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
-    margin: 0;
-    padding: 20px;
-    transition: background 2s;
-    display: flex;
-    justify-content: space-between;
-    text-transform: capitalize;
-} */
-
+/* wrapper style */
 .wrapper {
     display: flex;
     align-items: center;
@@ -46,6 +29,7 @@ body {
     flex-direction: column;
 }
 
+/* form and input style */
 .bar {
     display: flex;
     position: relative;
@@ -65,17 +49,19 @@ body {
     color: black;
 }
 
-.display {
-    list-style: none;
-    font-size: 10px;
-}
 
+
+/* list style */
 .game {
     align-items: center;
     top: 495px;
     padding-right: 60px;
     position: absolute;
+}
 
+.display {
+    list-style: none;
+    font-size: 10px;
 }
 
 li {
@@ -98,6 +84,7 @@ span {
     justify-content: center;
 }
 
+/* remove list style if empty */
 .opacityList {
     opacity: 0;
 }

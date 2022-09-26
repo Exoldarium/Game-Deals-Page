@@ -33,7 +33,6 @@ function displayData() {
     } else {
         list.classList.remove('opacityList');
     }
-    
 }
 
 function submitForm(e) {
