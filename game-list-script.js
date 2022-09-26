@@ -44,7 +44,7 @@ function displayData() {
 
 // display data in DOM
 function mapGames() {
-    list.innerHTML = listValue.splice(0, 15).map(game => {
+    list.innerHTML = listValue.slice(0, 15).map(game => {
         return `
             <li class="gameDisplay">
                 <span class="gameTitle">${game.title}</span>
