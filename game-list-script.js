@@ -14,6 +14,7 @@ fetch(endpoint)
     .then(blob => blob.json())
     .then(data => games.push(...data))
 
+// match input with game.title property
 function searchData(input, value) {
     return value.filter(game => {
         const regex = new RegExp (input, 'gi');
@@ -21,6 +22,7 @@ function searchData(input, value) {
     });
 }
 
+// display data in DOM (search bar)
 function displayData() {
     const matchedArray = searchData(this.value, games);
     const showData = matchedArray.slice(0, 4).map(games => {
@@ -40,6 +42,7 @@ function displayData() {
     }
 }
 
+// display data in DOM
 function mapGames() {
     list.innerHTML = listValue.splice(0, 15).map(game => {
         return `

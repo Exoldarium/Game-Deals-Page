@@ -8,6 +8,7 @@ fetch(endpoint)
     .then(blob => blob.json())
     .then(data => games.push(...data))
 
+// match input with game.title property
 function searchData(input, value) {
     return value.filter(game => {
         const regex = new RegExp (input, 'gi');
@@ -15,6 +16,7 @@ function searchData(input, value) {
     });
 }
 
+// display data in DOM
 function displayData() {
     const matchedArray = searchData(this.value, games);
     const showData = matchedArray.slice(0, 5).map(games => {
@@ -35,6 +37,7 @@ function displayData() {
     }
 }
 
+// submit form and load next page
 function submitForm(e) {
     e.preventDefault();
     const inputValue = inputText.value;
