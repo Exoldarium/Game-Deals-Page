@@ -13,7 +13,7 @@ body {
 }
 
 /* wrapper style */
-.wrapper {
+.landing {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,24 +22,45 @@ body {
     flex-direction: column;
 }
 
-.wrapperList {
+.listGame {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    min-height: 100vh;
 }
 
-/* form and input style */
+.formWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* form style */
 .bar {
     display: flex;
     position: relative;
 }
 
+.listGameBar {
+    display: flex;
+    position: relative;
+    top: 0;
+}
+
+/* input style */
 .submit {
     background: #ddaf64;
     border: #ddaf64;
     border-radius: 5px;
 }
+
+.submitGame {
+    background: #ddaf64;
+    border: #ddaf64;
+    border-radius: 5px;
+}
+
 .text {
     padding: 10px 50px;
     text-align: center;
@@ -49,7 +70,14 @@ body {
     color: black;
 }
 
-
+.textGame {
+    padding: 10px 50px;
+    text-align: center;
+    min-width: 30vh;
+    border-radius: 5px;
+    background: #ddaf64;
+    color: black;
+}
 
 /* list style */
 .game {
@@ -59,14 +87,17 @@ body {
     position: absolute;
 }
 
-.display {
-    list-style: none;
-    font-size: 10px;
+.gameList {
+    display: flex;
+    flex-direction: column;
+    top: 495px;
+    padding-right: 30px;
 }
 
-li {
+.display {
     background: #ddaf64;
     list-style: none;
+    font-size: 10px;
     border-bottom: 1px solid #2E3441;
     box-shadow: 0 0 5px #ddaf64;
     padding: 20px;
@@ -78,8 +109,30 @@ li {
     margin: 0px 5px;
 }
 
-span {
-    font-size: 20px;
+.gameDisplay {
+    background: #ddaf64;
+    list-style: none;
+    font-size: 17px;
+    border-bottom: 1px solid #2E3441;
+    box-shadow: 0 0 5px #ddaf64;
+    padding: 20px;
+    transition: background 2s;
+    justify-content: center;
+    text-transform: capitalize;
+    min-width: 40vh;
+    max-width: 5vh;
+    margin: 0px 5px;
+}
+
+/* span style */
+.title {
+    font-size: 17px;
+    text-align: left;
+    justify-content: center;
+}
+
+.gameTitle {
+    font-size: 17px;
     text-align: left;
     justify-content: center;
 }

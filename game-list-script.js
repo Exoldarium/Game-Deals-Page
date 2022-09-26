@@ -8,10 +8,10 @@ const displayGames = inputValue;
 inputGame.value = displayGames;
 
 function mapGames() {
-    list.innerHTML = listValue.map(game => {
+    list.innerHTML = listValue.splice(0, 15).map(game => {
         return `
-            <li class="list display">
-                <span class="title">${game.title}</span>
+            <li class="gameDisplay">
+                <span class="gameTitle">${game.title}</span>
             </li>
         `
     }).join('');
