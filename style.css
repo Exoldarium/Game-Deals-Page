@@ -27,7 +27,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 50vh;
 }
 
 .formWrap {
@@ -87,6 +87,13 @@ body {
     position: absolute;
 }
 
+.listNav {
+    align-items: center;
+    position: absolute;
+    padding-right: 60px;
+    top: 30px;
+}
+
 .gameList {
     display: flex;
     flex-direction: column;
@@ -124,6 +131,21 @@ body {
     margin: 0px 5px;
 }
 
+.navListDisplay {
+    background: #ddaf64;
+    list-style: none;
+    font-size: 15px;
+    border-bottom: 1px solid #2E3441;
+    box-shadow: 0 0 5px #ddaf64;
+    padding: 10px;
+    transition: background 2s;
+    justify-content: center;
+    text-transform: capitalize;
+    min-width: 30vh;
+    max-width: 5vh;
+    margin: 0px 5px;
+}
+
 /* span style */
 .title {
     font-size: 17px;
@@ -135,6 +157,10 @@ body {
     font-size: 17px;
     text-align: left;
     justify-content: center;
+}
+
+.navListTitle {
+    
 }
 
 /* remove list style if empty */
