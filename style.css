@@ -160,7 +160,9 @@ body {
 }
 
 .navListTitle {
-    
+    font-size: 15px;
+    text-align: left;
+    justify-content: center;
 }
 
 /* remove list style if empty */
