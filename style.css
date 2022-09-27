@@ -12,7 +12,7 @@ body {
     background:#2E3441;
 }
 
-/* wrapper style */
+/* wrappers */
 .landing {
     display: flex;
     align-items: center;
@@ -38,7 +38,7 @@ body {
     border: 1px solid goldenrod;
 }
 
-/* form style */
+/* forms */
 .bar {
     display: flex;
     position: relative;
@@ -50,7 +50,7 @@ body {
     top: 0;
 }
 
-/* input style */
+/* inputs */
 .submit {
     background: #ddaf64;
     border: #ddaf64;
@@ -81,7 +81,7 @@ body {
     color: black;
 }
 
-/* list style */
+/* lists */
 .game {
     align-items: center;
     top: 495px;
@@ -118,7 +118,7 @@ body {
     max-width: 5vh;
     margin: 0px 5px;
     display: inline-flex;
-
+    padding: 5px;
 }
 
 .gameDisplay {
@@ -133,6 +133,7 @@ body {
     max-width: 5vh;
     margin: 0px 5px;
     display: inline-flex;
+    padding: 5px;
 }
 
 .navListDisplay {
@@ -147,20 +148,17 @@ body {
     min-width: 30vh;
     max-width: 5vh;
     margin: 0px 5px;
-    
 }
 
-/* span style */
+/* spans */
 .title {
     font-size: 17px;
     text-align: left;
     justify-content: center;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding-left: 10px;
+    padding: 10px;
 }
-
 
 .gameTitle {
     font-size: 17px;
@@ -181,8 +179,43 @@ body {
     opacity: 0;
 }
 
-img {
-    padding: 10px;
+/* images */
+.imgLanding {
+    padding: 10px 0 10px auto;
     margin-left: auto;
     margin-right: 0;
+}
+
+.imgList {
+    padding: 10px 0px 10px 0px;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+/* links */
+.linkLanding {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+.linkList {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+.linkNav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    text-decoration: none;
+    color: black;
 }

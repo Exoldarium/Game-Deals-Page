@@ -21,9 +21,12 @@ function displayData() {
     const matchedArray = searchData(this.value, games);
     const showData = matchedArray.slice(0, 5).map(games => {
         return `
-            <li class="display">
-                <span class="title">${games.title}</span><img src="${games.thumb}"></img>
-            </li>
+            <a href="game-list.html" class="linkLanding">
+                <li class="display">
+                    <span class="title">${games.title}</span>
+                    <img src="${games.thumb}" class="imgLanding"></img>
+                </li>
+            </a>
         `
     }).join(' ');
     
@@ -49,4 +52,5 @@ console.log(games);
 
 inputText.addEventListener('keyup', displayData);
 inputText.addEventListener('change', displayData);
+list.addEventListener('click', submitForm);
 form.addEventListener('submit', submitForm);

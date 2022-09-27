@@ -5,6 +5,7 @@ const listValue = JSON.parse(localStorage.getItem('objectToTransfer'));
 const inputGame = document.querySelector('.textGame');
 const list = document.querySelector('.gameList');
 const listSearch = document.querySelector('.listNav');
+const form = document.querySelector('.listGameBar');
 // add local storage to new variable
 const displayGames = inputValue;
 // pass local storage as input
@@ -27,9 +28,11 @@ function displayData() {
     const matchedArray = searchData(this.value, games);
     const showData = matchedArray.slice(0, 4).map(games => {
         return `
-            <li class="navListDisplay">
-                <span class="navListTitle">${games.title}</span>
-            </li>
+            <a href="game-list.html" class="linkNav">
+                <li class="navListDisplay">
+                    <span class="navListTitle">${games.title}</span>
+                </li>
+            </a>
         `
     }).join(' ');
     
@@ -46,16 +49,28 @@ function displayData() {
 function mapGames() {
     list.innerHTML = listValue.slice(0, 15).map(game => {
         return `
-            <li class="gameDisplay">
-                <span class="gameTitle">${game.title}</span><img src="${game.thumb}"></img>
-            </li>
+            <a href="" class="linkList">
+                <li class="gameDisplay">
+                    <span class="gameTitle">${game.title}</span>
+                    <img src="${game.thumb}" class="imgList"></img>
+                </li>
+            </a>
         `
     }).join('');
 }
+
+// submit form and load results on this page
+function submitForm(e) {
+    e.preventDefault();
+    const valueInput = inputGame.value;
+    localStorage.setItem('objectToPass', valueInput);
+    window.location = 'game-list.html';
+}
+
 mapGames();
 
 console.log(listValue);
 inputGame.addEventListener('keyup', displayData);
 inputGame.addEventListener('change', displayData);
-
+form.addEventListener('submit', submitForm);
 
