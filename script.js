@@ -22,7 +22,7 @@ function displayData() {
     const showData = matchedArray.slice(0, 5).map(games => {
         return `
             <li class="display">
-                <span class="title">${games.title}</span>
+                <span class="title">${games.title}</span><img src="${games.thumb}"></img>
             </li>
         `
     }).join(' ');
@@ -44,6 +44,8 @@ function submitForm(e) {
     localStorage.setItem('objectToPass', inputValue);
     window.location = 'game-list.html';
 }
+
+console.log(games);
 
 inputText.addEventListener('keyup', displayData);
 inputText.addEventListener('change', displayData);

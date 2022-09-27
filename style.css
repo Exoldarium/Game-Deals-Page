@@ -9,7 +9,7 @@ html {
 }
 
 body {
-    background:#383838;
+    background:#2E3441;
 }
 
 /* wrapper style */
@@ -28,12 +28,14 @@ body {
     justify-content: center;
     flex-direction: column;
     min-height: 50vh;
+    border: 1px solid mistyrose;
 }
 
 .formWrap {
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid goldenrod;
 }
 
 /* form style */
@@ -85,6 +87,8 @@ body {
     top: 495px;
     padding-right: 60px;
     position: absolute;
+    display: flex;
+    flex-direction: column;
 }
 
 .listNav {
@@ -98,7 +102,8 @@ body {
     display: flex;
     flex-direction: column;
     top: 495px;
-    padding-right: 30px;
+    padding: 5% 20%;
+    border: 1px solid mistyrose;
 }
 
 .display {
@@ -107,13 +112,13 @@ body {
     font-size: 10px;
     border-bottom: 1px solid #2E3441;
     box-shadow: 0 0 5px #ddaf64;
-    padding: 20px;
     transition: background 2s;
-    justify-content: center;
     text-transform: capitalize;
     min-width: 40vh;
     max-width: 5vh;
     margin: 0px 5px;
+    display: inline-flex;
+
 }
 
 .gameDisplay {
@@ -122,13 +127,12 @@ body {
     font-size: 17px;
     border-bottom: 1px solid #2E3441;
     box-shadow: 0 0 5px #ddaf64;
-    padding: 20px;
     transition: background 2s;
-    justify-content: center;
     text-transform: capitalize;
     min-width: 40vh;
     max-width: 5vh;
     margin: 0px 5px;
+    display: inline-flex;
 }
 
 .navListDisplay {
@@ -139,11 +143,11 @@ body {
     box-shadow: 0 0 5px #ddaf64;
     padding: 10px;
     transition: background 2s;
-    justify-content: center;
     text-transform: capitalize;
     min-width: 30vh;
     max-width: 5vh;
     margin: 0px 5px;
+    
 }
 
 /* span style */
@@ -151,12 +155,19 @@ body {
     font-size: 17px;
     text-align: left;
     justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 10px;
 }
+
 
 .gameTitle {
     font-size: 17px;
     text-align: left;
-    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
 }
 
 .navListTitle {
@@ -168,4 +179,10 @@ body {
 /* remove list style if empty */
 .opacityList {
     opacity: 0;
+}
+
+img {
+    padding: 10px;
+    margin-left: auto;
+    margin-right: 0;
 }

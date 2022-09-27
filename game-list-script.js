@@ -47,7 +47,7 @@ function mapGames() {
     list.innerHTML = listValue.slice(0, 15).map(game => {
         return `
             <li class="gameDisplay">
-                <span class="gameTitle">${game.title}</span>
+                <span class="gameTitle">${game.title}</span><img src="${game.thumb}"></img>
             </li>
         `
     }).join('');
