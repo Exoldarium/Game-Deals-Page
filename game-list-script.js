@@ -60,17 +60,17 @@ function mapGames() {
 }
 
 // submit form and load results on this page
-function submitForm(e) {
-    e.preventDefault();
-    const valueInput = inputGame.value;
-    localStorage.setItem('objectToPass', valueInput);
-    window.location = 'game-list.html';
-}
+// function submitForm(e) {
+//     e.preventDefault();
+//     const valueInput = inputGame.value;
+//     localStorage.setItem('objectToPass', valueInput);
+//     window.location = 'game-list.html';
+// }
 
 mapGames();
 
 console.log(listValue);
 inputGame.addEventListener('keyup', displayData);
 inputGame.addEventListener('change', displayData);
-form.addEventListener('submit', submitForm);
+// form.addEventListener('submit', submitForm);
 
