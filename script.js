@@ -46,11 +46,10 @@ function submitForm(e) {
     const inputValue = inputText.value;
     localStorage.setItem('objectToPass', inputValue);
     window.location = 'game-list.html';
+    console.log(e);
 }
-
-console.log(games);
 
 inputText.addEventListener('keyup', displayData);
 inputText.addEventListener('change', displayData);
-list.addEventListener('click', submitForm);
 form.addEventListener('submit', submitForm);
+list.addEventListener('mouseup', submitForm);
