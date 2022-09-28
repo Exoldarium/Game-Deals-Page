@@ -36,6 +36,7 @@ function displayData() {
         `
     }).join(' ');
     
+    localStorage.setItem('objectToTransfer', JSON.stringify(matchedArray));
     listSearch.innerHTML = showData;
     
     if (inputGame.value === '') {
@@ -60,17 +61,23 @@ function mapGames() {
 }
 
 // submit form and load results on this page
-// function submitForm(e) {
-//     e.preventDefault();
-//     const valueInput = inputGame.value;
-//     localStorage.setItem('objectToPass', valueInput);
-//     window.location = 'game-list.html';
-// }
+function submitForm(e) {
+    e.preventDefault();
+    const valueInput = inputGame.value;
+    localStorage.setItem('objectToPass', valueInput);
+    window.location = 'game-list.html';
+}
+
+function listHover(e) {
+    console.log(e.target);
+}
 
 mapGames();
 
 console.log(listValue);
 inputGame.addEventListener('keyup', displayData);
 inputGame.addEventListener('change', displayData);
-// form.addEventListener('submit', submitForm);
+form.addEventListener('submit', submitForm);
+listSearch.addEventListener('mouseup', submitForm);
+listSearch.addEventListener('mouseover', listHover);
 
