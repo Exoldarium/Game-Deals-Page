@@ -3,6 +3,8 @@ const games = [];
 const inputText = document.querySelector('.text');
 const list = document.querySelector('.game');
 const form = document.querySelector('.bar');
+const landing = document.querySelector('.landing');
+let color;
 
 fetch(endpoint)
     .then(blob => blob.json())
@@ -19,12 +21,12 @@ function searchData(input, value) {
 // display data in DOM
 function displayData() {
     const matchedArray = searchData(this.value, games);
-    const showData = matchedArray.slice(0, 5).map(games => {
+    const showData = matchedArray.slice(0, 5).map((games, i) => {
         return `
             <a href="game-list.html" class="linkLanding">
-                <li class="display">
-                    <span class="title">${games.title}</span>
-                    <img src="${games.thumb}" class="imgLanding"></img>
+                <li class="display" data-index="${i}">
+                    <span class="title" data-index="${i}">${games.title}<img src="${games.thumb}" class="imgLanding"></img></span>
+                    
                 </li>
             </a>
         `
@@ -49,23 +51,9 @@ function submitForm(e) {
     console.log(e);
 }
 
-// function listHover(e) {
-//     const span = e.target;
-//     console.log(span.dataset.index);
-//     if(e.target.matches('span')) {
-//         span.classList.add('hoverEffect');
-//     }
-// }
-
-// function listNoHover(e) {
-//     const span = e.target;
-//     if(e.target.matches('span')) {
-//         span.classList.remove('hoverEffect');
-//     }
-// }
-
 inputText.addEventListener('keyup', displayData);
 inputText.addEventListener('change', displayData);
+inputText.addEventListener('mouseup', displayData);
 form.addEventListener('submit', submitForm);
 list.addEventListener('mouseup', submitForm);
 

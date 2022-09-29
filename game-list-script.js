@@ -68,28 +68,13 @@ function submitForm(e) {
     window.location = 'game-list.html';
 }
 
-function listHover(e) {
-    const span = e.target;
-    console.log(span.dataset.index);
-    if(e.target.matches('span')) {
-        span.classList.add('hoverEffect');
-    }
-}
-
-function listNoHover(e) {
-    const span = e.target;
-    if(e.target.matches('span')) {
-        span.classList.remove('hoverEffect');
-    }
-}
-
 mapGames();
 
 console.log(listValue);
 inputGame.addEventListener('keyup', displayData);
 inputGame.addEventListener('change', displayData);
+inputGame.addEventListener('mousedown', displayData);
 form.addEventListener('submit', submitForm);
 listSearch.addEventListener('mouseup', submitForm);
-listSearch.addEventListener('mouseover', listHover);
-listSearch.addEventListener('mouseout', listNoHover);
+
 
