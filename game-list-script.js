@@ -26,11 +26,11 @@ function searchData(input, value) {
 // display data in DOM (search bar)
 function displayData() {
     const matchedArray = searchData(this.value, games);
-    const showData = matchedArray.slice(0, 4).map(games => {
+    const showData = matchedArray.slice(0, 4).map((games, i) => {
         return `
             <a href="game-list.html" class="linkNav">
                 <li class="navListDisplay">
-                    <span class="navListTitle">${games.title}</span>
+                    <span class="navListTitle" data-index="${i}">${games.title}</span>
                 </li>
             </a>
         `
@@ -69,7 +69,18 @@ function submitForm(e) {
 }
 
 function listHover(e) {
-    console.log(e.target);
+    const span = e.target;
+    console.log(span.dataset.index);
+    if(e.target.matches('span')) {
+        span.classList.add('hoverEffect');
+    }
+}
+
+function listNoHover(e) {
+    const span = e.target;
+    if(e.target.matches('span')) {
+        span.classList.remove('hoverEffect');
+    }
 }
 
 mapGames();
@@ -80,4 +91,5 @@ inputGame.addEventListener('change', displayData);
 form.addEventListener('submit', submitForm);
 listSearch.addEventListener('mouseup', submitForm);
 listSearch.addEventListener('mouseover', listHover);
+listSearch.addEventListener('mouseout', listNoHover);
 

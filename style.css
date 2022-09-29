@@ -172,11 +172,20 @@ body {
     font-size: 15px;
     text-align: left;
     justify-content: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: block;
 }
 
 /* remove list style if empty */
 .opacityList {
     opacity: 0;
+}
+
+/* hover effect */
+.hoverEffect {
+    background: blue;
 }
 
 /* images */
