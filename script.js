@@ -49,7 +49,23 @@ function submitForm(e) {
     console.log(e);
 }
 
+// function listHover(e) {
+//     const span = e.target;
+//     console.log(span.dataset.index);
+//     if(e.target.matches('span')) {
+//         span.classList.add('hoverEffect');
+//     }
+// }
+
+// function listNoHover(e) {
+//     const span = e.target;
+//     if(e.target.matches('span')) {
+//         span.classList.remove('hoverEffect');
+//     }
+// }
+
 inputText.addEventListener('keyup', displayData);
 inputText.addEventListener('change', displayData);
 form.addEventListener('submit', submitForm);
 list.addEventListener('mouseup', submitForm);
+
