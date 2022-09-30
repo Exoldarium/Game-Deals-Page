@@ -4,7 +4,6 @@ const inputText = document.querySelector('.text');
 const list = document.querySelector('.game');
 const form = document.querySelector('.bar');
 const landing = document.querySelector('.landing');
-let color;
 
 fetch(endpoint)
     .then(blob => blob.json())
