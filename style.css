@@ -171,7 +171,6 @@ body {
 }
 
 .navListTitle {
-    font-size: 15px;
     text-align: left;
     justify-content: center;
     width: 100%;
@@ -222,7 +221,7 @@ body {
     align-items: center;
     text-decoration: none;
     color: black;
-    font-weight: bold;
+    font-size: 20px;
 }
 
 /* remove list style if empty */

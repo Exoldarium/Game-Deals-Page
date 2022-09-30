@@ -26,24 +26,22 @@ function searchData(input, value) {
 // display data in DOM (search bar)
 function displayData() {
     const matchedArray = searchData(this.value, games);
-    const showData = matchedArray.slice(0, 4).map((games, i) => {
-        return `
-            <a href="game-list.html" class="linkNav">
-                <li class="navListDisplay">
-                    <span class="navListTitle" data-index="${i}">${games.title}</span>
-                </li>
-            </a>
-        `
-    }).join(' ');
-    
+    let showData;
+    if (inputGame.value) {
+        showData = matchedArray.slice(0, 5).map((games, i) => {
+            return `
+                <a href="game-list.html" class="linkNav">
+                    <li class="navListDisplay">
+                        <span lass="navListTitle" data-index="${i}">${games.title}</span>
+                    </li>
+                </a>
+            `
+        }).join('');
+    } else {
+        showData = matchedArray.slice(0, 0);
+    }
     localStorage.setItem('objectToTransfer', JSON.stringify(matchedArray));
     listSearch.innerHTML = showData;
-    
-    if (inputGame.value === '') {
-        listSearch.classList.add('opacityList');
-    } else {
-        listSearch.classList.remove('opacityList');
-    }
 }
 
 // display data in DOM
