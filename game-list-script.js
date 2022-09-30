@@ -14,6 +14,7 @@ inputGame.value = displayGames;
 fetch(endpoint)
     .then(blob => blob.json())
     .then(data => games.push(...data))
+    .catch((err) => console.warn(err))
 
 // match input with game.title property
 function searchData(input, value) {
@@ -48,7 +49,7 @@ function displayData() {
 function mapGames() {
     list.innerHTML = listValue.slice(0, 15).map(game => {
         return `
-            <a href="" class="linkList">
+            <a href="https://www.cheapshark.com/#deal:${game.dealID}" class="linkList">
                 <li class="gameDisplay">
                     <span class="gameTitle">${game.title}</span>
                     <img src="${game.thumb}" class="imgList"></img>

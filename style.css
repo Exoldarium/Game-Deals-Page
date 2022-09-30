@@ -13,6 +13,8 @@ html {
 
 body {
     background:#2E3441;
+    padding: 0;
+    margin: 0;
 }
 
 /* wrappers */
@@ -38,7 +40,18 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid goldenrod;
+    background: #151920;
+    position: relative;
+}
+
+.dealInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    border: 1px solid mistyrose;
+    margin: 0 auto;
 }
 
 /* forms */

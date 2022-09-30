@@ -8,6 +8,7 @@ const landing = document.querySelector('.landing');
 fetch(endpoint)
     .then(blob => blob.json())
     .then(data => games.push(...data))
+    .catch((err) => console.warn(err))
 
 // match input with game.title property
 function searchData(input, value) {
@@ -47,9 +48,14 @@ function submitForm(e) {
     window.location = 'game-list.html';
 }
 
+function gameInfo(e) {
+    console.log(e.target);
+}
+
 inputText.addEventListener('keyup', displayData);
 inputText.addEventListener('change', displayData);
 inputText.addEventListener('mouseup', displayData);
 form.addEventListener('submit', submitForm);
 list.addEventListener('mouseup', submitForm);
+list.addEventListener('mouseover', gameInfo);
 
