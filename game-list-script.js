@@ -1,4 +1,4 @@
-const endpoint = 'https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=15';
+const endpoint = 'https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=50';
 const games = [];
 const inputValue = localStorage.getItem('objectToPass');
 const listValue = JSON.parse(localStorage.getItem('objectToTransfer'));
@@ -44,7 +44,7 @@ function displayData() {
     listSearch.innerHTML = showData;
 }
 
-// display data in DOM
+// display data in DOM (page)
 function mapGames() {
     list.innerHTML = listValue.slice(0, 15).map(game => {
         return `
