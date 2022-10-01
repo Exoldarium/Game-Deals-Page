@@ -10,6 +10,7 @@ fetch(endpoint)
     .then(data => games.push(...data))
     .catch((err) => console.warn(err))
 
+
 // match input with game.title property
 function searchData(input, value) {
     return value.filter(game => {
@@ -21,13 +22,14 @@ function searchData(input, value) {
 // display data in DOM
 function displayData() {
     const matchedArray = searchData(this.value, games);
+    console.log(matchedArray);
     let showData;
     if (inputText.value) {
         showData = matchedArray.slice(0, 5).map((games, i) => {
             return `
                 <a href="game-list.html" class="linkLanding">
-                    <li class="display" data-index="${i}">
-                        <span class="title" data-index="${i}">${games.title}<img src="${games.thumb}" class="imgLanding"></img></span>
+                    <li class="display" data-index="${games.gameID}">
+                        <span class="title" data-index="${games.gameID}">${games.title}<img src="${games.thumb}" class="imgLanding" data-index="${games.gameID}"></img></span>
                         
                     </li>
                 </a>
@@ -38,6 +40,7 @@ function displayData() {
     }
     localStorage.setItem('objectToTransfer', JSON.stringify(matchedArray));
     list.innerHTML = showData;
+    
 }
 
 // submit form and load next page
@@ -49,13 +52,14 @@ function submitForm(e) {
 }
 
 function gameInfo(e) {
-    console.log(e.target);
+    const gameId = e.target.dataset.index;
+    localStorage.setItem('idToPass', gameId);
+    window.location = 'deal-page.html';
 }
 
 inputText.addEventListener('keyup', displayData);
 inputText.addEventListener('change', displayData);
 inputText.addEventListener('mouseup', displayData);
 form.addEventListener('submit', submitForm);
-list.addEventListener('mouseup', submitForm);
-list.addEventListener('mouseover', gameInfo);
+list.addEventListener('mouseup', gameInfo);
 
