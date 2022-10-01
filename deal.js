@@ -7,6 +7,7 @@ console.log(gameId);
 fetch(endpoint)
     .then(response => response.json())
     .then(data => getStuff(data))
+    .catch((err) => console.warn(err))
 
 function getStuff(data) {
     const games = [];
