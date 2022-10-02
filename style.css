@@ -42,16 +42,24 @@ body {
     justify-content: center;
     background: #151920;
     position: relative;
+    height: 70px;
 }
 
 .dealInfo {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
     min-height: 50vh;
     border: 1px solid mistyrose;
     margin: 0 auto;
+}
+
+.dealsList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
 }
 
 /* forms */
@@ -117,8 +125,9 @@ body {
     display: flex;
     flex-direction: column;
     top: 495px;
-    padding: 5% 20%;
+    padding: 0;
     border: 1px solid mistyrose;
+    margin: 150px;
 }
 
 .display {
