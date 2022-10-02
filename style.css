@@ -38,11 +38,13 @@ body {
 
 .formWrap {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
+    flex-direction: column;
     justify-content: center;
     background: #151920;
     position: relative;
     height: 70px;
+    padding-right: 100px;
 }
 
 .dealInfo {
@@ -60,6 +62,15 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: row;
+}
+
+.options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    height: 12vh;
+    border: 2px solid mistyrose;
 }
 
 /* forms */
@@ -115,10 +126,11 @@ body {
 }
 
 .listNav {
-    align-items: center;
+    
     position: absolute;
-    padding-right: 60px;
-    top: 30px;
+    padding-right: 15px;
+    padding-left: 0;
+    top: 40px;
 }
 
 .gameList {
@@ -127,7 +139,7 @@ body {
     top: 495px;
     padding: 0;
     border: 1px solid mistyrose;
-    margin: 150px;
+    margin: 70px;
 }
 
 .display {
