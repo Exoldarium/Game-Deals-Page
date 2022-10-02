@@ -17,9 +17,10 @@ function getStuff(data) {
     dealsDiv.innerHTML = games.map(game => {
         return `
             <div>
-                <div>${game.info.title}</div>
-                <div>${game.cheapestPriceEver.price}</div>
-                <div>${game.deals[0].price}</div>
+                <div><img src="${game.info.thumb}"></img></div>
+                <div>Title: ${game.info.title}</div>
+                <div>Cheapest price ever: ${game.cheapestPriceEver.price}</div>
+                <div>Deal: ${game.deals[0].price}</div>
             </div>
         `
     }).join('');
