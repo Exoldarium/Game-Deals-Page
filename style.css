@@ -177,9 +177,12 @@ body {
 .gameTitle {
     font-size: 17px;
     text-align: left;
+    justify-content: center;
     display: flex;
     align-items: center;
     padding-left: 10px;
+    width: 100%;
+    height: 100%;
     font-family: 'Quicksand', sans-serif;
 }
 

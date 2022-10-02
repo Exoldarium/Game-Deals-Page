@@ -6,10 +6,9 @@ const form = document.querySelector('.bar');
 const landing = document.querySelector('.landing');
 
 fetch(endpoint)
-    .then(blob => blob.json())
+    .then(res => res.json())
     .then(data => games.push(...data))
     .catch((err) => console.warn(err))
-
 
 // match input with game.title property
 function searchData(input, value) {
@@ -25,22 +24,20 @@ function displayData() {
     console.log(matchedArray);
     let showData;
     if (inputText.value) {
-        showData = matchedArray.slice(0, 5).map((games, i) => {
+        showData = matchedArray.slice(0, 5).map(games => {
             return `
-                <a href="game-list.html" class="linkLanding">
+                <a href="deal-page.html" class="linkLanding" data-index="${games.gameID}">
                     <li class="display" data-index="${games.gameID}">
                         <span class="title" data-index="${games.gameID}">${games.title}<img src="${games.thumb}" class="imgLanding" data-index="${games.gameID}"></img></span>
-                        
                     </li>
                 </a>
-            `
+            `   
         }).join('');
     } else {
         showData = matchedArray.slice(0, 0);
     }
     localStorage.setItem('objectToTransfer', JSON.stringify(matchedArray));
     list.innerHTML = showData;
-    
 }
 
 // submit form and load next page
@@ -50,7 +47,7 @@ function submitForm(e) {
     localStorage.setItem('objectToPass', inputValue);
     window.location = 'game-list.html';
 }
-
+// select a specific game 
 function gameInfo(e) {
     const gameId = e.target.dataset.index;
     localStorage.setItem('idToPass', gameId);

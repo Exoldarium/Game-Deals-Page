@@ -12,7 +12,7 @@ const displayGames = inputValue;
 inputGame.value = displayGames;
 
 fetch(endpoint)
-    .then(blob => blob.json())
+    .then(res => res.json())
     .then(data => games.push(...data))
     .catch((err) => console.warn(err))
 
@@ -29,11 +29,11 @@ function displayData() {
     const matchedArray = searchData(this.value, games);
     let showData;
     if (inputGame.value) {
-        showData = matchedArray.slice(0, 5).map((games, i) => {
+        showData = matchedArray.slice(0, 5).map((games) => {
             return `
-                <a href="game-list.html" class="linkNav">
-                    <li class="navListDisplay">
-                        <span lass="navListTitle" data-index="${i}">${games.title}</span>
+                <a href="deal-page.html" class="linkNav" data-index="${games.gameID}">
+                    <li class="navListDisplay" data-index="${games.gameID}">
+                        <span lass="navListTitle" data-index="${games.gameID}">${games.title}</span>
                     </li>
                 </a>
             `
@@ -47,12 +47,11 @@ function displayData() {
 
 // display data in DOM (page)
 function mapGames() {
-    list.innerHTML = listValue.slice(0, 15).map(game => {
+    list.innerHTML = listValue.slice(0, 15).map(games => {
         return `
-            <a href="https://www.cheapshark.com/#deal:${game.dealID}" class="linkList">
-                <li class="gameDisplay">
-                    <span class="gameTitle">${game.title}</span>
-                    <img src="${game.thumb}" class="imgList"></img>
+            <a href="deal-page.html" class="linkList" data-index="${games.gameID}">
+                <li class="gameDisplay" data-index="${games.gameID}">
+                    <span class="gameTitle" data-index="${games.gameID}">${games.title}<img src="${games.thumb}" class="imgList" data-index="${games.gameID}"></img></span>
                 </li>
             </a>
         `
@@ -67,13 +66,22 @@ function submitForm(e) {
     window.location = 'game-list.html';
 }
 
+function gameInfo(e) {
+    const gameId = e.target.dataset.index;
+    localStorage.setItem('idToPass', gameId);
+    window.location = 'deal-page.html';
+    console.log(gameId);
+}
+
 mapGames();
 
 console.log(listValue);
 inputGame.addEventListener('keyup', displayData);
 inputGame.addEventListener('change', displayData);
-inputGame.addEventListener('mousedown', displayData);
+inputGame.addEventListener('mouseup', displayData);
 form.addEventListener('submit', submitForm);
-listSearch.addEventListener('mouseup', submitForm);
+list.addEventListener('mouseup', gameInfo);
+listSearch.addEventListener('mouseup', gameInfo);
+
 
 

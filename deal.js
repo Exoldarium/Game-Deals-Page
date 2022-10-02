@@ -5,10 +5,11 @@ const endpoint = endpointToChange.replace(/[0-9]+$/, gameId);
 console.log(gameId);
 
 fetch(endpoint)
-    .then(response => response.json())
+    .then(res => res.json())
     .then(data => getStuff(data))
     .catch((err) => console.warn(err))
 
+// map the game info
 function getStuff(data) {
     const games = [];
     games.push(data);
