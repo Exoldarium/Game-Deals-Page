@@ -73,6 +73,13 @@ body {
     border: 2px solid mistyrose;
 }
 
+.page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 50vh;
+}
+
 /* forms */
 .bar {
     display: flex;
@@ -219,15 +226,22 @@ body {
 
 /* images */
 .imgLanding {
-    padding: 10px 0 10px auto;
-    margin-left: auto;
-    margin-right: 0;
+    height:55px;
 }
 
 .imgList {
-    padding: 10px 0px 10px 0px;
+    height:55px;
+}
+
+.imageDiv {
+    display: flex;
+    align-items: center;
     margin-left: auto;
     margin-right: 0;
+    justify-content: center;
+    min-width: 145px;
+    background: #3e4758;
+
 }
 
 /* links */

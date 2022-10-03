@@ -1,4 +1,4 @@
-const endpoint = 'https://www.cheapshark.com/api/1.0/deals?storeID=1&upperPrice=50';
+const endpoint = 'https://www.cheapshark.com/api/1.0/deals?&upperPrice=50';
 const games = [];
 const inputValue = localStorage.getItem('objectToPass');
 const listValue = JSON.parse(localStorage.getItem('objectToTransfer'));
@@ -6,6 +6,7 @@ const inputGame = document.querySelector('.textGame');
 const list = document.querySelector('.gameList');
 const listSearch = document.querySelector('.listNav');
 const form = document.querySelector('.listGameBar');
+const listDiv = document.querySelector('.listGame');
 // add local storage to new variable
 const displayGames = inputValue;
 // pass local storage as input
@@ -51,11 +52,13 @@ function mapGames() {
         return `
             <a href="deal-page.html" class="linkList" data-index="${games.gameID}">
                 <li class="gameDisplay" data-index="${games.gameID}">
-                    <span class="gameTitle" data-index="${games.gameID}">${games.title}<img src="${games.thumb}" class="imgList" data-index="${games.gameID}"></img></span>
+                    <span class="gameTitle" data-index="${games.gameID}">${games.title}<div class="imageDiv"><img src="${games.thumb}" class="imgList" data-index="${games.gameID}"></img><div></span>
                 </li>
             </a>
         `
     }).join('');
+
+    // if scroll is at the end add 5 more items (list.length > 15 list.value.slice(0, 20) and so on
 }
 
 // submit form and load results on this page
@@ -73,15 +76,24 @@ function gameInfo(e) {
     console.log(gameId);
 }
 
+// function checkScroll(e) {
+//     const scroll = window.scrollY;
+//     const wrapper = listDiv.scrollTop;
+//     const divHeight = listDiv.offsetHeight;
+//     const listHeight = list.offsetHeight;
+//     console.log({wrapper, divHeight, listHeight});
+// }
+
 mapGames();
 
-console.log(listValue);
+console.log(listValue.length);
 inputGame.addEventListener('keyup', displayData);
 inputGame.addEventListener('change', displayData);
 inputGame.addEventListener('mouseup', displayData);
 form.addEventListener('submit', submitForm);
 list.addEventListener('mouseup', gameInfo);
 listSearch.addEventListener('mouseup', gameInfo);
+window.addEventListener('scroll', checkScroll);
 
 
 
