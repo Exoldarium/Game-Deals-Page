@@ -6,6 +6,7 @@ const inputGame = document.querySelector('.textGame');
 const list = document.querySelector('.gameList');
 const listSearch = document.querySelector('.listNav');
 const form = document.querySelector('.listGameBar');
+const range = document.querySelector('.rangeInput');
 let listDiv = document.querySelector('.listGame');
 // add local storage to new variable
 const displayGames = inputValue;
@@ -74,7 +75,20 @@ function gameInfo(e) {
     console.log(gameId);
 }
 
-mapGames();
+function priceSort() {
+    const rangeValue = range.value;
+    const filterGames = listValue.filter(games => games.salePrice <= rangeValue);
+    list.innerHTML = filterGames.map(games => {
+        return `
+            <a href="deal-page.html" class="linkList" data-index="${games.gameID}">
+                <li class="gameDisplay" data-index="${games.gameID}">
+                    <span class="gameTitle" data-index="${games.gameID}">${games.title}<div class="imageDiv"><img src="${games.thumb}" class="imgList" data-index="${games.gameID}"></img><div></span>
+                </li>
+            </a>  
+        `
+    }).join('');
+    console.log({rangeValue, filterGames});
+}
 
 console.log(listValue);
 inputGame.addEventListener('keyup', displayData);
@@ -83,6 +97,9 @@ inputGame.addEventListener('mouseup', displayData);
 form.addEventListener('submit', submitForm);
 list.addEventListener('mouseup', gameInfo);
 listSearch.addEventListener('mouseup', gameInfo);
+range.addEventListener('change', priceSort);
+mapGames();
+
 
 
 

@@ -47,6 +47,7 @@ function submitForm(e) {
     localStorage.setItem('objectToPass', inputValue);
     window.location = 'game-list.html';
 }
+
 // select a specific game 
 function gameInfo(e) {
     const gameId = e.target.dataset.index;
