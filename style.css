@@ -22,9 +22,26 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    min-height: 50vh;
     background:#2E3441;
     flex-direction: column;
+    border: 1px solid mistyrose;
+}
+
+.landingLogo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 25vh;
+    border: 1px solid mistyrose;
+}
+
+.landingOffers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 25vh;
+    border: 1px solid mistyrose;
 }
 
 .listGame {
