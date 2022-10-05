@@ -84,7 +84,7 @@ body {
 .options {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-direction: row;
     height: 12vh;
     border: 2px solid mistyrose;
@@ -95,6 +95,14 @@ body {
     align-items: center;
     justify-content: center;
     min-width: 50vh;
+}
+
+.range {
+    flex-grow: 2;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 150px;
+    margin-left: 100px;
 }
 
 /* forms */
@@ -140,6 +148,7 @@ body {
     color: black;
 }
 
+
 /* lists */
 .game {
     align-items: center;
@@ -177,6 +186,7 @@ body {
     margin: 0px 5px;
     display: inline-flex;
     padding: 5px;
+    justify-content: space-evenly;
 }
 
 .gameDisplay {
@@ -190,8 +200,9 @@ body {
     min-width: 40vh;
     max-width: 5vh;
     margin: 0px 5px;
-    display: inline-flex;
+    display: flex;
     padding: 5px;
+    align-items: center;
 }
 
 .navListDisplay {
@@ -213,9 +224,7 @@ body {
     justify-content: center;
     display: flex;
     align-items: center;
-    padding: 10px;
-    width: 100%;
-    height: 100%;
+    padding-right: 5px;
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -241,6 +250,16 @@ body {
     font-family: 'Quicksand', sans-serif;
 }
 
+.spaceSpan {
+    padding-left: 5px;
+}
+
+.priceSpan {
+   align-items: baseline;
+   justify-content: space-between;
+   font-family: 'Quicksand', sans-serif;;
+}
+
 /* images */
 .imgLanding {
     height:55px;
@@ -253,12 +272,10 @@ body {
 .imageDiv {
     display: flex;
     align-items: center;
-    margin-left: auto;
-    margin-right: 0;
     justify-content: center;
     min-width: 145px;
     background: #3e4758;
-
+    margin-left: 0;
 }
 
 /* links */

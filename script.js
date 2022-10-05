@@ -28,7 +28,13 @@ function displayData() {
             return `
                 <a href="deal-page.html" class="linkLanding" data-index="${games.gameID}">
                     <li class="display" data-index="${games.gameID}">
-                        <span class="title" data-index="${games.gameID}">${games.title}<div class="imageDiv"><img src="${games.thumb}" class="imgLanding" data-index="${games.gameID}"></img></div></span>
+                        <span class="title" data-index="${games.gameID}">
+                            <div class="imageDiv" data-index="${games.gameID}">
+                                <img src="${games.thumb}" class="imgLanding" data-index="${games.gameID}"></img>
+                            </div>
+                            <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
+                            <span class="priceSpan" data-index="${games.gameID}">$${games.salePrice}</span>
+                        </span>
                     </li>
                 </a>
             `   

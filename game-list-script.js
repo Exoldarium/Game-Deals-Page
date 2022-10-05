@@ -7,6 +7,8 @@ const list = document.querySelector('.gameList');
 const listSearch = document.querySelector('.listNav');
 const form = document.querySelector('.listGameBar');
 const range = document.querySelector('.rangeInput');
+const rating = document.querySelector('.ratingRange');
+const onSale = document.querySelector('.checkboxInput');
 let listDiv = document.querySelector('.listGame');
 // add local storage to new variable
 const displayGames = inputValue;
@@ -53,7 +55,13 @@ function mapGames() {
         return `
             <a href="deal-page.html" class="linkList" data-index="${games.gameID}">
                 <li class="gameDisplay" data-index="${games.gameID}">
-                    <span class="gameTitle" data-index="${games.gameID}">${games.title}<div class="imageDiv"><img src="${games.thumb}" class="imgList" data-index="${games.gameID}"></img><div></span>
+                    <span class="gameTitle" data-index="${games.gameID}">
+                        <div class="imageDiv" data-index="${games.gameID}">
+                            <img src="${games.thumb}" class="imgList" data-index="${games.gameID}"></img>
+                        </div>
+                        <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
+                    </span>
+                    <span class="priceSpan" data-index="${games.gameID}">$${games.salePrice}</span>
                 </li>
             </a>
         `
@@ -78,16 +86,69 @@ function gameInfo(e) {
 function priceSort() {
     const rangeValue = range.value;
     const filterGames = listValue.filter(games => games.salePrice <= rangeValue);
+    const label = document.querySelector('.rangeLabel');
     list.innerHTML = filterGames.map(games => {
         return `
             <a href="deal-page.html" class="linkList" data-index="${games.gameID}">
                 <li class="gameDisplay" data-index="${games.gameID}">
-                    <span class="gameTitle" data-index="${games.gameID}">${games.title}<div class="imageDiv"><img src="${games.thumb}" class="imgList" data-index="${games.gameID}"></img><div></span>
+                    <span class="gameTitle" data-index="${games.gameID}">
+                        <div class="imageDiv" data-index="${games.gameID}">
+                            <img src="${games.thumb}" class="imgList" data-index="${games.gameID}"></img>
+                        </div>
+                        <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
+                    </span>
+                    <span class="priceSpan" data-index="${games.gameID}">$${games.salePrice}</span>
                 </li>
-            </a>  
+            </a>
         `
     }).join('');
     console.log({rangeValue, filterGames});
+    label.textContent = '$' + `${rangeValue}`;
+
+}
+
+function ratingSort() {
+    const ratingValue = rating.value;
+    const filterRating = listValue.filter(games => games.steamRatingPercent <= ratingValue);
+    const label = document.querySelector('.ratingLabel');
+    list.innerHTML = filterRating.map(games => {
+        return `
+            <a href="deal-page.html" class="linkList" data-index="${games.gameID}">
+                <li class="gameDisplay" data-index="${games.gameID}">
+                    <span class="gameTitle" data-index="${games.gameID}">
+                        <div class="imageDiv" data-index="${games.gameID}">
+                            <img src="${games.thumb}" class="imgList" data-index="${games.gameID}"></img>
+                        </div>
+                        <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
+                    </span>
+                    <span class="priceSpan" data-index="${games.gameID}">$${games.salePrice}</span>
+                </li>
+            </a>
+        `
+    }).join('');
+    label.textContent = 'Steam Rating: ' + `${ratingValue}%` + ' Positive';
+    console.log({ratingValue, filterRating});
+}
+
+function checkSale() {
+    if(onSale.checked === true) {
+        const filterSale = listValue.sort((games, price) => games.salePrice - price.salePrice);
+        list.innerHTML = filterSale.map(games => {
+            return `
+                <a href="deal-page.html" class="linkList" data-index="${games.gameID}">
+                    <li class="gameDisplay" data-index="${games.gameID}">
+                        <span class="gameTitle" data-index="${games.gameID}">
+                            <div class="imageDiv" data-index="${games.gameID}">
+                                <img src="${games.thumb}" class="imgList" data-index="${games.gameID}"></img>
+                            </div>
+                            <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
+                        </span>
+                        <span class="priceSpan" data-index="${games.gameID}">$${games.salePrice}</span>
+                    </li>
+                </a>
+            `
+        }).join('');
+    } else mapGames();
 }
 
 console.log(listValue);
@@ -98,6 +159,8 @@ form.addEventListener('submit', submitForm);
 list.addEventListener('mouseup', gameInfo);
 listSearch.addEventListener('mouseup', gameInfo);
 range.addEventListener('change', priceSort);
+rating.addEventListener('change', ratingSort);
+onSale.addEventListener('change', checkSale);
 mapGames();
 
 
