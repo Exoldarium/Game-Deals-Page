@@ -104,7 +104,6 @@ function priceSort() {
     }).join('');
     console.log({rangeValue, filterGames});
     label.textContent = '$' + `${rangeValue}`;
-
 }
 
 function ratingSort() {
