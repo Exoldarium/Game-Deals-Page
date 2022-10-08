@@ -1,8 +1,8 @@
 const endpointToChange = 'https://www.cheapshark.com/api/1.0/games?id=612';
 const gamepoint = 'https://www.cheapshark.com/api/1.0/deals?&upperPrice=50';
 const gameId = localStorage.getItem('idToPass');
-const inputValue = localStorage.getItem('objectToPass');
-const listValue = JSON.parse(localStorage.getItem('objectToTransfer'));
+const inputValue = localStorage.getItem('searchValue');
+const listValue = JSON.parse(localStorage.getItem('mainSearchItems'));
 const regex = /[0-9]+$/;
 const endpoint = endpointToChange.replace(regex, gameId);
 const games = [];
@@ -46,7 +46,7 @@ function displayData() {
     } else {
         showData = matchedArray.slice(0, 0);
     }
-    localStorage.setItem('objectToTransfer', JSON.stringify(matchedArray));
+    localStorage.setItem('mainSearchItems', JSON.stringify(matchedArray));
     listSearch.innerHTML = showData;
 }
 
@@ -77,10 +77,11 @@ function getStuff(data) {
 function submitForm(e) {
     e.preventDefault();
     const valueInput = inputGame.value;
-    localStorage.setItem('objectToPass', valueInput);
+    localStorage.setItem('searchValue', valueInput);
     window.location = 'game-list.html';
 }
 
+// submit the search bar form and go to specific game page
 function gameInfo(e) {
     const gameId = e.target.dataset.index;
     localStorage.setItem('idToPass', gameId);

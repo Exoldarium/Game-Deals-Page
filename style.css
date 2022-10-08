@@ -203,7 +203,7 @@ body {
     display: flex;
     padding: 5px;
     align-items: center;
-    flex-wrap: wrap;
+    flex-direction: row;
 }
 
 .navListDisplay {
@@ -240,6 +240,7 @@ body {
     width: 100%;
     font-family: 'Quicksand', sans-serif;
     flex-basis: content;
+
 }
 
 .navListTitle {
@@ -260,8 +261,8 @@ body {
    text-align: end;
    justify-content: center;
    font-family: 'Quicksand', sans-serif;
-   flex: 1;
    align-items: center;
+   flex: 1;
 }
 
 /* images */

@@ -42,7 +42,7 @@ function displayData() {
     } else {
         showData = matchedArray.slice(0, 0);
     }
-    localStorage.setItem('objectToTransfer', JSON.stringify(matchedArray));
+    localStorage.setItem('mainSearchItems', JSON.stringify(matchedArray));
     list.innerHTML = showData;
 }
 
@@ -50,7 +50,7 @@ function displayData() {
 function submitForm(e) {
     e.preventDefault();
     const inputValue = inputText.value;
-    localStorage.setItem('objectToPass', inputValue);
+    localStorage.setItem('searchValue', inputValue);
     window.location = 'game-list.html';
 }
 
