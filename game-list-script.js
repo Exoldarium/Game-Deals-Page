@@ -38,11 +38,11 @@ function displayData() {
     if (inputGame.value) {
         showData = matchedArray.slice(0, 5).map((games) => {
             return `
-                <a href="deal-page.html" class="linkNav" data-index="${games.gameID}">
-                    <li class="navListDisplay" data-index="${games.gameID}">
+                <li class="navListDisplay" data-index="${games.gameID}">
+                    <a href="deal-page.html" class="linkNav" data-index="${games.gameID}">
                         <span lass="navListTitle" data-index="${games.gameID}">${games.title}</span>
-                    </li>
-                </a>
+                    </a>
+                </li>
             `
         }).join('');
     } else {
@@ -56,8 +56,8 @@ function displayData() {
 function mapGames() {   
     list.innerHTML = listValue.slice(0, 15).map(games => {
         return `
-            <a href="deal-page.html" class="linkList" data-index="${games.gameID}">
-                <li class="gameDisplay" data-index="${games.gameID}">
+            <li class="gameDisplay" data-index="${games.gameID}">
+                <a href="deal-page.html" class="linkList" data-index="${games.gameID}">
                     <span class="gameTitle" data-index="${games.gameID}">
                         <div class="imageDiv" data-index="${games.gameID}">
                             <img src="${games.thumb}" class="imgList" data-index="${games.gameID}"></img>
@@ -65,8 +65,8 @@ function mapGames() {
                         <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
                     </span>
                     <span class="priceSpan" data-index="${games.gameID}">$${games.salePrice}</span>
-                </li>
-            </a>
+                </a>
+            </li>
         `
     }).join('');
 }
@@ -88,15 +88,15 @@ function gameInfo(e) {
     console.log(gameId);
 }
 
-// sort by price
+// filter by price
 function priceSort() {
     const rangeValue = range.value;
     const filterGames = listValue.filter(games => games.salePrice <= rangeValue);
     const label = document.querySelector('.rangeLabel');
     list.innerHTML = filterGames.map(games => {
         return `
-            <a href="deal-page.html" class="linkList" data-index="${games.gameID}">
-                <li class="gameDisplay" data-index="${games.gameID}">
+            <li class="gameDisplay" data-index="${games.gameID}">
+                <a href="deal-page.html" class="linkList" data-index="${games.gameID}">
                     <span class="gameTitle" data-index="${games.gameID}">
                         <div class="imageDiv" data-index="${games.gameID}">
                             <img src="${games.thumb}" class="imgList" data-index="${games.gameID}"></img>
@@ -104,8 +104,8 @@ function priceSort() {
                         <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
                     </span>
                     <span class="priceSpan" data-index="${games.gameID}">$${games.salePrice}</span>
-                </li>
-            </a>
+                </a>
+            </li>
         `
     }).join('');
     console.log({rangeValue, filterGames});
@@ -119,8 +119,8 @@ function priceAscend() {
     const filterSale = listValue.sort((games, price) => games.salePrice - price.salePrice);
     list.innerHTML = filterSale.map(games => {
         return `
-            <a href="deal-page.html" class="linkList" data-index="${games.gameID}">
-                <li class="gameDisplay" data-index="${games.gameID}">
+            <li class="gameDisplay" data-index="${games.gameID}">
+                <a href="deal-page.html" class="linkList" data-index="${games.gameID}">
                     <span class="gameTitle" data-index="${games.gameID}">
                         <div class="imageDiv" data-index="${games.gameID}">
                             <img src="${games.thumb}" class="imgList" data-index="${games.gameID}"></img>
@@ -128,8 +128,8 @@ function priceAscend() {
                         <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
                     </span>
                     <span class="priceSpan" data-index="${games.gameID}">$${games.salePrice}</span>
-                </li>
-            </a>
+                </a>
+            </li>
         `
     }).join('');
     priceSort();
@@ -140,8 +140,8 @@ function priceDescend() {
     const filterSale = listValue.sort((games, price) => price.salePrice - games.salePrice);
     list.innerHTML = filterSale.map(games => {
         return `
-            <a href="deal-page.html" class="linkList" data-index="${games.gameID}">
-                <li class="gameDisplay" data-index="${games.gameID}">
+            <li class="gameDisplay" data-index="${games.gameID}">
+                <a href="deal-page.html" class="linkList" data-index="${games.gameID}">
                     <span class="gameTitle" data-index="${games.gameID}">
                         <div class="imageDiv" data-index="${games.gameID}">
                             <img src="${games.thumb}" class="imgList" data-index="${games.gameID}"></img>
@@ -149,8 +149,8 @@ function priceDescend() {
                         <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
                     </span>
                     <span class="priceSpan" data-index="${games.gameID}">$${games.salePrice}</span>
-                </li>
-            </a>
+                </a>
+            </li>
         `
     }).join('');
     priceSort();
@@ -160,6 +160,12 @@ function priceDescend() {
 function saveInputValue() {
     range.value = localStorage.getItem('rangeValue');
     labelRange.textContent = '$' + `${range.value}`;
+}
+
+// stops propagation and hides the list
+function stopPropagation(e) {
+    e.stopPropagation();
+    listSearch.classList.remove('hide');
 }
 
 console.log(listValue);
@@ -176,7 +182,15 @@ window.addEventListener('load', mapGames);
 window.addEventListener('change', saveInputValue);
 window.addEventListener('load', saveInputValue);
 window.addEventListener('load', priceSort);
+document.body.addEventListener('click', function removeList() {
+    listSearch.classList.add('hide');
+});
+form.addEventListener('click', stopPropagation);
+form.addEventListener('keyup', stopPropagation);
 
+// add options on the side to filter by name, price up and down and release date, move the price slider too, make them into a list so that the user can select only one option
+// figure how to hide dropdown list when clicking outside of it
+// front page should have on sale link, aaa link and a random game link
 
 
 

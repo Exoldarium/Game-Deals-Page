@@ -26,8 +26,8 @@ function displayData() {
     if (inputText.value) {
         showData = matchedArray.slice(0, 5).map(games => {
             return `
-                <a href="deal-page.html" class="linkLanding" data-index="${games.gameID}">
-                    <li class="display" data-index="${games.gameID}">
+                <li class="display" data-index="${games.gameID}">
+                    <a href="deal-page.html" class="linkLanding" data-index="${games.gameID}">
                         <span class="title" data-index="${games.gameID}">
                             <div class="imageDiv" data-index="${games.gameID}">
                                 <img src="${games.thumb}" class="imgLanding" data-index="${games.gameID}"></img>
@@ -35,8 +35,8 @@ function displayData() {
                             <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
                             <span class="priceSpan" data-index="${games.gameID}">$${games.salePrice}</span>
                         </span>
-                    </li>
-                </a>
+                    </a>
+                </li>
             `   
         }).join('');
     } else {
@@ -61,9 +61,19 @@ function gameInfo(e) {
     window.location = 'deal-page.html';
 }
 
+// stops propagation and hides the list
+function stopPropagation(e) {
+    e.stopPropagation();
+    list.classList.remove('hide');
+}
+
 inputText.addEventListener('keyup', displayData);
 inputText.addEventListener('change', displayData);
 inputText.addEventListener('mouseup', displayData);
 form.addEventListener('submit', submitForm);
 list.addEventListener('mouseup', gameInfo);
-
+form.addEventListener('click', stopPropagation);
+form.addEventListener('keyup', stopPropagation);
+document.body.addEventListener('click', function removeList() {
+    list.classList.add('hide');
+});

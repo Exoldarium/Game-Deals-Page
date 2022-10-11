@@ -15,7 +15,7 @@ inputGame.value = displayGames;
 
 console.log(gameId);
 
-// fetc the full game list 
+// fetch the full game list 
 fetch(gamepoint)
     .then(res => res.json())
     .then(data => games.push(...data))
@@ -36,11 +36,11 @@ function displayData() {
     if (inputGame.value) {
         showData = matchedArray.slice(0, 5).map((games) => {
             return `
-                <a href="deal-page.html" class="linkNav" data-index="${games.gameID}">
-                    <li class="navListDisplay" data-index="${games.gameID}">
+                <li class="navListDisplay" data-index="${games.gameID}">
+                    <a href="deal-page.html" class="linkNav" data-index="${games.gameID}">
                         <span lass="navListTitle" data-index="${games.gameID}">${games.title}</span>
-                    </li>
-                </a>
+                    </a>
+                </li>
             `
         }).join('');
     } else {
@@ -89,12 +89,23 @@ function gameInfo(e) {
     console.log(gameId);
 }
 
+// stops propagation and hides the list
+function stopPropagation(e) {
+    e.stopPropagation();
+    listSearch.classList.remove('hide');
+}
+
 dealsDiv.addEventListener('onload', getStuff);
 inputGame.addEventListener('keyup', displayData);
 inputGame.addEventListener('change', displayData);
 inputGame.addEventListener('mouseup', displayData);
 form.addEventListener('submit', submitForm);
 listSearch.addEventListener('mouseup', gameInfo);
+form.addEventListener('click', stopPropagation);
+form.addEventListener('keyup', stopPropagation);
+document.body.addEventListener('click', function removeList() {
+    listSearch.classList.add('hide');
+});
 
 // 1 steam, 8 origin, 23 gamebillet, 11 humble, 30 indiegala, 3 greenman
 

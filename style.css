@@ -153,13 +153,11 @@ body {
 .game {
     align-items: center;
     position: relative;
-    display: flex;
     flex-direction: column;
     padding: 0;
 }
 
 .listNav {
-    
     position: absolute;
     padding-right: 15px;
     padding-left: 0;
@@ -167,7 +165,6 @@ body {
 }
 
 .gameList {
-    display: flex;
     flex-direction: column;
     top: 495px;
     padding: 0;
@@ -184,8 +181,6 @@ body {
     min-width: 40vh;
     max-width: 5vh;
     margin: 0px 5px;
-    display: inline-flex;
-    padding: 5px;
     justify-content: space-evenly;
 }
 
@@ -200,10 +195,7 @@ body {
     min-width: 40vh;
     max-width: 5vh;
     margin: 0px 5px;
-    display: flex;
-    padding: 5px;
     align-items: center;
-    flex-direction: row;
 }
 
 .navListDisplay {
@@ -307,14 +299,23 @@ body {
 .linkNav {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    text-decoration: none;
     color: black;
-    font-size: 20px;
+    font-size: 18px;
+    text-decoration: none;
+}
+a {
+    padding: 5px;
 }
 
 /* hover effect */
-.display:hover, .navListDisplay:hover {
+a:hover {
     background: rosybrown;
+}
+
+/* list hide */ 
+.hide {
+    position: absolute;
+    opacity: 0;
+    top: -5000px;
+    z-index: 1;
 }
