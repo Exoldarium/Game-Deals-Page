@@ -13,20 +13,23 @@
             </form>
             <ul class="list listNav"></ul>
         </div>
-        <div class="options">
-            <div class="range"></div>
-            <div class="range priceRange">
-                <label for="rangeInput" class="rangeLabel">$50</label>
-                <input type="range" class="rangeInput" min="10" max="99" step="5">
-            </div>
-            <div class="range saleCheck">
-                <button type="button" class="ascending">-</button>
-                <button type="button" class="descending">+</button>
-            </div>
-            <div class="range"></div>
-        </div>
         <div class="wrapperList listGame">
-            <ul class="list gameList"></ul>
+            <div class="ulDiv">
+                <ul class="list gameList">
+                    <li class="gameDisplay">Nothing here</li>
+                </ul>
+            </div>
+            <div class="options">
+                <div class="range priceRange">
+                    <label for="rangeInput" class="rangeLabel"></label>
+                    <input type="range" class="rangeInput" min="10" max="99" step="5">
+                </div>
+                <div class="dropDownOptions">
+                    <button type="button" class="buttonList descending">Lower Price</button>
+                    <button type="button" class="buttonList ascending">Higher Price</button>
+                    <button type="button" class="buttonList nameButton">Name</button>
+                </div>
+            </div>
         </div>
         
         <script src="game-list-script.js"></script>
