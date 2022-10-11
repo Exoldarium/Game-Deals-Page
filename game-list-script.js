@@ -135,6 +135,7 @@ function priceDescend(e) {
         }).join('');
         descending.classList.add('activeEffect');
         nameButton.classList.remove('activeEffect');
+        ascending.classList.remove('activeEffect');
         priceSort();
     }
 }
