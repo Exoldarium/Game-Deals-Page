@@ -77,3 +77,4 @@ form.addEventListener('keyup', stopPropagation);
 document.body.addEventListener('click', function removeList() {
     list.classList.add('hide');
 });
+localStorage.clear();

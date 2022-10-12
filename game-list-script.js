@@ -12,12 +12,17 @@ const ascending = document.querySelector('.ascending');
 const descending = document.querySelector('.descending');
 const labelRange = document.querySelector('.rangeLabel');
 const nameButton = document.querySelector('.nameButton');
+const chekcboxes = document.querySelectorAll('[name=item]');
 let listDiv = document.querySelector('.listGame');
 // add local storage to new variable
 const displayGames = inputValue;
 // pass local storage as input
 inputGame.value = displayGames;
 let rangeValue = range.value;
+let descendCheck = descending.checked;
+let ascendCheck = ascending.checked;
+ascendCheck = false;
+descendCheck = false;
 
 fetch(endpoint)
     .then(res => res.json())
@@ -78,7 +83,7 @@ function submitForm(e) {
     const valueInput = inputGame.value;
     localStorage.setItem('searchValue', valueInput);
     localStorage.setItem('rangeValue', range.value);
-    window.location = 'game-list.html';   
+    window.location = 'game-list.html';  
 }
 
 // submit the search bar form and go to specific game page
@@ -116,7 +121,7 @@ function priceSort() {
 
 // sort by price ascending
 function priceDescend(e) {
-    if (e.target = this) {
+    if (e.target == this) {
         const filterSale = listValue.sort((firstGame, secondGame) => firstGame.salePrice - secondGame.salePrice);
         list.innerHTML = filterSale.map(games => {
             return `
@@ -133,16 +138,16 @@ function priceDescend(e) {
                 </li>
             `
         }).join('');
-        ascending.classList.remove('activeEffect');
-        nameButton.classList.remove('activeEffect');
-        descending.classList.add('activeEffect');
-        priceSort();
+        ascending.checked = false;
+        nameButton.checked = false;
+        // priceSort();
+        checkChecked();
     }
 }
 
 // sort by price descending
 function priceAscend(e) {
-    if (e.target = this) {
+    if (e.target == this) {
         const filterSale = listValue.sort((firstGame, secondGame) => secondGame.salePrice - firstGame.salePrice);
         list.innerHTML = filterSale.map(games => {
             return `
@@ -159,16 +164,16 @@ function priceAscend(e) {
                 </li>
             `
         }).join('');
-        descending.classList.remove('activeEffect');
-        nameButton.classList.remove('activeEffect');
-        ascending.classList.add('activeEffect');
-        priceSort();
+        descending.checked = false;
+        nameButton.checked = false;
+        // priceSort();
+        checkChecked();
     }
 }
 
 // sort by name
 function nameSort(e) {
-    if (e.target = this) {
+    if (e.target == this) {
         const filterSale = listValue.sort((firstName, secondName) => {
             if(firstName.internalName < secondName.internalName) { return -1; }
             if(firstName.internalName > secondName.internalName) { return 1; }
@@ -190,17 +195,29 @@ function nameSort(e) {
                 </li>
             `
         }).join('');
-        ascending.classList.remove('activeEffect');
-        descending.classList.remove('activeEffect');
-        nameButton.classList.add('activeEffect');
-        priceSort();
+        descending.checked = false;
+        ascending.checked = false;
+        // priceSort();
+        checkChecked();
     }
+}
+
+// check which checkboxes is checked and add to local storage
+function checkChecked() {
+    chekcboxes.forEach(el => {
+        localStorage.setItem(el.id, el.checked);
+        console.log(el.id, el.checked);
+    });
 }
 
 // save the input value
 function saveInputValue() {
     range.value = localStorage.getItem('rangeValue');
     labelRange.textContent = 'Under $' + `${range.value}`;
+    chekcboxes.forEach(el => {
+        let checked = JSON.parse(localStorage.getItem(el.id));
+        document.getElementById(el.id).checked = checked;
+    })
 }
 
 // stops propagation and hides the list
@@ -238,6 +255,7 @@ form.addEventListener('keyup', stopPropagation);
 
 // front page should have on sale link, aaa link and a random game link
 // add an error page when the search returns nothing, array.length = 0
+// play with callback functions see what works
 
 
 

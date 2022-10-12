@@ -24,10 +24,14 @@
                     <label for="rangeInput" class="rangeLabel"></label>
                     <input type="range" class="rangeInput" min="10" max="99" step="5">
                 </div>
+                <span class="spanLine"></span>
                 <div class="dropDownOptions">
-                    <button type="button" class="buttonList descending">Lower Price</button>
-                    <button type="button" class="buttonList ascending">Higher Price</button>
-                    <button type="button" class="buttonList nameButton">Name</button>
+                    <input type="checkbox" class="buttonList descending" id="1" name="item">
+                    <label for="descend" class="label lower">Lower Price</label>
+                    <input type="checkbox" class="buttonList ascending" id="2" name="item">
+                    <label for="ascend" class="label higher">Higher Price</label>
+                    <input type="checkbox" class="buttonList nameButton" id="3" name="item">
+                    <label for="nameButton" class="label name">Name</label>
                 </div>
             </div>
         </div>

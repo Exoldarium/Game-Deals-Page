@@ -50,7 +50,6 @@ body {
     justify-content: center;
     flex-direction: row;
     min-height: 50vh;
-    border: 1px solid mistyrose;
     padding: 50px;
 }
 
@@ -94,6 +93,7 @@ body {
     margin-top: 20px;
     box-shadow: 0 0 20px black;
     border-radius: 4px;
+    padding: 5px 5px 10px 5px;
 }
 
 .ulDiv {
@@ -277,6 +277,15 @@ body {
    font-family: 'Quicksand', sans-serif;
    align-items: center;
    flex: 1;
+}
+
+.spanLine {
+    height: 1px;
+    border: 1px solid mistyrose;
+    width: 120px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
 }
 
 /* images */
