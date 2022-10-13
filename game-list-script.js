@@ -54,7 +54,7 @@ function displayData() {
     console.log(showData);
 }
 
-// display data in DOM (page)
+// display data in DOM based on parameters (page)
 function mapGames() {   
     let showData;
     if (range.value) {
@@ -166,7 +166,7 @@ function gameInfo(e) {
     console.log(gameId);
 }
 
-// filter by price
+// price range slider
 function priceSort() {
     const rangeValue = range.value;
     const label = document.querySelector('.rangeLabel');
@@ -176,7 +176,7 @@ function priceSort() {
     mapGames();
 }
 
-// sort by price ascending
+// upper, lower, name range slider
 function priceDescend() {
     const sliderValue = slider.value;    
     localStorage.setItem('sliderValue', sliderValue);
@@ -196,6 +196,7 @@ function stopPropagation(e) {
     listSearch.classList.remove('hide');
 }
 
+// submit form and save form input value
 function submitForm(e) {
     e.preventDefault();
     const valueInput = inputGame.value;
