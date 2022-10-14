@@ -52,7 +52,6 @@ function displayData() {
     }
     localStorage.setItem('mainSearchItems', JSON.stringify(matchedArray));
     listSearch.innerHTML = showData;
-    console.log(showData);
 }
 
 // display data in DOM based on parameters (page)
@@ -172,7 +171,6 @@ function priceRange() {
     const label = document.querySelector('.rangeLabel');
     label.textContent = 'Under $' + `${rangeValue}`;
     localStorage.setItem('rangeValue', rangeValue);
-    console.log(range.value);
     mapGames();
 }
 
