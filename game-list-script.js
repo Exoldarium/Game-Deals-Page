@@ -3,7 +3,6 @@ const games = [];
 const inputValue = localStorage.getItem('searchValue');
 const listValue = JSON.parse(localStorage.getItem('mainSearchItems'));
 const filteredValue = JSON.parse(localStorage.getItem('filteredItems'));
-const activeEffect = localStorage.getItem('activeEffect');
 const inputGame = document.querySelector('.textGame');
 const list = document.querySelector('.gameList');
 const listSearch = document.querySelector('.listNav');
@@ -80,7 +79,7 @@ function mapGames() {
         list.innerHTML = showData;
     } 
     
-    if (slider.value == 0) {
+    if (slider.value == 1) {
         showData = listValue
             .filter(games => games.salePrice <= range.value)
             .sort((firstGame, secondGame) => firstGame.salePrice - secondGame.salePrice)
@@ -104,7 +103,7 @@ function mapGames() {
         list.innerHTML = showData;
     }
 
-    if (slider.value == 1) {
+    if (slider.value == 2) {
         showData = listValue
             .filter(games => games.salePrice <= range.value)
             .sort((firstGame, secondGame) => secondGame.salePrice - firstGame.salePrice)
@@ -128,7 +127,7 @@ function mapGames() {
         list.innerHTML = showData;
     }
 
-    if (slider.value == 2) {
+    if (slider.value == 3) {
         showData = listValue
             .filter(games => games.salePrice <= range.value)
             .sort((firstGame, secondGame) => {
@@ -186,6 +185,7 @@ function saveInputValue() {
     range.value = localStorage.getItem('rangeValue');
     slider.value = localStorage.getItem('sliderValue');
     labelRange.textContent = 'Under $' + `${range.value}`;
+    const activeEffect = localStorage.getItem('activeEffect');
     for (let index = 0; index < spans.length; index++) {
         if (spans[0].dataset.active == activeEffect) {
             spans[0].classList.add('activeEffect');
