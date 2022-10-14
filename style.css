@@ -117,6 +117,7 @@ body {
     justify-content: center;
     margin: 10px;
     background: mistyrose;
+    border: 2px solid black;
 }
 
 .dropDownOptions {
