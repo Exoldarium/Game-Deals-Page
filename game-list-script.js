@@ -80,7 +80,7 @@ function mapGames() {
         list.innerHTML = showData;
     } 
     
-    if (slider.value == 1) {
+    if (slider.value == 0) {
         showData = listValue
             .filter(games => games.salePrice <= range.value)
             .sort((firstGame, secondGame) => firstGame.salePrice - secondGame.salePrice)
@@ -104,7 +104,7 @@ function mapGames() {
         list.innerHTML = showData;
     }
 
-    if (slider.value == 2) {
+    if (slider.value == 1) {
         showData = listValue
             .filter(games => games.salePrice <= range.value)
             .sort((firstGame, secondGame) => secondGame.salePrice - firstGame.salePrice)
@@ -128,7 +128,7 @@ function mapGames() {
         list.innerHTML = showData;
     }
 
-    if (slider.value == 3) {
+    if (slider.value == 2) {
         showData = listValue
             .filter(games => games.salePrice <= range.value)
             .sort((firstGame, secondGame) => {
