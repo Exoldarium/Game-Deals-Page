@@ -222,11 +222,11 @@ function submitForm(e) {
 function setActive(e) {
     const target = e.target;
     const targetElement = target.dataset.active;
-    localStorage.setItem('activeEffect', targetElement);
     spans.forEach(span => {
         span.classList.remove('activeEffect');
     })
     target.classList.add('activeEffect');
+    localStorage.setItem('activeEffect', targetElement);
     if (targetElement == '0') {
         slider.value = 1;
     }
@@ -260,7 +260,7 @@ form.addEventListener('submit', submitForm);
 form.addEventListener('click', stopPropagation);
 form.addEventListener('keyup', stopPropagation);
 spans.forEach(span => span.addEventListener('click', setActive));
-window.addEventListener('change', saveInputValue);
+// window.addEventListener('change', saveInputValue);
 window.addEventListener('load', saveInputValue);
 window.addEventListener('load', mapGames);
 document.body.addEventListener('click', function removeList() {
