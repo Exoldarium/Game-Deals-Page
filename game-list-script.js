@@ -3,6 +3,7 @@ const games = [];
 const inputValue = localStorage.getItem('searchValue');
 const listValue = JSON.parse(localStorage.getItem('mainSearchItems'));
 const filteredValue = JSON.parse(localStorage.getItem('filteredItems'));
+const activeEffect = localStorage.getItem('activeEffect');
 const inputGame = document.querySelector('.textGame');
 const list = document.querySelector('.gameList');
 const listSearch = document.querySelector('.listNav');
@@ -11,7 +12,7 @@ const range = document.querySelector('.rangeInput');
 const rating = document.querySelector('.ratingRange');
 const slider = document.querySelector('.sortSlider');
 const labelRange = document.querySelector('.rangeLabel');
-let listDiv = document.querySelector('.listGame');
+const spans = document.querySelectorAll('.spans');
 // add local storage to new variable
 const displayGames = inputValue;
 // pass local storage as input
@@ -60,7 +61,7 @@ function mapGames() {
     if (range.value) {
         showData = listValue
             .filter(games => games.salePrice <= range.value)
-            .slice(0, 15)
+            // .slice(0, 15)
             .map(games => {
                 return `
                     <li class="gameDisplay" data-index="${games.gameID}">
@@ -84,7 +85,7 @@ function mapGames() {
         showData = listValue
             .filter(games => games.salePrice <= range.value)
             .sort((firstGame, secondGame) => firstGame.salePrice - secondGame.salePrice)
-            .slice(0, 15)
+            // .slice(0, 15)
             .map(games => {
                 return `
                     <li class="gameDisplay" data-index="${games.gameID}">
@@ -108,7 +109,7 @@ function mapGames() {
         showData = listValue
             .filter(games => games.salePrice <= range.value)
             .sort((firstGame, secondGame) => secondGame.salePrice - firstGame.salePrice)
-            .slice(0, 15)
+            // .slice(0, 15)
             .map(games => {
                 return `
                     <li class="gameDisplay" data-index="${games.gameID}">
@@ -132,11 +133,11 @@ function mapGames() {
         showData = listValue
             .filter(games => games.salePrice <= range.value)
             .sort((firstGame, secondGame) => {
-                if (firstGame.title < secondGame.title) 1;
-                if(firstGame.title > secondGame.title)  -1;
-                else 0;
+                if (firstGame.internalName < secondGame.internalName) { return -1; }
+                if(firstGame.internalName > secondGame.internalName)  { return 1; }
+                else return 0; 
             })
-            .slice(0, 15)
+            // .slice(0, 15)
             .map(games => {
                 return `
                     <li class="gameDisplay" data-index="${games.gameID}">
@@ -155,7 +156,6 @@ function mapGames() {
         localStorage.setItem('mainSearchItems', JSON.stringify(listValue));
         list.innerHTML = showData;
     }
-
 }
 
 // submit the search bar form and go to specific game page
@@ -167,7 +167,7 @@ function gameInfo(e) {
 }
 
 // price range slider
-function priceSort() {
+function priceRange() {
     const rangeValue = range.value;
     const label = document.querySelector('.rangeLabel');
     label.textContent = 'Under $' + `${rangeValue}`;
@@ -177,7 +177,7 @@ function priceSort() {
 }
 
 // upper, lower, name range slider
-function priceDescend() {
+function parameterSort() {
     const sliderValue = slider.value;    
     localStorage.setItem('sliderValue', sliderValue);
     mapGames();
@@ -188,6 +188,20 @@ function saveInputValue() {
     range.value = localStorage.getItem('rangeValue');
     slider.value = localStorage.getItem('sliderValue');
     labelRange.textContent = 'Under $' + `${range.value}`;
+    for (let index = 0; index < spans.length; index++) {
+        if (spans[0].dataset.active == activeEffect) {
+            spans[0].classList.add('activeEffect');
+        }
+        if (spans[1].dataset.active == activeEffect) {
+            spans[1].classList.add('activeEffect');
+        }
+        if (spans[2].dataset.active == activeEffect) {
+            spans[2].classList.add('activeEffect');
+        } 
+        if (spans[3].dataset.active == activeEffect) {
+            spans[3].classList.add('activeEffect');
+        } 
+    }
 }
 
 // stops propagation and hides the list
@@ -201,8 +215,32 @@ function submitForm(e) {
     e.preventDefault();
     const valueInput = inputGame.value;
     localStorage.setItem('searchValue', valueInput);
-    // localStorage.setItem('rangeValue', range.value);
     window.location = 'game-list.html';  
+}
+
+// set active effect for each of the buttons
+function setActive(e) {
+    const target = e.target;
+    const targetElement = target.dataset.active;
+    localStorage.setItem('activeEffect', targetElement);
+    spans.forEach(span => {
+        span.classList.remove('activeEffect');
+    })
+    target.classList.add('activeEffect');
+    if (targetElement == '0') {
+        slider.value = 1;
+    }
+    if (targetElement == '1') {
+        slider.value = 2;
+    }
+    if (targetElement == '2') {
+        slider.value = 3;
+    }
+    if (targetElement == '3') {
+        slider.value = 4;
+    }
+    localStorage.setItem('sliderValue', slider.value);
+    mapGames();
 }
 
 // display error if no results
@@ -215,18 +253,19 @@ inputGame.addEventListener('keyup', displayData);
 inputGame.addEventListener('change', displayData);
 inputGame.addEventListener('mouseup', displayData);
 list.addEventListener('mouseup', gameInfo);
-slider.addEventListener('change', priceDescend);
+slider.addEventListener('change', parameterSort);
 listSearch.addEventListener('mouseup', gameInfo);
-range.addEventListener('change', priceSort);
+range.addEventListener('change', priceRange);
+form.addEventListener('submit', submitForm);
+form.addEventListener('click', stopPropagation);
+form.addEventListener('keyup', stopPropagation);
+spans.forEach(span => span.addEventListener('click', setActive));
 window.addEventListener('change', saveInputValue);
 window.addEventListener('load', saveInputValue);
 window.addEventListener('load', mapGames);
-form.addEventListener('submit', submitForm);
 document.body.addEventListener('click', function removeList() {
     listSearch.classList.add('hide');
 });
-form.addEventListener('click', stopPropagation);
-form.addEventListener('keyup', stopPropagation);
 
 // front page should have on sale link, aaa link and a random game link
 // add an error page when the search returns nothing, array.length = 0

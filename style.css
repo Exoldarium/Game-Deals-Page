@@ -94,6 +94,8 @@ body {
     box-shadow: 0 0 20px black;
     border-radius: 4px;
     padding: 5px 5px 10px 5px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
 }
 
 .ulDiv {
@@ -183,6 +185,8 @@ body {
     box-shadow: 0 0 20px black;
     padding: 0;
     margin: 18px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
 }
 
 .gameList {
@@ -191,6 +195,8 @@ body {
     padding: 0;
     border-radius: 5px;
     box-shadow: 0 0 20px black;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
 }
 
 .display {
@@ -288,6 +294,16 @@ body {
     border-radius: 10px;
 }
 
+.spans {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    border-radius: 1px;
+    border: 1px solid black;
+}
+
 /* images */
 .imgLanding {
     height:55px;
@@ -339,7 +355,7 @@ a {
 }
 
 /* hover effect */
-.buttonList:hover, a:hover {
+.spans:hover, a:hover {
     background: rosybrown;
 }
 
@@ -357,7 +373,7 @@ a {
 }
 
 /* buttons */
-.buttonList {
+.labels {
     border: 1px solid black;
     background: mistyrose;
     cursor: pointer;
@@ -373,9 +389,5 @@ a {
 
 /* labels */
 .rangeLabel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: bold;
+    margin-left: 20px;
 }

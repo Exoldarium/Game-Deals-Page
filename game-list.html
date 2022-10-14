@@ -26,11 +26,13 @@
                 </div>
                 <span class="spanLine"></span>
                 <div class="dropDownOptions">
-                    <input type="range" class="sortSlider" id="one" name="item" min="1" max="3" step="1">
-                    <label for="one" class="label lower">Lower Price</label>
-                    <label for="three" class="label upper">Upper Price</label>
-                    <label class="label name">Name</label>
-                    <label class="label release">Release Date</label>
+                    <input type="range" class="sortSlider" name="item" min="1" max="3" step="1" id="sliderInput">
+                    <label for="sliderInput" class="labels lower">
+                        <span class="spans lower" data-active="0">Lower</span>
+                        <span class="spans higher" data-active="1">Higher</span>
+                        <span class="spans name" data-active="2">Name</span>
+                        <span class="spans release" data-active="3">Release Date</span>
+                    </label>
                 </div>
             </div>
         </div>
