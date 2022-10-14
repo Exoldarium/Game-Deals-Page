@@ -168,6 +168,10 @@ body {
     color: black;
 }
 
+.sortSlider {
+    display: none;
+}
+
 
 /* lists */
 .game {
