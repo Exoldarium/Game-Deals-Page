@@ -72,7 +72,10 @@ function mapGames() {
                                 </div>
                                 <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
                             </span>
-                            <span class="priceSpan" data-index="${games.gameID}">$${games.salePrice}</span>
+                            <div class="priceDiv">
+                                <span class="normalPrice" data-index="${games.gameID}">$${games.normalPrice}</span>
+                                <span class="salePrice" data-index="${games.gameID}">$${games.salePrice}</span>
+                        </div>
                         </a>
                     </li>
                 `
@@ -96,7 +99,10 @@ function mapGames() {
                                 </div>
                                 <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
                             </span>
-                            <span class="priceSpan" data-index="${games.gameID}">$${games.salePrice}</span>
+                            <div class="priceDiv">
+                                <span class="normalPrice" data-index="${games.gameID}">$${games.normalPrice}</span>
+                                <span class="salePrice" data-index="${games.gameID}">$${games.salePrice}</span>
+                        </div>
                         </a>
                     </li>
                 `
@@ -120,7 +126,10 @@ function mapGames() {
                                 </div>
                                 <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
                             </span>
-                            <span class="priceSpan" data-index="${games.gameID}">$${games.salePrice}</span>
+                            <div class="priceDiv">
+                                <span class="normalPrice" data-index="${games.gameID}">$${games.normalPrice}</span>
+                                <span class="salePrice" data-index="${games.gameID}">$${games.salePrice}</span>
+                        </div>
                         </a>
                     </li>
                 `
@@ -148,7 +157,10 @@ function mapGames() {
                                 </div>
                                 <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
                             </span>
-                            <span class="priceSpan" data-index="${games.gameID}">$${games.salePrice}</span>
+                            <div class="priceDiv">
+                                <span class="normalPrice" data-index="${games.gameID}">$${games.normalPrice}</span>
+                                <span class="salePrice" data-index="${games.gameID}">$${games.salePrice}</span>
+                        </div>
                         </a>
                     </li>
                 `
