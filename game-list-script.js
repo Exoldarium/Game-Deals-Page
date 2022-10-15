@@ -180,6 +180,36 @@ function mapGames() {
         localStorage.setItem('mainSearchItems', JSON.stringify(listValue));
         list.innerHTML = showData;
     }
+
+    if (slider.value == 5) {
+        showData = listValue
+            .filter(games => games.salePrice <= range.value)
+            .sort((firstGame, secondGame) => secondGame.savings - firstGame.savings)
+            // .slice(0, 15)
+            .map(games => {
+                return `
+                    <li class="gameDisplay" data-index="${games.gameID}">
+                        <a href="deal-page.html" class="linkList" data-index="${games.gameID}">
+                            <span class="gameTitle" data-index="${games.gameID}">
+                                <div class="imageDiv" data-index="${games.gameID}">
+                                    <img src="${games.thumb}" class="imgList" data-index="${games.gameID}"></img>
+                                </div>
+                                <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
+                            </span>
+                            <div class="priceDiv" data-index="${games.gameID}">
+                                <span class="normalPrice" data-index="${games.gameID}">$${games.normalPrice}</span>
+                                <span class="salePrice" data-index="${games.gameID}">$${games.salePrice}</span>
+                            </div>
+                            <div class="discount" data-index="${games.gameID}">
+                                <span class="discountSpan" data-index="${games.gameID}">-${Math.round(games.savings)}%</span>
+                            </div>
+                        </a>
+                    </li>
+                `
+            }).join('');
+        localStorage.setItem('mainSearchItems', JSON.stringify(listValue));
+        list.innerHTML = showData;
+    }
 }
 
 // submit the search bar form and go to specific game page

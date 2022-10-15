@@ -130,12 +130,14 @@ body {
     background: mistyrose;
     border: 2px solid black;
     max-width: 150px;
+    box-shadow: 0 0 10px black;
 }
 
 .dropDownOptions {
     display: flex;
     flex-direction: column;
     margin: 5px;
+    box-shadow: 0 0 10px black;
 }
 
 .discount {
@@ -215,6 +217,7 @@ body {
     margin: 18px;
     font-family: 'Quicksand', sans-serif;
     font-weight: bold;
+    border: 1px solid black;
 }
 
 .gameList {
@@ -258,12 +261,11 @@ body {
     background: mistyrose;
     list-style: none;
     border-bottom: 1px solid #2E3441;
-    box-shadow: 0 0 5px mistyrose; 
     transition: background 0.2s;
     text-transform: capitalize;
     min-width: 30vh;
     max-width: 5vh;
-    margin: 0px 5px;
+
 }
 
 /* spans */
