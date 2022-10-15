@@ -113,6 +113,7 @@ body {
     align-items: flex-end;
     flex: 1;
     flex-direction: column;
+    margin-left: 70px;
  }
 
 .page {
@@ -135,6 +136,13 @@ body {
     display: flex;
     flex-direction: column;
     margin: 5px;
+}
+
+.discount {
+    display: flex;
+    align-items: flex-end;
+    margin-left: 20px;
+    justify-content: center;
 }
 
 /* forms */
@@ -238,7 +246,7 @@ body {
     transition: background 0.2s;
     text-transform: capitalize;
     min-width: 40vh;
-    max-width: 5vh;
+    max-width: 60vh;
     align-items: center;
     padding: 0;
     margin: 0;
@@ -318,6 +326,11 @@ body {
 
 .normalPrice {
     text-decoration: line-through;
+}
+
+.discountSpan {
+    text-align: center;
+    color: green;
 }
 
 /* images */

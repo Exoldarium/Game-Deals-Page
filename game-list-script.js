@@ -72,10 +72,13 @@ function mapGames() {
                                 </div>
                                 <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
                             </span>
-                            <div class="priceDiv">
+                            <div class="priceDiv" data-index="${games.gameID}">
                                 <span class="normalPrice" data-index="${games.gameID}">$${games.normalPrice}</span>
                                 <span class="salePrice" data-index="${games.gameID}">$${games.salePrice}</span>
-                        </div>
+                            </div>
+                            <div class="discount" data-index="${games.gameID}">
+                                <span class="discountSpan" data-index="${games.gameID}">-${Math.round(games.savings)}%</span>
+                            </div>
                         </a>
                     </li>
                 `
@@ -99,10 +102,13 @@ function mapGames() {
                                 </div>
                                 <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
                             </span>
-                            <div class="priceDiv">
+                            <div class="priceDiv" data-index="${games.gameID}">
                                 <span class="normalPrice" data-index="${games.gameID}">$${games.normalPrice}</span>
                                 <span class="salePrice" data-index="${games.gameID}">$${games.salePrice}</span>
-                        </div>
+                            </div>
+                            <div class="discount" data-index="${games.gameID}">
+                                <span class="discountSpan" data-index="${games.gameID}">-${Math.round(games.savings)}%</span>
+                            </div>
                         </a>
                     </li>
                 `
@@ -126,10 +132,13 @@ function mapGames() {
                                 </div>
                                 <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
                             </span>
-                            <div class="priceDiv">
+                            <div class="priceDiv" data-index="${games.gameID}">
                                 <span class="normalPrice" data-index="${games.gameID}">$${games.normalPrice}</span>
                                 <span class="salePrice" data-index="${games.gameID}">$${games.salePrice}</span>
-                        </div>
+                            </div>
+                            <div class="discount" data-index="${games.gameID}">
+                                <span class="discountSpan" data-index="${games.gameID}">-${Math.round(games.savings)}%</span>
+                            </div>
                         </a>
                     </li>
                 `
@@ -157,10 +166,13 @@ function mapGames() {
                                 </div>
                                 <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
                             </span>
-                            <div class="priceDiv">
+                            <div class="priceDiv" data-index="${games.gameID}">
                                 <span class="normalPrice" data-index="${games.gameID}">$${games.normalPrice}</span>
                                 <span class="salePrice" data-index="${games.gameID}">$${games.salePrice}</span>
-                        </div>
+                            </div>
+                            <div class="discount" data-index="${games.gameID}">
+                                <span class="discountSpan" data-index="${games.gameID}">-${Math.round(games.savings)}%</span>
+                            </div>
                         </a>
                     </li>
                 `

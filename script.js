@@ -33,7 +33,7 @@ function displayData() {
                                 <img src="${games.thumb}" class="imgLanding" data-index="${games.gameID}"></img>
                             </div>
                             <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
-                            <div class="priceDiv">
+                            <div class="priceDiv" data-index="${games.gameID}">
                                 <span class="normalPrice" data-index="${games.gameID}">$${games.normalPrice}</span>
                                 <span class="salePrice" data-index="${games.gameID}">$${games.salePrice}</span>
                             </div>
