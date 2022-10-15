@@ -19,13 +19,10 @@ body {
 
 /* wrappers */
 .landing {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 50vh;
-    background:#2E3441;
-    flex-direction: column;
-    border: 1px solid mistyrose;
+   display: flex;
+   flex-direction: column;
+   padding: 10px;
+   margin-top: 100px;
 }
 
 .landingLogo {
@@ -61,7 +58,8 @@ body {
     background: #151920;
     position: relative;
     height: 70px;
-    padding-right: 100px;
+    z-index: 2;
+
 }
 
 .dealInfo {
@@ -113,7 +111,7 @@ body {
     align-items: flex-end;
     flex: 1;
     flex-direction: column;
-    margin-left: 70px;
+    margin-left: 0;
  }
 
 .page {
@@ -131,6 +129,8 @@ body {
     border: 2px solid black;
     max-width: 150px;
     box-shadow: 0 0 10px black;
+    flex-grow: 0;
+    flex-shrink: 0;
 }
 
 .dropDownOptions {
@@ -147,10 +147,30 @@ body {
     justify-content: center;
 }
 
+.landingOffers {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.offers {
+    width: 35vh;
+    height: 50vh;
+    border: 1px solid mistyrose;
+    margin: 5px 40px 10px 40px;
+    box-shadow: 0 0 30px black;
+    border-radius: 5px;
+}
+
 /* forms */
 .bar {
     display: flex;
     position: relative;
+    box-shadow: 0 5px 40px black;
+    top: 0;
+    margin-left: 20px;
 }
 
 .listGameBar {
@@ -164,6 +184,8 @@ body {
     background: mistyrose;
     border: mistyrose;
     border-radius: 5px;
+    cursor: pointer;
+
 }
 
 .submitGame {
@@ -201,18 +223,20 @@ body {
 
 /* lists */
 .game {
-    align-items: center;
-    position: relative;
-    flex-direction: column;
+    position: absolute;
+    top: 40px;
+    box-shadow: 0 15px 20px black;
     padding: 0;
-    box-shadow: 0 0 40px black;
-    margin: 10px;
+    margin-top: 17px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    border: 1px solid black;
 }
 
 .listNav {
     position: absolute;
     top: 40px;
-    box-shadow: 0 0 20px black;
+    box-shadow: 0 15px 20px black;
     padding: 0;
     margin: 18px;
     font-family: 'Quicksand', sans-serif;
@@ -235,9 +259,8 @@ body {
     list-style: none;
     border-bottom: 1px solid #2E3441;
     transition: background 0.2s;
-    min-width: 40vh;
-    max-width: 5vh;
-    justify-content: space-evenly;
+    width: 382px;
+    border-radius: 2px;
 }
 
 .gameDisplay {
@@ -400,7 +423,7 @@ a {
     position: absolute;
     opacity: 0;
     top: -5000px;
-    z-index: 1;
+
 }
 
 /* buttons */

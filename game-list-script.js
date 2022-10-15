@@ -86,7 +86,7 @@ function mapGames() {
         localStorage.setItem('mainSearchItems', JSON.stringify(listValue));
         list.innerHTML = showData;
     }
-    
+
     if (slider.value == 1) {
         showData = listValue
             .filter(games => games.salePrice <= range.value)
@@ -322,8 +322,6 @@ document.body.addEventListener('click', function removeList() {
 
 // front page should have on sale link, aaa link and a random game link
 // add an error page when the search returns nothing, array.length = 0
-// play with callback functions see what works
-// add an empty input value and let it be default on load so that the list is not sorted 
 
 
 

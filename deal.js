@@ -34,15 +34,17 @@ function displayData() {
     const matchedArray = searchData(this.value, games);
     let showData;
     if (inputGame.value) {
-        showData = matchedArray.slice(0, 5).map((games) => {
-            return `
-                <li class="navListDisplay" data-index="${games.gameID}">
-                    <a href="deal-page.html" class="linkNav" data-index="${games.gameID}">
-                        <span lass="navListTitle" data-index="${games.gameID}">${games.title}</span>
-                    </a>
-                </li>
-            `
-        }).join('');
+        showData = matchedArray
+            .slice(0, 5)
+            .map((games) => {
+                return `
+                    <li class="navListDisplay" data-index="${games.gameID}">
+                        <a href="deal-page.html" class="linkNav" data-index="${games.gameID}">
+                            <span lass="navListTitle" data-index="${games.gameID}">${games.title}</span>
+                        </a>
+                    </li>
+                `
+            }).join('');
     } else {
         showData = matchedArray.slice(0, 0);
     }

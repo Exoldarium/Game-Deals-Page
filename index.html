@@ -6,16 +6,29 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="landingLogo"></div>
-        <div class="wrapper landing">
+        <div class="formWrap">
             <form class="search bar">
                 <input type="text" class="search text" name="inputnames" placeholder>
                 <input type="submit" class="search submit" name="inputnames" value="🔎︎">
             </form>
             <ul class="list game"></ul>
         </div>
-        <div class="landingOffers"></div>
+        <div class="wrapper landing">
+            <div class="landingOffers">
+                <div class="offers freeGames">
+                    <ul class="freeList"></ul>
+                </div>
+                <div class="offers onSale">
+                    <ul class="saleList"></ul>
+                </div>
+                <div class="offers tripleA">
+                    <ul class="tripleAList"></ul>
+                </div>
+            </div>
+            <div class="landingLogo"></div>
+        </div>
+        
         <script src="script.js"></script>
-
+        
     </body>
-</html>
+    </html>
