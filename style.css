@@ -164,6 +164,15 @@ body {
     border-radius: 5px;
 }
 
+.randomGame {
+    width: 70vh;
+    height: 20vh;
+    border: 1px solid mistyrose;
+    margin: 5px 40px 10px 40px;
+    box-shadow: 0 0 30px black;
+    border-radius: 5px;
+}
+
 /* forms */
 .bar {
     display: flex;
