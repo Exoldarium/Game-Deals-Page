@@ -80,12 +80,13 @@ form.addEventListener('submit', submitForm);
 list.addEventListener('mouseup', gameInfo);
 form.addEventListener('click', stopPropagation);
 form.addEventListener('keyup', stopPropagation);
-window.addEventListener('load', mapGames);
 document.body.addEventListener('click', function removeList() {
     list.classList.add('hide');
 });
 localStorage.clear();
 
-//push the nav to the top, add three categories, or four, each of them will be static display of games, on click it takes you to the next page
+// push the nav to the top, add three categories, or four, each of them will be static display of games, on click it takes you to the next page
+// categories will be on sale, deal rating and aaa games
+// should have a random game somwhere too
 // add a transparent effect on the bottom
 // clicking should add our items to main local storage
