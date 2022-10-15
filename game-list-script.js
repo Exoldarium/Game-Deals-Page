@@ -3,6 +3,7 @@ const games = [];
 const inputValue = localStorage.getItem('searchValue');
 const listValue = JSON.parse(localStorage.getItem('mainSearchItems'));
 const filteredValue = JSON.parse(localStorage.getItem('filteredItems'));
+const activeEffect = localStorage.getItem('activeEffect');
 const inputGame = document.querySelector('.textGame');
 const list = document.querySelector('.gameList');
 const listSearch = document.querySelector('.listNav');
@@ -56,7 +57,8 @@ function displayData() {
 // display data in DOM based on parameters (page)
 function mapGames() {   
     let showData;
-    if (range.value) {
+    // set to 3 (half of range slider) so that the first load displays unfiltered list
+    if (slider.value == 3) {
         showData = listValue
             .filter(games => games.salePrice <= range.value)
             // .slice(0, 15)
@@ -77,7 +79,7 @@ function mapGames() {
             }).join('');
         localStorage.setItem('mainSearchItems', JSON.stringify(listValue));
         list.innerHTML = showData;
-    } 
+    }
     
     if (slider.value == 1) {
         showData = listValue
@@ -127,7 +129,7 @@ function mapGames() {
         list.innerHTML = showData;
     }
 
-    if (slider.value == 3) {
+    if (slider.value == 4) {
         showData = listValue
             .filter(games => games.salePrice <= range.value)
             .sort((firstGame, secondGame) => {
@@ -185,7 +187,6 @@ function saveInputValue() {
     range.value = localStorage.getItem('rangeValue');
     slider.value = localStorage.getItem('sliderValue');
     labelRange.textContent = 'Under $' + `${range.value}`;
-    const activeEffect = localStorage.getItem('activeEffect');
     for (let index = 0; index < spans.length; index++) {
         if (spans[0].dataset.active == activeEffect) {
             spans[0].classList.add('activeEffect');
@@ -220,11 +221,11 @@ function submitForm(e) {
 function setActive(e) {
     const target = e.target;
     const targetElement = target.dataset.active;
+    localStorage.setItem('activeEffect', targetElement);
     spans.forEach(span => {
         span.classList.remove('activeEffect');
     })
     target.classList.add('activeEffect');
-    localStorage.setItem('activeEffect', targetElement);
     if (targetElement == '0') {
         slider.value = 1;
     }
@@ -232,10 +233,10 @@ function setActive(e) {
         slider.value = 2;
     }
     if (targetElement == '2') {
-        slider.value = 3;
+        slider.value = 4;
     }
     if (targetElement == '3') {
-        slider.value = 4;
+        slider.value = 5;
     }
     localStorage.setItem('sliderValue', slider.value);
     mapGames();
@@ -268,7 +269,7 @@ document.body.addEventListener('click', function removeList() {
 // front page should have on sale link, aaa link and a random game link
 // add an error page when the search returns nothing, array.length = 0
 // play with callback functions see what works
-
+// add an empty input value and let it be default on load so that the list is not sorted 
 
 
 

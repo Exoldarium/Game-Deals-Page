@@ -112,12 +112,13 @@ body {
     min-width: 50vh;
 }
 
-.range {
+.priceRange {
     align-items: center;
     justify-content: center;
     margin: 10px;
     background: mistyrose;
     border: 2px solid black;
+    max-width: 150px;
 }
 
 .dropDownOptions {
@@ -171,6 +172,10 @@ body {
 
 .sortSlider {
     display: none;
+}
+
+.rangeInput {
+    margin-left: 10px;
 }
 
 
@@ -394,5 +399,5 @@ a {
 
 /* labels */
 .rangeLabel {
-    margin-left: 20px;
+    margin-left: 25px;
 }
