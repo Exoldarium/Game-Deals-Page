@@ -52,36 +52,6 @@ function displayData() {
     list.innerHTML = showData;
 }
 
-function mapGames() {
-    let showData;
-    showData = games
-        .sort((firstGame, secondGame) => firstGame.dealRating - secondGame.dealRating)
-        .splice(0, 5)
-        .map(games => {
-            return `
-                <li class="gameDisplay" data-index="${games.gameID}">
-                    <a href="deal-page.html" class="linkList" data-index="${games.gameID}">
-                        <span class="gameTitle" data-index="${games.gameID}">
-                            <div class="imageDiv" data-index="${games.gameID}">
-                                <img src="${games.thumb}" class="imgList" data-index="${games.gameID}"></img>
-                            </div>
-                            <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
-                        </span>
-                        <div class="priceDiv" data-index="${games.gameID}">
-                            <span class="normalPrice" data-index="${games.gameID}">$${games.normalPrice}</span>
-                            <span class="salePrice" data-index="${games.gameID}">$${games.salePrice}</span>
-                        </div>
-                        <div class="discount" data-index="${games.gameID}">
-                            <span class="discountSpan" data-index="${games.gameID}">-${Math.round(games.savings)}%</span>
-                        </div>
-                    </a>
-                </li>
-            `
-        }).join('');
-        dealList.innerHTML = showData;
-        
-}
-
 // submit form and load next page
 function submitForm(e) {
     e.preventDefault();
