@@ -4,7 +4,7 @@ const inputText = document.querySelector('.text');
 const list = document.querySelector('.game');
 const form = document.querySelector('.bar');
 const landing = document.querySelector('.formWrap');
-const dealList = document.querySelector('.freeList');
+const dealList = document.querySelector('.offers');
 
 fetch(endpoint)
     .then(res => res.json())
@@ -33,7 +33,7 @@ function displayData() {
                         <a href="deal-page.html" class="linkLanding" data-index="${games.gameID}">
                             <span class="title" data-index="${games.gameID}">
                                 <div class="imageDiv" data-index="${games.gameID}">
-                                    <img src="${games.thumb}" class="imgLanding" data-index="${games.gameID}"></img>
+                                    <img src="${games.thumb}" class="imgLanding" data-index="${games.gameID}">
                                 </div>
                                 <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
                                 <div class="priceDiv" data-index="${games.gameID}">

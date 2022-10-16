@@ -68,7 +68,7 @@ function mapGames() {
                         <a href="deal-page.html" class="linkList" data-index="${games.gameID}">
                             <span class="gameTitle" data-index="${games.gameID}">
                                 <div class="imageDiv" data-index="${games.gameID}">
-                                    <img src="${games.thumb}" class="imgList" data-index="${games.gameID}"></img>
+                                    <img src="${games.thumb}" class="imgList" data-index="${games.gameID}">
                                 </div>
                                 <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
                             </span>
@@ -98,7 +98,7 @@ function mapGames() {
                         <a href="deal-page.html" class="linkList" data-index="${games.gameID}">
                             <span class="gameTitle" data-index="${games.gameID}">
                                 <div class="imageDiv" data-index="${games.gameID}">
-                                    <img src="${games.thumb}" class="imgList" data-index="${games.gameID}"></img>
+                                    <img src="${games.thumb}" class="imgList" data-index="${games.gameID}">
                                 </div>
                                 <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
                             </span>
@@ -128,7 +128,7 @@ function mapGames() {
                         <a href="deal-page.html" class="linkList" data-index="${games.gameID}">
                             <span class="gameTitle" data-index="${games.gameID}">
                                 <div class="imageDiv" data-index="${games.gameID}">
-                                    <img src="${games.thumb}" class="imgList" data-index="${games.gameID}"></img>
+                                    <img src="${games.thumb}" class="imgList" data-index="${games.gameID}">
                                 </div>
                                 <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
                             </span>
@@ -162,7 +162,7 @@ function mapGames() {
                         <a href="deal-page.html" class="linkList" data-index="${games.gameID}">
                             <span class="gameTitle" data-index="${games.gameID}">
                                 <div class="imageDiv" data-index="${games.gameID}">
-                                    <img src="${games.thumb}" class="imgList" data-index="${games.gameID}"></img>
+                                    <img src="${games.thumb}" class="imgList" data-index="${games.gameID}">
                                 </div>
                                 <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
                             </span>
@@ -192,7 +192,7 @@ function mapGames() {
                         <a href="deal-page.html" class="linkList" data-index="${games.gameID}">
                             <span class="gameTitle" data-index="${games.gameID}">
                                 <div class="imageDiv" data-index="${games.gameID}">
-                                    <img src="${games.thumb}" class="imgList" data-index="${games.gameID}"></img>
+                                    <img src="${games.thumb}" class="imgList" data-index="${games.gameID}">
                                 </div>
                                 <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
                             </span>

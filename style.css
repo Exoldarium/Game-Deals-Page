@@ -154,15 +154,6 @@ body {
     z-index: 1;
 }
 
-.offers {
-    width: 35vh;
-    height: 50vh;
-    border: 1px solid gainsboro;
-    margin: 5px 40px 10px 40px;
-    box-shadow: 0 0 30px black;
-    border-radius: 5px;
-}
-
 .randomGame {
     width: 70vh;
     height: 20vh;
@@ -374,6 +365,14 @@ body {
     height:55px;
 }
 
+.imgSale {
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+    filter: blur(5px);
+    z-index: -1;
+}
+
 .imageDiv {
     display: flex;
     align-items: center;
@@ -381,6 +380,27 @@ body {
     min-width: 145px;
     background: #3e4758;
     margin-left: 0;
+}
+
+.offers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35vh;
+    height: 50vh;
+    border: 1px solid black;
+    margin: 5px 40px 10px 40px;
+    box-shadow: 0 0 30px black;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.paragraphLanding {
+    position: absolute;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bolder;
+    font-size: 30px;
 }
 
 /* links */
@@ -427,6 +447,12 @@ a:hover {
 /* active effect */
 .activeEffect {
     background-color: rgb(139, 159, 179) !important;
+}
+
+.offers:hover, .randomGame:hover {
+    transform: scale(1.07);
+    transition: all 0.2s;
+    cursor: pointer;
 }
 
 /* list hide */ 
