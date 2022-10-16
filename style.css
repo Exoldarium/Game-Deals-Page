@@ -12,7 +12,7 @@ html {
 }
 
 body {
-    background:#2E3441;
+    background: linear-gradient(0.25turn, #363d4d, #1f232c, #363d4d);
     padding: 0;
     margin: 0;
 }
@@ -30,7 +30,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 25vh;
-    border: 1px solid mistyrose;
+    border: 1px solid gainsboro;
 }
 
 .landingOffers {
@@ -38,7 +38,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 25vh;
-    border: 1px solid mistyrose;
+    border: 1px solid gainsboro;
 }
 
 .listGame {
@@ -59,7 +59,6 @@ body {
     position: relative;
     height: 70px;
     z-index: 2;
-
 }
 
 .dealInfo {
@@ -68,7 +67,7 @@ body {
     justify-content: center;
     flex-direction: row;
     min-height: 50vh;
-    border: 2px solid mistyrose;
+    border: 2px solid gainsboro;
     margin: 0 auto;
 }
 
@@ -84,7 +83,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    border: 1px solid mistyrose;
+    border: 1px solid gainsboro;
     width: 15%;
     flex-grow: 0;
     flex-shrink: 0;
@@ -125,7 +124,7 @@ body {
     align-items: center;
     justify-content: center;
     margin: 10px;
-    background: mistyrose;
+    background: gainsboro;
     border: 2px solid black;
     max-width: 150px;
     box-shadow: 0 0 10px black;
@@ -158,7 +157,7 @@ body {
 .offers {
     width: 35vh;
     height: 50vh;
-    border: 1px solid mistyrose;
+    border: 1px solid gainsboro;
     margin: 5px 40px 10px 40px;
     box-shadow: 0 0 30px black;
     border-radius: 5px;
@@ -167,7 +166,7 @@ body {
 .randomGame {
     width: 70vh;
     height: 20vh;
-    border: 1px solid mistyrose;
+    border: 1px solid gainsboro;
     margin: 5px 40px 10px 40px;
     box-shadow: 0 0 30px black;
     border-radius: 5px;
@@ -177,7 +176,6 @@ body {
 .bar {
     display: flex;
     position: relative;
-    box-shadow: 0 5px 40px black;
     top: 0;
     margin-left: 20px;
 }
@@ -190,16 +188,16 @@ body {
 
 /* inputs */
 .submit {
-    background: mistyrose;
-    border: mistyrose;
+    background: gainsboro;
+    border: gainsboro;
     border-radius: 5px;
     cursor: pointer;
 
 }
 
 .submitGame {
-    background: mistyrose;
-    border: mistyrose;
+    background: gainsboro;
+    border: gainsboro;
     border-radius: 5px;
 }
 
@@ -208,7 +206,7 @@ body {
     text-align: center;
     min-width: 40vh;
     border-radius: 5px;
-    background: mistyrose;
+    background: gainsboro;
     color: black;
 }
 
@@ -217,7 +215,7 @@ body {
     text-align: center;
     min-width: 30vh;
     border-radius: 5px;
-    background: mistyrose;
+    background: gainsboro;
     color: black;
 }
 
@@ -240,6 +238,7 @@ body {
     font-family: 'Quicksand', sans-serif;
     font-weight: bold;
     border: 1px solid black;
+    background: gainsboro;
 }
 
 .listNav {
@@ -251,20 +250,21 @@ body {
     font-family: 'Quicksand', sans-serif;
     font-weight: bold;
     border: 1px solid black;
+    background: gainsboro;
 }
 
 .gameList {
     flex-direction: column;
-    border: 1px solid mistyrose;
+    border: 1px solid gainsboro;
     padding: 0;
     border-radius: 5px;
     box-shadow: 0 0 20px black;
     font-family: 'Quicksand', sans-serif;
     font-weight: bold;
+    background: gainsboro;
 }
 
 .display {
-    background: mistyrose;
     list-style: none;
     border-bottom: 1px solid #2E3441;
     transition: background 0.2s;
@@ -273,7 +273,6 @@ body {
 }
 
 .gameDisplay {
-    background: mistyrose;
     list-style: none;
     font-size: 17px;
     border-bottom: 1px solid #2E3441;
@@ -290,7 +289,6 @@ body {
 }
 
 .navListDisplay {
-    background: mistyrose;
     list-style: none;
     border-bottom: 1px solid #2E3441;
     transition: background 0.2s;
@@ -341,7 +339,7 @@ body {
 
 .spanLine {
     height: 1px;
-    border: 1px solid mistyrose;
+    border: 1px solid gainsboro;
     width: 120px;
     margin-bottom: 10px;
     margin-top: 10px;
@@ -364,7 +362,7 @@ body {
 
 .discountSpan {
     text-align: center;
-    color: green;
+    color: darkgreen;
 }
 
 /* images */
@@ -418,13 +416,17 @@ a {
 }
 
 /* hover effect */
-.spans:hover, a:hover {
-    background: rosybrown;
+a:hover {
+    /* background: linear-gradient(0.25turn, lightslategray, lightslategray, gainsboro); */
+    background: rgb(139, 159, 179);
+}
+.spans:hover {
+    background: rgb(139, 159, 179);
 }
 
 /* active effect */
 .activeEffect {
-    background-color: rosybrown !important;
+    background-color: rgb(139, 159, 179) !important;
 }
 
 /* list hide */ 
@@ -438,7 +440,7 @@ a {
 /* buttons */
 .labels {
     border: 1px solid black;
-    background: mistyrose;
+    background: gainsboro;
     cursor: pointer;
     font-size: 20px;
     font-family: 'Quicksand', sans-serif;
@@ -447,7 +449,7 @@ a {
 }
 
 .slideOpen {
-    background: mistyrose;
+    background: gainsboro;
 }
 
 /* labels */
