@@ -97,7 +97,7 @@ function stopPropagation(e) {
     listSearch.classList.remove('hide');
 }
 
-dealsDiv.addEventListener('onload', getStuff);
+dealsDiv.addEventListener('load', getStuff);
 inputGame.addEventListener('keyup', displayData);
 inputGame.addEventListener('change', displayData);
 inputGame.addEventListener('mouseup', displayData);

@@ -4,7 +4,9 @@ const inputText = document.querySelector('.text');
 const list = document.querySelector('.game');
 const form = document.querySelector('.bar');
 const landing = document.querySelector('.formWrap');
-const dealList = document.querySelector('.offers');
+const saleList = document.querySelector('.onSale');
+const dealRatingList = document.querySelector('.dealRating');
+const freeGameList = document.querySelector('.tripleA');
 
 fetch(endpoint)
     .then(res => res.json())
@@ -22,34 +24,53 @@ function searchData(input, value) {
 // display data in DOM
 function displayData() {
     const matchedArray = searchData(this.value, games);
-    console.log(matchedArray);
+    console.log({matchedArray});
     let showData;
     if (inputText.value) {
         showData = matchedArray
-            .slice(0, 5)
-            .map(games => {
-                return `
-                    <li class="display" data-index="${games.gameID}">
-                        <a href="deal-page.html" class="linkLanding" data-index="${games.gameID}">
-                            <span class="title" data-index="${games.gameID}">
-                                <div class="imageDiv" data-index="${games.gameID}">
-                                    <img src="${games.thumb}" class="imgLanding" data-index="${games.gameID}">
-                                </div>
-                                <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
-                                <div class="priceDiv" data-index="${games.gameID}">
-                                    <span class="normalPrice" data-index="${games.gameID}">$${games.normalPrice}</span>
-                                    <span class="salePrice" data-index="${games.gameID}">$${games.salePrice}</span>
-                                </div>
-                            </span>
-                        </a>
-                    </li>
-                `   
-            }).join('');
+        .slice(0, 5)
+        .map(games => {
+            return `
+                <li class="display" data-index="${games.gameID}">
+                    <a href="deal-page.html" class="linkLanding" data-index="${games.gameID}">
+                        <span class="title" data-index="${games.gameID}">
+                            <div class="imageDiv" data-index="${games.gameID}">
+                                <img src="${games.thumb}" class="imgLanding" data-index="${games.gameID}">
+                            </div>
+                            <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
+                            <div class="priceDiv" data-index="${games.gameID}">
+                                <span class="normalPrice" data-index="${games.gameID}">$${games.normalPrice}</span>
+                                <span class="salePrice" data-index="${games.gameID}">$${games.salePrice}</span>
+                            </div>
+                        </span>
+                    </a>
+                </li>
+            `   
+        }).join('');
     } else {
         showData = matchedArray.slice(0, 0);
     }
     localStorage.setItem('mainSearchItems', JSON.stringify(matchedArray));
     list.innerHTML = showData;
+}
+
+function mapOnSale() {
+    const filter = games.filter(game => game.isOnSale == 1);
+    localStorage.setItem('mainSearchItems', JSON.stringify(filter));
+    window.location = 'game-list.html';
+}
+
+function mapDealRating() {
+    const filter = games.sort((firstGame, secondGame) => firstGame.dealRating - secondGame.dealRating);
+    localStorage.setItem('mainSearchItems', JSON.stringify(filter));
+    window.location = 'game-list.html';
+}
+
+function mapFreeGames() {
+    const filter = games.filter(game => game.salePrice == 0);
+    localStorage.setItem('mainSearchItems', JSON.stringify(filter));
+    window.location = 'game-list.html';
+    console.log(filter);
 }
 
 // submit form and load next page
@@ -80,13 +101,14 @@ form.addEventListener('submit', submitForm);
 list.addEventListener('mouseup', gameInfo);
 form.addEventListener('click', stopPropagation);
 form.addEventListener('keyup', stopPropagation);
+saleList.addEventListener('mouseup', mapOnSale);
+dealRatingList.addEventListener('mouseup', mapDealRating);
+freeGameList.addEventListener('mouseup', mapFreeGames);
 document.body.addEventListener('click', function removeList() {
     list.classList.add('hide');
 });
 localStorage.clear();
 
-// push the nav to the top, add three categories, or four, each of them will be static display of games, on click it takes you to the next page
-// categories will be on sale, deal rating and aaa games
 // should have a random game somwhere too
 // add a transparent effect on the bottom
-// clicking should add our items to main local storage
+// add an error page when the search returns nothing, array.length = 0

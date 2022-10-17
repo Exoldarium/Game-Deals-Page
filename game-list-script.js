@@ -320,7 +320,6 @@ document.body.addEventListener('click', function removeList() {
     listSearch.classList.add('hide');
 });
 
-// front page should have on sale link, aaa link and a random game link
 // add an error page when the search returns nothing, array.length = 0
 
 

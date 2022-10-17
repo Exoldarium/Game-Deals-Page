@@ -30,7 +30,6 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 25vh;
-    border: 1px solid gainsboro;
 }
 
 .landingOffers {
@@ -38,7 +37,6 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 25vh;
-    border: 1px solid gainsboro;
 }
 
 .listGame {
@@ -401,8 +399,15 @@ body {
     font-family: 'Quicksand', sans-serif;
     font-weight: bolder;
     font-size: 30px;
+    color: black;
+    text-shadow: 0px 1px 0px black;
+    width: 320px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(.25turn, transparent, rgb(105, 105, 105), transparent);
 }
-
 /* links */
 .linkLanding {
     display: flex;
