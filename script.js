@@ -6,6 +6,7 @@ const form = document.querySelector('.bar');
 const landing = document.querySelector('.formWrap');
 const saleList = document.querySelector('.onSale');
 const dealRatingList = document.querySelector('.dealRating');
+const offers = document.querySelectorAll('.offers');
 const freeGameList = document.querySelector('.tripleA');
 
 fetch(endpoint)
@@ -54,23 +55,26 @@ function displayData() {
     list.innerHTML = showData;
 }
 
-function mapOnSale() {
-    const filter = games.filter(game => game.isOnSale == 1);
-    localStorage.setItem('mainSearchItems', JSON.stringify(filter));
-    window.location = 'game-list.html';
-}
+function mapCategory(e) {
+    const targetIndex = e.target.dataset.index;
+    // console.log(targetIndex);
+    if (targetIndex == 0) {
+        const filter = games.filter(game => game.isOnSale == 1);
+        localStorage.setItem('mainSearchItems', JSON.stringify(filter));
+        window.location = 'game-list.html';
+    }
 
-function mapDealRating() {
-    const filter = games.sort((firstGame, secondGame) => firstGame.dealRating - secondGame.dealRating);
-    localStorage.setItem('mainSearchItems', JSON.stringify(filter));
-    window.location = 'game-list.html';
-}
-
-function mapFreeGames() {
-    const filter = games.filter(game => game.salePrice == 0);
-    localStorage.setItem('mainSearchItems', JSON.stringify(filter));
-    window.location = 'game-list.html';
-    console.log(filter);
+    if (targetIndex == 1) {
+        const filter = games.sort((firstGame, secondGame) => firstGame.dealRating - secondGame.dealRating);
+        localStorage.setItem('mainSearchItems', JSON.stringify(filter));
+        window.location = 'game-list.html';
+    }
+    
+    if (targetIndex == 2) {
+        const filter = games.filter(game => game.salePrice == 0);
+        localStorage.setItem('mainSearchItems', JSON.stringify(filter));
+        window.location = 'game-list.html';
+    }
 }
 
 // submit form and load next page
@@ -101,9 +105,10 @@ form.addEventListener('submit', submitForm);
 list.addEventListener('mouseup', gameInfo);
 form.addEventListener('click', stopPropagation);
 form.addEventListener('keyup', stopPropagation);
-saleList.addEventListener('mouseup', mapOnSale);
-dealRatingList.addEventListener('mouseup', mapDealRating);
-freeGameList.addEventListener('mouseup', mapFreeGames);
+// saleList.addEventListener('mouseup', mapOnSale);
+// dealRatingList.addEventListener('mouseup', mapDealRating);
+// freeGameList.addEventListener('mouseup', mapFreeGames);
+offers.forEach(offer => offer.addEventListener('mouseup', mapCategory));
 document.body.addEventListener('click', function removeList() {
     list.classList.add('hide');
 });
