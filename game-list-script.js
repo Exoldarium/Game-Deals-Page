@@ -312,11 +312,6 @@ function setActive(e) {
     mapGames();
 }
 
-// display error if no results
-// function displayError(e) {
-    
-// }
-
 console.log({listValue});
 inputGame.addEventListener('keyup', displayData);
 inputGame.addEventListener('change', displayData);
@@ -336,7 +331,6 @@ window.addEventListener('load', mapGames);
 logo.forEach(logo => logo.addEventListener('mouseup', () => window.location = 'index.html'));
 document.body.addEventListener('click', () => listSearch.classList.add('hide'));
 
-// add an error page when the search returns nothing, array.length = 0
 
 
 

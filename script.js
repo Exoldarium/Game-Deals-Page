@@ -125,5 +125,3 @@ randomGameList.addEventListener('mouseup', mapRandomGame);
 logo.forEach(logo => logo.addEventListener('mouseup', () => window.location = 'index.html'));
 document.body.addEventListener('click', () => list.classList.add('hide'));
 localStorage.clear();
-
-// add an error page when the search returns nothing, array.length = 0
