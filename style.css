@@ -226,6 +226,7 @@ body {
     box-shadow: 0 15px 20px black;
     padding: 0;
     margin-top: 17px;
+    margin-right: 25px;
     font-family: 'Quicksand', sans-serif;
     font-weight: bold;
     border: 1px solid black;
@@ -237,11 +238,12 @@ body {
     top: 40px;
     box-shadow: 0 15px 20px black;
     padding: 0;
-    margin: 18px;
+    margin-right: 90px;
     font-family: 'Quicksand', sans-serif;
     font-weight: bold;
     border: 1px solid black;
     background: gainsboro;
+    border-radius: 3px;
 }
 
 .gameList {
@@ -369,7 +371,6 @@ body {
     height: 100%;
     width: 100%;
     border: 1px solid black;
-    filter: blur(5px);
     z-index: -1;
 }
 

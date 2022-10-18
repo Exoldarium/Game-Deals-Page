@@ -113,8 +113,8 @@ function stopPropagation(e) {
 inputText.addEventListener('keyup', displayData);
 inputText.addEventListener('change', displayData);
 inputText.addEventListener('mouseup', displayData);
-form.addEventListener('submit', submitForm);
 list.addEventListener('mouseup', gameInfo);
+form.addEventListener('submit', submitForm);
 form.addEventListener('click', stopPropagation);
 form.addEventListener('keyup', stopPropagation);
 offers.forEach(offer => offer.addEventListener('mouseup', mapCategory));
