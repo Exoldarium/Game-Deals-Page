@@ -18,6 +18,7 @@ const logo = document.querySelectorAll('.logo');
 const displayGames = inputValue;
 // pass local storage as input
 inputGame.value = displayGames;
+let showData;
 
 fetch(endpoint)
     .then(res => res.json())
@@ -35,7 +36,6 @@ function searchData(input, value) {
 // display data in DOM (search bar)
 function displayData() {
     const matchedArray = searchData(this.value, games);
-    let showData;
     if (inputGame.value) {
         showData = matchedArray
             .slice(0, 5)
@@ -213,6 +213,18 @@ function mapGames() {
     }
 }
 
+// get a random game id
+function mapRandomGame() {
+    const gameIds = [];
+    games.forEach((game) => {
+        gameIds.push(game.gameID);
+    })
+    const randomLength = Math.floor(Math.random() * gameIds.length);
+    const randomId = gameIds[randomLength];
+    localStorage.setItem('idToPass', randomId);
+    window.location = 'deal-page.html';
+}
+
 // submit the search bar form and go to specific game page
 function gameInfo(e) {
     const gameId = e.target.dataset.index;
@@ -269,7 +281,10 @@ function submitForm(e) {
     e.preventDefault();
     const valueInput = inputGame.value;
     localStorage.setItem('searchValue', valueInput);
-    window.location = 'game-list.html';  
+    window.location = 'game-list.html'; 
+    if (showData.length == 0) {
+        window.location = 'error-page.html';
+    }
 }
 
 // set active effect for each of the buttons
@@ -314,6 +329,7 @@ form.addEventListener('submit', submitForm);
 form.addEventListener('click', stopPropagation);
 form.addEventListener('keyup', stopPropagation);
 spans.forEach(span => span.addEventListener('click', setActive));
+// randomGameList.addEventListener('mouseup', mapRandomGame);
 // window.addEventListener('change', saveInputValue);
 window.addEventListener('load', saveInputValue);
 window.addEventListener('load', mapGames);

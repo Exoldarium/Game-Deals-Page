@@ -1,27 +1,23 @@
-const endpointToChange = 'https://www.cheapshark.com/api/1.0/games?id=612';
-const gamepoint = 'https://www.cheapshark.com/api/1.0/deals?&upperPrice=50';
-const gameId = localStorage.getItem('idToPass');
+const endpoint = 'https://www.cheapshark.com/api/1.0/deals?&upperPrice=50';
+const games = [];
+const randomGameList = document.querySelector('.randomGame');
+const listGame = document.querySelector('.listGame');
 const inputValue = localStorage.getItem('searchValue');
 const listValue = JSON.parse(localStorage.getItem('mainSearchItems'));
-const regex = /[0-9]+$/;
-const endpoint = endpointToChange.replace(regex, gameId);
-const games = [];
-const dealsDiv = document.querySelector('.dealInfo');
-const listSearch = document.querySelector('.listNav');
+const activeEffect = localStorage.getItem('activeEffect');
 const inputGame = document.querySelector('.textGame');
+const list = document.querySelector('.gameList');
+const listSearch = document.querySelector('.listNav');
 const form = document.querySelector('.listGameBar');
 const logo = document.querySelectorAll('.logo');
 const displayGames = inputValue;
 inputGame.value = displayGames;
 let showData;
 
-console.log(gameId);
-
-// fetch the full game list 
-fetch(gamepoint)
-.then(res => res.json())
-.then(data => games.push(...data))
-.catch((err) => console.warn(err))
+fetch(endpoint)
+    .then(res => res.json())
+    .then(data => games.push(...data))
+    .catch((err) => console.warn(err))
 
 // match input with game.title property
 function searchData(input, value) {
@@ -31,21 +27,21 @@ function searchData(input, value) {
     });
 }
 
-// display data in DOM
+// display data in DOM (search bar)
 function displayData() {
     const matchedArray = searchData(this.value, games);
     if (inputGame.value) {
         showData = matchedArray
             .slice(0, 5)
             .map((games) => {
-                return `
-                    <li class="navListDisplay" data-index="${games.gameID}">
-                        <a href="deal-page.html" class="linkNav" data-index="${games.gameID}">
-                            <span lass="navListTitle" data-index="${games.gameID}">${games.title}</span>
-                        </a>
-                    </li>
-                `
-            }).join('');
+            return `
+                <li class="navListDisplay" data-index="${games.gameID}">
+                    <a href="deal-page.html" class="linkNav" data-index="${games.gameID}">
+                        <span lass="navListTitle" data-index="${games.gameID}">${games.title}</span>
+                    </a>
+                </li>
+            `
+        }).join('');
     } else {
         showData = matchedArray.slice(0, 0);
     }
@@ -53,27 +49,16 @@ function displayData() {
     listSearch.innerHTML = showData;
 }
 
-// fetch the specific game
-fetch(endpoint)
-    .then(res => res.json())
-    .then(data => getStuff(data))
-    .catch((err) => console.warn(err))
-
-// map the specific game info
-function getStuff(data) {
-    const games = [];
-    games.push(data);
-    console.log(games);
-    dealsDiv.innerHTML = games.map(game => {
-        return `
-            <div class="dealsList">
-                <div><img src="${game.info.thumb}"></div>
-                <div>Title: ${game.info.title}</div>
-                <div>Cheapest price ever: ${game.cheapestPriceEver.price}</div>
-                <div>Deal: ${game.deals[0].price}</div>
-            </div>
-        `
-    }).join('');
+// get a random game id
+function mapRandomGame() {
+    const gameIds = [];
+    games.forEach((game) => {
+        gameIds.push(game.gameID);
+    })
+    const randomLength = Math.floor(Math.random() * gameIds.length);
+    const randomId = gameIds[randomLength];
+    localStorage.setItem('idToPass', randomId);
+    window.location = 'deal-page.html';
 }
 
 // submit search bar form and load results
@@ -101,7 +86,6 @@ function stopPropagation(e) {
     listSearch.classList.remove('hide');
 }
 
-dealsDiv.addEventListener('load', getStuff);
 inputGame.addEventListener('keyup', displayData);
 inputGame.addEventListener('change', displayData);
 inputGame.addEventListener('mouseup', displayData);
@@ -109,8 +93,6 @@ listSearch.addEventListener('mouseup', gameInfo);
 form.addEventListener('submit', submitForm);
 form.addEventListener('click', stopPropagation);
 form.addEventListener('keyup', stopPropagation);
+randomGameList.addEventListener('mouseup', mapRandomGame);
 logo.forEach(logo => logo.addEventListener('mouseup', () => window.location = 'index.html'));
 document.body.addEventListener('click', () => listSearch.classList.add('hide'));
-
-// 1 steam, 8 origin, 23 gamebillet, 11 humble, 30 indiegala, 3 greenman
-

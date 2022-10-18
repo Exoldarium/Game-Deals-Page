@@ -8,6 +8,7 @@ const landing = document.querySelector('.formWrap');
 const offers = document.querySelectorAll('.offers');
 const randomGameList = document.querySelector('.randomGame');
 const logo = document.querySelectorAll('.logo');
+let showData;
 
 fetch(endpoint)
     .then(res => res.json())
@@ -26,7 +27,6 @@ function searchData(input, value) {
 function displayData() {
     const matchedArray = searchData(this.value, games);
     console.log({matchedArray});
-    let showData;
     if (inputText.value) {
         showData = matchedArray
         .slice(0, 5)
@@ -95,6 +95,9 @@ function submitForm(e) {
     const inputValue = inputText.value;
     localStorage.setItem('searchValue', inputValue);
     window.location = 'game-list.html';
+    if (showData.length == 0) {
+        window.location = 'error-page.html';
+    }
 }
 
 // select a specific game 

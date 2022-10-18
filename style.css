@@ -162,6 +162,24 @@ body {
     transition: all 0.2s;
 }
 
+/* error page */
+.errorDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.errorMessage {
+    margin-top: 150px;
+    margin-bottom: 150px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 30px;
+    background: gainsboro;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+}
+
 /* forms */
 .bar {
     display: flex;
@@ -489,7 +507,6 @@ a:hover {
     position: absolute;
     opacity: 0;
     top: -5000px;
-
 }
 
 /* buttons */
