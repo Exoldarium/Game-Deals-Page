@@ -51,8 +51,8 @@ body {
 .formWrap {
     display: flex;
     align-items: center;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: center;   
     background: #151920;
     position: relative;
     height: 70px;
@@ -159,6 +159,7 @@ body {
     margin: 5px 40px 10px 40px;
     box-shadow: 0 0 30px black;
     border-radius: 5px;
+    transition: all 0.2s;
 }
 
 /* forms */
@@ -166,13 +167,14 @@ body {
     display: flex;
     position: relative;
     top: 0;
-    margin-left: 20px;
+    right: 75px;
 }
 
 .listGameBar {
     display: flex;
     position: relative;
     top: 0;
+    right: 110px;
 }
 
 /* inputs */
@@ -392,6 +394,7 @@ body {
     border-radius: 5px;
     text-align: center;
     cursor: pointer;
+    transition: all 0.2s;
 }
 
 .paragraphLanding {
@@ -408,6 +411,27 @@ body {
     justify-content: center;
     background: linear-gradient(.25turn, transparent, rgb(105, 105, 105), transparent);
 }
+
+.logoIMG {
+    width: 100%;
+    height: 100%;
+}
+
+.logo {
+    width: 200px;
+    height: 50px;
+    margin-right: 200px;
+    cursor: pointer;
+}
+
+/* menu */
+.menu {
+    margin-left: 200px;
+    color: gainsboro;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+}
+
 /* links */
 .linkLanding {
     display: flex;
@@ -442,7 +466,6 @@ a {
 
 /* hover effect */
 a:hover {
-    /* background: linear-gradient(0.25turn, lightslategray, lightslategray, gainsboro); */
     background: rgb(139, 159, 179);
 }
 .spans:hover {

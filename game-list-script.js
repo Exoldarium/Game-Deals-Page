@@ -13,6 +13,7 @@ const rating = document.querySelector('.ratingRange');
 const slider = document.querySelector('.sortSlider');
 const labelRange = document.querySelector('.rangeLabel');
 const spans = document.querySelectorAll('.spans');
+const logo = document.querySelectorAll('.logo');
 // add local storage to new variable
 const displayGames = inputValue;
 // pass local storage as input
@@ -316,9 +317,8 @@ spans.forEach(span => span.addEventListener('click', setActive));
 // window.addEventListener('change', saveInputValue);
 window.addEventListener('load', saveInputValue);
 window.addEventListener('load', mapGames);
-document.body.addEventListener('click', function removeList() {
-    listSearch.classList.add('hide');
-});
+logo.forEach(logo => logo.addEventListener('mouseup', () => window.location = 'index.html'));
+document.body.addEventListener('click', () => listSearch.classList.add('hide'));
 
 // add an error page when the search returns nothing, array.length = 0
 

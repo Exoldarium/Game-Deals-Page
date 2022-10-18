@@ -10,6 +10,7 @@ const dealsDiv = document.querySelector('.dealInfo');
 const listSearch = document.querySelector('.listNav');
 const inputGame = document.querySelector('.textGame');
 const form = document.querySelector('.listGameBar');
+const logo = document.querySelectorAll('.logo');
 const displayGames = inputValue;
 inputGame.value = displayGames;
 
@@ -105,9 +106,8 @@ form.addEventListener('submit', submitForm);
 listSearch.addEventListener('mouseup', gameInfo);
 form.addEventListener('click', stopPropagation);
 form.addEventListener('keyup', stopPropagation);
-document.body.addEventListener('click', function removeList() {
-    listSearch.classList.add('hide');
-});
+logo.forEach(logo => logo.addEventListener('mouseup', () => window.location = 'index.html'));
+document.body.addEventListener('click', () => listSearch.classList.add('hide'));
 
 // 1 steam, 8 origin, 23 gamebillet, 11 humble, 30 indiegala, 3 greenman
 

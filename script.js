@@ -1,13 +1,13 @@
 const endpoint = 'https://www.cheapshark.com/api/1.0/deals?&upperPrice=50';
 const games = [];
+const gameIds = [];
 const inputText = document.querySelector('.text');
 const list = document.querySelector('.game');
 const form = document.querySelector('.bar');
 const landing = document.querySelector('.formWrap');
-const saleList = document.querySelector('.onSale');
-const dealRatingList = document.querySelector('.dealRating');
 const offers = document.querySelectorAll('.offers');
-const freeGameList = document.querySelector('.tripleA');
+const randomGameList = document.querySelector('.randomGame');
+const logo = document.querySelectorAll('.logo');
 
 fetch(endpoint)
     .then(res => res.json())
@@ -55,9 +55,9 @@ function displayData() {
     list.innerHTML = showData;
 }
 
+// sort based on the parameters and load next page
 function mapCategory(e) {
     const targetIndex = e.target.dataset.index;
-    // console.log(targetIndex);
     if (targetIndex == 0) {
         const filter = games.filter(game => game.isOnSale == 1);
         localStorage.setItem('mainSearchItems', JSON.stringify(filter));
@@ -75,6 +75,18 @@ function mapCategory(e) {
         localStorage.setItem('mainSearchItems', JSON.stringify(filter));
         window.location = 'game-list.html';
     }
+}
+
+// get a random game
+function mapRandomGame() {
+    const gameIds = [];
+    games.forEach((game) => {
+        gameIds.push(game.gameID);
+    })
+    const randomLength = Math.floor(Math.random() * gameIds.length);
+    const randomId = gameIds[randomLength];
+    localStorage.setItem('idToPass', randomId);
+    window.location = 'deal-page.html';
 }
 
 // submit form and load next page
@@ -105,15 +117,10 @@ form.addEventListener('submit', submitForm);
 list.addEventListener('mouseup', gameInfo);
 form.addEventListener('click', stopPropagation);
 form.addEventListener('keyup', stopPropagation);
-// saleList.addEventListener('mouseup', mapOnSale);
-// dealRatingList.addEventListener('mouseup', mapDealRating);
-// freeGameList.addEventListener('mouseup', mapFreeGames);
 offers.forEach(offer => offer.addEventListener('mouseup', mapCategory));
-document.body.addEventListener('click', function removeList() {
-    list.classList.add('hide');
-});
+randomGameList.addEventListener('mouseup', mapRandomGame);
+logo.forEach(logo => logo.addEventListener('mouseup', () => window.location = 'index.html'));
+document.body.addEventListener('click', () => list.classList.add('hide'));
 localStorage.clear();
 
-// should have a random game somwhere too
-// add a transparent effect on the bottom
 // add an error page when the search returns nothing, array.length = 0
