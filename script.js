@@ -77,7 +77,7 @@ function mapCategory(e) {
     }
 }
 
-// get a random game
+// get a random game id
 function mapRandomGame() {
     const gameIds = [];
     games.forEach((game) => {
