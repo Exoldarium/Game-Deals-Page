@@ -15,6 +15,7 @@ body {
     background: linear-gradient(0.25turn, #363d4d, #1f232c, #363d4d);
     padding: 0;
     margin: 0;
+    height: 100vh;
 }
 
 /* wrappers */
@@ -23,6 +24,7 @@ body {
    flex-direction: column;
    padding: 10px;
    margin-top: 100px;
+   height: inherit;
 }
 
 .landingLogo {
@@ -44,7 +46,7 @@ body {
     align-items: flex-start;
     justify-content: center;
     flex-direction: row;
-    min-height: 50vh;
+    min-height: 100vh;
     padding: 50px;
 }
 
@@ -65,8 +67,8 @@ body {
     justify-content: center;
     flex-direction: row;
     min-height: 50vh;
-    border: 2px solid gainsboro;
     margin: 0 auto;
+    height: inherit;
 }
 
 .dealsList {
@@ -74,6 +76,12 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: row;
+    border: 1px solid gainsboro;
+    height: 800px;
+    width: 800px;
+    background: gainsboro;
+    border-radius: 4px;
+    box-shadow: 0 0 20px black;
 }
 
 .options {
@@ -167,6 +175,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: inherit;
 }
 
 .errorMessage {
@@ -407,7 +416,7 @@ body {
     justify-content: center;
     width: 35vh;
     height: 50vh;
-    border: 1px solid black;
+    border: 1px solid gainsboro;
     margin: 5px 40px 10px 40px;
     box-shadow: 0 0 30px black;
     border-radius: 5px;
