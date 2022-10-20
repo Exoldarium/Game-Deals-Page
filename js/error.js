@@ -75,7 +75,6 @@ function submitForm(e) {
 function gameInfo(e) {
     const gameId = e.target.dataset.index;
     localStorage.setItem('idToPass', gameId);
-    window.location = 'deal-page.html';
     console.log(gameId);
 }
 
@@ -86,12 +85,12 @@ function stopPropagation(e) {
 }
 
 inputGame.addEventListener('keyup', displayData);
-inputGame.addEventListener('change', displayData);
-inputGame.addEventListener('mouseup', displayData);
-listSearch.addEventListener('mouseup', gameInfo);
+inputGame.addEventListener('click', displayData);
+listSearch.addEventListener('click', gameInfo);
+listSearch.addEventListener('mouseover', gameInfo);
 form.addEventListener('submit', submitForm);
 form.addEventListener('click', stopPropagation);
 form.addEventListener('keyup', stopPropagation);
-randomGameList.addEventListener('mouseenter', mapRandomGame);
-logo.forEach(logo => logo.addEventListener('mouseup', () => window.location = 'index.html'));
+randomGameList.addEventListener('mouseover', mapRandomGame);
+logo.forEach(logo => logo.addEventListener('click', () => window.location = 'index.html'));
 document.body.addEventListener('click', () => listSearch.classList.add('hide'));

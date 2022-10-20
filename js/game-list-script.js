@@ -213,23 +213,10 @@ function mapGames() {
     }
 }
 
-// get a random game id
-function mapRandomGame() {
-    const gameIds = [];
-    games.forEach((game) => {
-        gameIds.push(game.gameID);
-    })
-    const randomLength = Math.floor(Math.random() * gameIds.length);
-    const randomId = gameIds[randomLength];
-    localStorage.setItem('idToPass', randomId);
-    window.location = 'deal-page.html';
-}
-
 // submit the search bar form and go to specific game page
 function gameInfo(e) {
     const gameId = e.target.dataset.index;
     localStorage.setItem('idToPass', gameId);
-    window.location = 'deal-page.html';
     console.log(gameId);
 }
 
@@ -314,22 +301,23 @@ function setActive(e) {
 
 console.log({listValue});
 inputGame.addEventListener('keyup', displayData);
-inputGame.addEventListener('change', displayData);
-inputGame.addEventListener('mouseup', displayData);
-list.addEventListener('mouseup', gameInfo);
+inputGame.addEventListener('click', displayData);
+list.addEventListener('mouseover', gameInfo);
+list.addEventListener('click', gameInfo);
 slider.addEventListener('change', parameterSort);
-listSearch.addEventListener('mouseup', gameInfo);
+listSearch.addEventListener('click', gameInfo);
+listSearch.addEventListener('mouseover', gameInfo);
 range.addEventListener('change', priceRange);
 form.addEventListener('submit', submitForm);
 form.addEventListener('click', stopPropagation);
 form.addEventListener('keyup', stopPropagation);
 spans.forEach(span => span.addEventListener('click', setActive));
-// randomGameList.addEventListener('mouseup', mapRandomGame);
-// window.addEventListener('change', saveInputValue);
 window.addEventListener('load', saveInputValue);
 window.addEventListener('load', mapGames);
-logo.forEach(logo => logo.addEventListener('mouseup', () => window.location = 'index.html'));
+logo.forEach(logo => logo.addEventListener('click', () => window.location = 'index.html'));
 document.body.addEventListener('click', () => listSearch.classList.add('hide'));
+
+//logo click needs to be fixed, goes under the form
 
 
 
