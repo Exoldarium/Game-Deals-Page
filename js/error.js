@@ -58,7 +58,6 @@ function mapRandomGame() {
     const randomLength = Math.floor(Math.random() * gameIds.length);
     const randomId = gameIds[randomLength];
     localStorage.setItem('idToPass', randomId);
-    window.location = 'deal-page.html';
 }
 
 // submit search bar form and load results
@@ -93,6 +92,6 @@ listSearch.addEventListener('mouseup', gameInfo);
 form.addEventListener('submit', submitForm);
 form.addEventListener('click', stopPropagation);
 form.addEventListener('keyup', stopPropagation);
-randomGameList.addEventListener('mouseup', mapRandomGame);
+randomGameList.addEventListener('mouseenter', mapRandomGame);
 logo.forEach(logo => logo.addEventListener('mouseup', () => window.location = 'index.html'));
 document.body.addEventListener('click', () => listSearch.classList.add('hide'));

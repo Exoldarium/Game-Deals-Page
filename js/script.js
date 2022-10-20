@@ -5,15 +5,15 @@ const inputText = document.querySelector('.text');
 const list = document.querySelector('.game');
 const form = document.querySelector('.bar');
 const landing = document.querySelector('.formWrap');
-const offers = document.querySelectorAll('.offers');
+const offers = document.querySelectorAll('.imgSale');
 const randomGameList = document.querySelector('.randomGame');
 const logo = document.querySelectorAll('.logo');
 let showData;
 
 fetch(endpoint)
-    .then(res => res.json())
-    .then(data => games.push(...data))
-    .catch((err) => console.warn(err))
+.then(res => res.json())
+.then(data => games.push(...data))
+.catch((err) => console.warn(err))
 
 // match input with game.title property
 function searchData(input, value) {
@@ -24,7 +24,7 @@ function searchData(input, value) {
 }
 
 // display data in DOM
-function displayData() {
+function displayData(a) {
     const matchedArray = searchData(this.value, games);
     console.log({matchedArray});
     if (inputText.value) {
@@ -43,7 +43,7 @@ function displayData() {
                                 <span class="normalPrice" data-index="${games.gameID}">$${games.normalPrice}</span>
                                 <span class="salePrice" data-index="${games.gameID}">$${games.salePrice}</span>
                             </div>
-                        </span>
+                         </span>
                     </a>
                 </li>
             `   
@@ -59,21 +59,18 @@ function displayData() {
 function mapCategory(e) {
     const targetIndex = e.target.dataset.index;
     if (targetIndex == 0) {
-        const filter = games.filter(game => game.isOnSale == 1);
+        const filter = games.filter(game => game.isOnSale);
         localStorage.setItem('mainSearchItems', JSON.stringify(filter));
-        window.location = 'game-list.html';
     }
 
     if (targetIndex == 1) {
         const filter = games.sort((firstGame, secondGame) => firstGame.dealRating - secondGame.dealRating);
         localStorage.setItem('mainSearchItems', JSON.stringify(filter));
-        window.location = 'game-list.html';
     }
     
     if (targetIndex == 2) {
         const filter = games.filter(game => game.salePrice == 0);
         localStorage.setItem('mainSearchItems', JSON.stringify(filter));
-        window.location = 'game-list.html';
     }
 }
 
@@ -86,7 +83,7 @@ function mapRandomGame() {
     const randomLength = Math.floor(Math.random() * gameIds.length);
     const randomId = gameIds[randomLength];
     localStorage.setItem('idToPass', randomId);
-    window.location = 'deal-page.html';
+  
 }
 
 // submit form and load next page
@@ -104,7 +101,6 @@ function submitForm(e) {
 function gameInfo(e) {
     const gameId = e.target.dataset.index;
     localStorage.setItem('idToPass', gameId);
-    window.location = 'deal-page.html';
 }
 
 // stops propagation and hides the list
@@ -114,14 +110,15 @@ function stopPropagation(e) {
 }
 
 inputText.addEventListener('keyup', displayData);
-inputText.addEventListener('change', displayData);
-inputText.addEventListener('mouseup', displayData);
-list.addEventListener('mouseup', gameInfo);
+inputText.addEventListener('click', displayData);
+list.addEventListener('mouseover', gameInfo);
+list.addEventListener('click', gameInfo);
 form.addEventListener('submit', submitForm);
 form.addEventListener('click', stopPropagation);
 form.addEventListener('keyup', stopPropagation);
-offers.forEach(offer => offer.addEventListener('mouseup', mapCategory));
-randomGameList.addEventListener('mouseup', mapRandomGame);
-logo.forEach(logo => logo.addEventListener('mouseup', () => window.location = 'index.html'));
+offers.forEach(offer => offer.addEventListener('click', mapCategory));
+offers.forEach(offer => offer.addEventListener('mouseover', mapCategory));
+randomGameList.addEventListener('mouseover', mapRandomGame);
+logo.forEach(logo => logo.addEventListener('click', () => window.location = 'index.html'));
 document.body.addEventListener('click', () => list.classList.add('hide'));
 localStorage.clear();

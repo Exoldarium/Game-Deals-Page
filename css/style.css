@@ -163,7 +163,7 @@ body {
 .randomGame {
     width: 70vh;
     height: 20vh;
-    border: 1px solid gainsboro;
+    border: 2px solid gainsboro;
     margin: 5px 40px 10px 40px;
     box-shadow: 0 0 30px black;
     border-radius: 5px;
@@ -416,7 +416,7 @@ body {
     justify-content: center;
     width: 35vh;
     height: 50vh;
-    border: 1px solid gainsboro;
+    border: 2px solid gainsboro;
     margin: 5px 40px 10px 40px;
     box-shadow: 0 0 30px black;
     border-radius: 5px;
@@ -469,6 +469,8 @@ body {
     text-decoration: none;
     color: black;
     font-weight: bold;
+    height: inherit;
+    width: inherit;
 }
 
 .linkList {
@@ -493,7 +495,7 @@ a {
 }
 
 /* hover effect */
-a:hover {
+.linkList:hover, .linkLanding:hover, .linkNav:hover {
     background: rgb(139, 159, 179);
 }
 .spans:hover {
