@@ -54,11 +54,12 @@ body {
     display: flex;
     align-items: center;
     flex-direction: row;
-    justify-content: center;   
+    justify-content: space-around;   
     background: #151920;
     position: relative;
     height: 70px;
     z-index: 2;
+    width: 100%;
 }
 
 .dealInfo {
@@ -104,7 +105,7 @@ body {
 .ulDiv {
     flex-grow: 0;
     flex-shrink: 0;
-    margin-left: 10%;
+    margin-left: 14%;
     margin-right: 20px;
 }
 
@@ -193,45 +194,39 @@ body {
 .bar {
     display: flex;
     position: relative;
-    top: 0;
-    right: 75px;
+    flex-direction: column;
+    height: 20%;
+    margin-bottom: 25px;
 }
 
 .listGameBar {
     display: flex;
     position: relative;
-    top: 0;
-    right: 110px;
+    flex-direction: column;
+    height: 20%;
+    margin-bottom: 25px;
+
 }
 
 /* inputs */
-.submit {
+.submit, .submitGame {
     background: gainsboro;
     border: gainsboro;
     border-radius: 5px;
     cursor: pointer;
+    position: absolute;
+    left: 360px;
+    top: 8px;
+    width: 20px;
+    height: 20px;
+    font-size: 15px;
 
 }
 
-.submitGame {
-    background: gainsboro;
-    border: gainsboro;
-    border-radius: 5px;
-}
-
-.text {
+.text, .textGame {
     padding: 10px 50px;
     text-align: center;
     min-width: 40vh;
-    border-radius: 5px;
-    background: gainsboro;
-    color: black;
-}
-
-.textGame {
-    padding: 10px 50px;
-    text-align: center;
-    min-width: 30vh;
     border-radius: 5px;
     background: gainsboro;
     color: black;
@@ -248,29 +243,25 @@ body {
 
 /* lists */
 .game {
-    position: absolute;
-    top: 40px;
     box-shadow: 0 15px 20px black;
     padding: 0;
-    margin-top: 17px;
-    margin-right: 25px;
     font-family: 'Quicksand', sans-serif;
     font-weight: bold;
     border: 1px solid black;
     background: gainsboro;
+    margin: 0;
+    border-radius: 4px;
 }
 
 .listNav {
-    position: absolute;
-    top: 40px;
     box-shadow: 0 15px 20px black;
     padding: 0;
-    margin-right: 90px;
     font-family: 'Quicksand', sans-serif;
     font-weight: bold;
     border: 1px solid black;
     background: gainsboro;
-    border-radius: 3px;
+    margin: 0;
+    border-radius: 4px;
 }
 
 .gameList {
@@ -287,7 +278,6 @@ body {
 .display {
     list-style: none;
     border-bottom: 1px solid #2E3441;
-    transition: background 0.2s;
     width: 382px;
     border-radius: 2px;
 }
@@ -297,24 +287,18 @@ body {
     font-size: 17px;
     border-bottom: 1px solid #2E3441;
     box-shadow: 0 0 3px black;
-    transition: background 0.2s;
     text-transform: capitalize;
     min-width: 40vh;
     max-width: 60vh;
     align-items: center;
-    padding: 0;
-    margin: 0;
-    flex-grow: 0;
-    flex-shrink: 0;
+    transition: all 0.2s;
 }
 
 .navListDisplay {
     list-style: none;
     border-bottom: 1px solid #2E3441;
-    transition: background 0.2s;
-    text-transform: capitalize;
-    min-width: 30vh;
-    max-width: 5vh;
+    width: 382px;
+    border-radius: 2px;
 
 }
 
@@ -443,12 +427,12 @@ body {
 .logoIMG {
     width: 100%;
     height: 100%;
+    margin-left: 50px;
 }
 
 .logo {
     width: 200px;
     height: 50px;
-    margin-right: 200px;
     cursor: pointer;
 }
 
