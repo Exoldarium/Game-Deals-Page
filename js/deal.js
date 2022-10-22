@@ -1,5 +1,6 @@
 const endpointToChange = 'https://www.cheapshark.com/api/1.0/games?id=612';
 const gamepoint = 'https://www.cheapshark.com/api/1.0/deals?&upperPrice=50';
+const storepoint = 'https://www.cheapshark.com/api/1.0/stores';
 const gameId = localStorage.getItem('idToPass');
 const inputValue = localStorage.getItem('searchValue');
 const listValue = JSON.parse(localStorage.getItem('mainSearchItems'));
@@ -67,13 +68,42 @@ function getStuff(data) {
     dealsDiv.innerHTML = games.map(game => {
         return `
             <div class="dealsList">
-                <div><img src="${game.info.thumb}"></div>
-                <div>Title: ${game.info.title}</div>
-                <div>Cheapest price ever: ${game.cheapestPriceEver.price}</div>
-                <div>Deal: ${game.deals[0].price}</div>
+                <div class="dealDiv">
+                    <img src="${game.info.thumb}" class="imgDeal">
+                </div>
+                <div class="infoDiv">
+                    <div class="infoText gameName">${game.info.title}</div>
+                    <div class="infoText">
+                        Normal Price: $${game.deals[0].retailPrice}
+                    </div>
+                    <div class="infoText">
+                        Deal Price:<span class="discountPrice">$${game.deals[0].price} -${Math.round(game.deals[0].savings)}%</span>
+                        <span class="dealLink">
+                            <a href="https://www.cheapshark.com/redirect?dealID=${game.deals[0].dealID}">Check the Deal</a>
+                        </span>
+                    </div>
+                    <div class="infoText">
+                        Lowest price ever: $${game.cheapestPriceEver.price} on ${createDate(game.cheapestPriceEver.date)}
+                    </div>
+                </div>
             </div>
         `
     }).join('');
+}
+
+// convert date from ms
+function createDate(value) {
+    let date = new Date(value * 1000);
+    let day = date.getDate();
+    let month = date.getMonth();
+    let year = date.getFullYear(); 
+    if (day < 10) {
+       day = 0 + day;
+    } 
+    if (month < 10) {
+        month = 0 + month;
+    }
+    return day + '/' + month + '/' + year;
 }
 
 // submit search bar form and load results

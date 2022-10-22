@@ -76,11 +76,10 @@ body {
 
 .dealsList {
     display: flex;
-    align-items: center;
     justify-content: center;
     flex-direction: row;
     border: 1px solid gainsboro;
-    height: 800px;
+    height: 600px;
     width: 800px;
     background: gainsboro;
     border-radius: 4px;
@@ -377,6 +376,53 @@ body {
     width: 100%;
     border: 1px solid black;
     z-index: -1;
+}
+
+.imgDeal {
+    max-height: inherit;
+    max-width: inherit;
+}
+
+.dealDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 300px;
+    max-width: 100%;
+    max-height: 100%;
+    background: rgb(175, 174, 174);
+    border: 2px solid black;
+    border-radius: 4px;
+    box-shadow: 0 0 10px black;
+    margin: 25px;
+}
+
+.infoDiv {
+    margin: 25px;
+    height: fit-content;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    background: rgb(175, 174, 174);
+    border: 2px solid black;
+    box-shadow: 0 0 10px black;
+    border-radius: 4px;
+    padding: 10px;
+
+}
+
+.infoText {
+    margin-top: 20px;
+}
+.gameName {
+    font-size: 40px;
+    text-decoration: 4px underline;
+}
+
+.discountPrice {
+    color: darkgreen;
+    position: inherit;
+    margin-left: 10px;
 }
 
 .imageDiv {
