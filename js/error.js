@@ -32,15 +32,24 @@ function displayData() {
     const matchedArray = searchData(this.value, games);
     if (inputGame.value) {
         showData = matchedArray
-            .slice(0, 5)
-            .map((games) => {
+        .slice(0, 5)
+        .map(games => {
             return `
-                <li class="navListDisplay" data-index="${games.gameID}">
-                    <a href="deal-page.html" class="linkNav" data-index="${games.gameID}">
-                        <span lass="navListTitle" data-index="${games.gameID}">${games.title}</span>
+                <li class="display" data-index="${games.gameID}">
+                    <a href="deal-page.html" class="linkLanding" data-index="${games.gameID}">
+                        <span class="title" data-index="${games.gameID}">
+                            <div class="imageDiv" data-index="${games.gameID}">
+                                <img src="${games.thumb}" class="imgLanding" data-index="${games.gameID}">
+                            </div>
+                            <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
+                            <div class="priceDiv" data-index="${games.gameID}">
+                                <span class="normalPrice" data-index="${games.gameID}">$${games.normalPrice}</span>
+                                <span class="salePrice" data-index="${games.gameID}">$${games.salePrice}</span>
+                            </div>
+                         </span>
                     </a>
                 </li>
-            `
+            `   
         }).join('');
     } else {
         showData = matchedArray.slice(0, 0);

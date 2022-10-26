@@ -288,13 +288,6 @@ body {
     transition: all 0.2s;
 }
 
-.navListDisplay {
-    list-style: none;
-    border-bottom: 1px solid #2E3441;
-    width: 382px;
-    border-radius: 2px;
-}
-
 /* spans */
 .title {
     font-size: 17px;
@@ -318,16 +311,6 @@ body {
     font-family: 'Quicksand', sans-serif;
     flex-basis: content;
 
-}
-
-.navListTitle {
-    text-align: left;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    padding: 10px;
-    display: block;
-    font-family: 'Quicksand', sans-serif;
 }
 
 .spaceSpan {
@@ -515,13 +498,6 @@ body {
     font-weight: bold;
 }
 
-.linkNav {
-    display: flex;
-    flex-direction: row;
-    color: black;
-    font-size: 18px;
-    text-decoration: none;
-}
 a {
     padding: 5px;
 }
