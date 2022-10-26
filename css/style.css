@@ -66,11 +66,11 @@ body {
 
 .dealInfo {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     flex-direction: row;
     min-height: 50vh;
-    margin: 0 auto;
+    margin-top: 170px;
     height: inherit;
 }
 
@@ -84,6 +84,30 @@ body {
     background: gainsboro;
     border-radius: 4px;
     box-shadow: 0 0 20px black;
+}
+
+.allDeals {
+    background: rgb(175, 174, 174);
+    border: 1px solid black;
+    border-radius: 4px;
+    box-shadow: 0 0 20px black;
+    height: 15px;
+}
+
+.allDealsList {
+    list-style: none;
+    padding: 5px;
+    z-index: -1;
+    position: relative;
+    /* opacity: 0; */
+}
+
+.allDealsListLinks {
+    text-decoration: none;
+    color: black;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    border-bottom: 1px solid black;
 }
 
 .options {
@@ -345,6 +369,15 @@ body {
     color: darkgreen;
 }
 
+.spanDealsTitle{
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    background: rgb(175, 174, 174);
+    cursor: pointer;
+}
+
 /* images */
 .imgLanding {
     height:55px;
@@ -503,7 +536,7 @@ a {
 }
 
 /* hover effect */
-.linkList:hover, .linkLanding:hover, .linkNav:hover {
+.linkList:hover, .linkLanding:hover, .linkNav:hover, .allDealsListLinks:hover {
     background: rgb(139, 159, 179);
 }
 .spans:hover {
@@ -520,6 +553,12 @@ a {
     transition: all 0.2s;
     cursor: pointer;
 }
+
+/* .activeList {
+    z-index: 1 !important;
+    position: relative !important;
+    opacity: 1 !important;
+} */
 
 /* list hide */ 
 .hide {

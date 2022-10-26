@@ -7,11 +7,13 @@ const listValue = JSON.parse(localStorage.getItem('mainSearchItems'));
 const regexID = /[0-9]+$/;
 const endpoint = endpointToChange.replace(regexID, gameId);
 const games = [];
-const dealsDiv = document.querySelector('.dealInfo');
+const dealsDiv = document.querySelector('.dealsList');
+const allDeals = document.querySelector('.allDealsList');
 const listSearch = document.querySelector('.listNav');
 const inputGame = document.querySelector('.textGame');
 const form = document.querySelector('.listGameBar');
 const logo = document.querySelectorAll('.logo');
+const spanActive = document.querySelector('.spanDealsTitle');
 const displayGames = inputValue;
 inputGame.value = displayGames;
 let showData;
@@ -97,17 +99,16 @@ function createElements(dealItems, storeItems) {
     });
     dealsDiv.innerHTML = deals.map(game => {
         return `
-            <div class="dealsList">
                 <div class="dealDiv">
                     <img src="${game.info.thumb}" class="imgDeal">
                 </div>
                 <div class="infoDiv">
                     <div class="infoText gameName">${game.info.title}</div>
                     <div class="infoText">
-                        Normal Price: $${game.deals[0].retailPrice}
+                        <span>Normal Price: $${game.deals[0].retailPrice}</span>
                     </div>
                     <div class="infoText">
-                        Deal Price:<span class="discountPrice">$${game.deals[0].price} -${Math.round(game.deals[0].savings)}%</span>
+                        Best Deal: <span>$${game.deals[0].price}<span class="discountPrice">-${Math.round(game.deals[0].savings)}%</span></span>
                         <span class="dealLink">
                             <a href="https://www.cheapshark.com/redirect?dealID=${game.deals[0].dealID}">
                                 <img src="https://www.cheapshark.com${game.deals[0].images.banner}" class="imgBanner">
@@ -115,13 +116,24 @@ function createElements(dealItems, storeItems) {
                         </span>
                     </div>
                     <div class="infoText">
-                        Lowest price ever: $${game.cheapestPriceEver.price} on ${createDate(game.cheapestPriceEver.date)}
+                        <span>Lowest price ever: $${game.cheapestPriceEver.price} on ${createDate(game.cheapestPriceEver.date)}</span>
                     </div>
-                </div>
-            </div>
         `
     }).join('');
-    console.log(deals);
+    allDeals.innerHTML = specificDeals
+        .slice(1)
+        .map(game => {
+        return `
+            <li class="allDealsList">
+                <a href="https://www.cheapshark.com/redirect?dealID=${game.dealID}" class="allDealsListLinks">
+                    <img src="https://www.cheapshark.com${game.images.icon}">
+                    $${game.price} 
+                    <span class="discountPrice">-${Math.round(game.savings)}%</span>
+                </a>
+            </li>
+        `
+    }).join('');
+    console.log(specificDeals);
 }
 
 // convert date from ms
@@ -163,6 +175,18 @@ function stopPropagation(e) {
     listSearch.classList.remove('hide');
 }
 
+// function dealListActive(e) {
+//     if(!e.target.matches('span')) return;
+//     if (e.target === spanActive) {
+//         document.querySelector('.allDeals').style.height = '50px';
+//         allDeals.classList.add('activeList');
+//     } 
+// //     if (allDeals.classList.contains('activeList')) {
+// //         // document.querySelector('.allDeals').style.height = '80px';
+// //         allDeals.classList.remove('activeList');
+// //     }
+// }
+
 dealsDiv.addEventListener('load', createElements);
 inputGame.addEventListener('keyup', displayData);
 inputGame.addEventListener('click', displayData);
@@ -171,6 +195,7 @@ listSearch.addEventListener('mouseover', gameInfo);
 form.addEventListener('submit', submitForm);
 form.addEventListener('click', stopPropagation);
 form.addEventListener('keyup', stopPropagation);
+spanActive.addEventListener('click', dealListActive);
 logo.forEach(logo => logo.addEventListener('click', () => window.location = 'index.html'));
 document.body.addEventListener('click', () => listSearch.classList.add('hide'));
 
