@@ -24,7 +24,7 @@ function searchData(input, value) {
 }
 
 // display data in DOM
-function displayData(a) {
+function displayData() {
     const matchedArray = searchData(this.value, games);
     console.log({matchedArray});
     if (inputText.value) {

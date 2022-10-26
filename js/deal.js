@@ -4,8 +4,8 @@ const storepoint = 'https://www.cheapshark.com/api/1.0/stores';
 const gameId = localStorage.getItem('idToPass');
 const inputValue = localStorage.getItem('searchValue');
 const listValue = JSON.parse(localStorage.getItem('mainSearchItems'));
-const regex = /[0-9]+$/;
-const endpoint = endpointToChange.replace(regex, gameId);
+const regexID = /[0-9]+$/;
+const endpoint = endpointToChange.replace(regexID, gameId);
 const games = [];
 const dealsDiv = document.querySelector('.dealInfo');
 const listSearch = document.querySelector('.listNav');
@@ -16,13 +16,33 @@ const displayGames = inputValue;
 inputGame.value = displayGames;
 let showData;
 
-console.log(gameId);
+// console.log(dealsAndStores);
 
 // fetch the full game list 
 fetch(gamepoint)
-.then(res => res.json())
-.then(data => games.push(...data))
-.catch((err) => console.warn(err))
+    .then(res => res.json())
+    .then(data => games.push(...data))
+    .catch((err) => console.warn(err))
+
+// fetch the specific game
+const dealsData = fetch(endpoint)
+    .then(res => res.json())
+    .then(data => {
+        return data;
+    })
+    .catch((err) => console.warn(err))
+    
+// fetch the stores
+const storesData = fetch(storepoint)
+    .then(res => res.json())
+    .then(value => {
+        return value;
+    })
+    .catch((err) => console.warn(err))
+
+Promise.all([dealsData, storesData])
+    .then(([dealItems, storeItems]) => createElements(dealItems, storeItems))
+    .catch(err => console.error(err));
 
 // match input with game.title property
 function searchData(input, value) {
@@ -54,18 +74,19 @@ function displayData() {
     listSearch.innerHTML = showData;
 }
 
-// fetch the specific game
-fetch(endpoint)
-    .then(res => res.json())
-    .then(data => getStuff(data))
-    .catch((err) => console.warn(err))
-
 // map the specific game info
-function getStuff(data) {
-    const games = [];
-    games.push(data);
-    console.log(games);
-    dealsDiv.innerHTML = games.map(game => {
+function createElements(dealItems, storeItems) {
+    let stores = storeItems;
+    let deals = [dealItems];
+    const specificDeals = deals[0].deals;
+    specificDeals.forEach(deal => {
+       stores.forEach(store => {
+        if (deal.storeID === store.storeID) {
+            deal.images = store.images;
+        }
+       });
+    });
+    dealsDiv.innerHTML = deals.map(game => {
         return `
             <div class="dealsList">
                 <div class="dealDiv">
@@ -79,7 +100,9 @@ function getStuff(data) {
                     <div class="infoText">
                         Deal Price:<span class="discountPrice">$${game.deals[0].price} -${Math.round(game.deals[0].savings)}%</span>
                         <span class="dealLink">
-                            <a href="https://www.cheapshark.com/redirect?dealID=${game.deals[0].dealID}">Check the Deal</a>
+                            <a href="https://www.cheapshark.com/redirect?dealID=${game.deals[0].dealID}">
+                                <img src="https://www.cheapshark.com${game.deals[0].images.banner}" class="imgBanner">
+                            </a>
                         </span>
                     </div>
                     <div class="infoText">
@@ -89,6 +112,7 @@ function getStuff(data) {
             </div>
         `
     }).join('');
+    console.log(deals);
 }
 
 // convert date from ms
@@ -130,7 +154,7 @@ function stopPropagation(e) {
     listSearch.classList.remove('hide');
 }
 
-dealsDiv.addEventListener('load', getStuff);
+dealsDiv.addEventListener('load', createElements);
 inputGame.addEventListener('keyup', displayData);
 inputGame.addEventListener('click', displayData);
 listSearch.addEventListener('click', gameInfo);
@@ -141,5 +165,4 @@ form.addEventListener('keyup', stopPropagation);
 logo.forEach(logo => logo.addEventListener('click', () => window.location = 'index.html'));
 document.body.addEventListener('click', () => listSearch.classList.add('hide'));
 
-// 1 steam, 8 origin, 23 gamebillet, 11 humble, 30 indiegala, 3 greenman
 

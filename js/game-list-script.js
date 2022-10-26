@@ -318,7 +318,7 @@ logo.forEach(logo => logo.addEventListener('click', () => window.location = 'ind
 document.body.addEventListener('click', () => listSearch.classList.add('hide'));
 
 //logo click needs to be fixed, goes under the form
-
+//https://stackoverflow.com/questions/55991302/how-do-i-combine-two-fetch-request-into-the-same-array
 
 
 
