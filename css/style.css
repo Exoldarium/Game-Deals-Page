@@ -574,6 +574,12 @@ a {
     color: gainsboro;
 }
 
+.imgLinks {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+
 /* hover effect */
 .linkList:hover, .linkLanding:hover, .linkNav:hover, .allDealsListLinks:hover {
     background: rgb(139, 159, 179);
