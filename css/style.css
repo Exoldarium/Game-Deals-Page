@@ -71,6 +71,7 @@ body {
     flex-direction: row;
     min-height: 50vh;
     margin-top: 170px;
+    margin-right: 50px;
     height: inherit;
 }
 
@@ -78,28 +79,23 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: row;
-    border: 1px solid gainsboro;
     height: 600px;
     width: 800px;
-    background: gainsboro;
-    border-radius: 4px;
-    box-shadow: 0 0 20px black;
 }
 
 .allDeals {
     background: rgb(175, 174, 174);
     border: 1px solid black;
     border-radius: 4px;
-    box-shadow: 0 0 20px black;
+    box-shadow: 0 0 10px black;
     height: 15px;
+    margin-top: 25px;
+    max-width: 200px;
 }
 
 .allDealsList {
     list-style: none;
     padding: 5px;
-    z-index: -1;
-    position: relative;
-    /* opacity: 0; */
 }
 
 .allDealsListLinks {
@@ -376,6 +372,19 @@ body {
     font-weight: bold;
     background: rgb(175, 174, 174);
     cursor: pointer;
+    border-radius: 2px;
+    max-width: 200px;
+}
+
+.arrow {
+    width: 0; 
+    height: 0; 
+    margin-left: 800px;
+    margin-top: 50px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid rgb(175, 174, 174);;
+    position: absolute;
 }
 
 /* images */
@@ -554,11 +563,10 @@ a {
     cursor: pointer;
 }
 
-/* .activeList {
-    z-index: 1 !important;
-    position: relative !important;
-    opacity: 1 !important;
-} */
+.activeList {
+    z-index: -1;
+    opacity: 0;
+}
 
 /* list hide */ 
 .hide {

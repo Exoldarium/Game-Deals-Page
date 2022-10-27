@@ -175,17 +175,12 @@ function stopPropagation(e) {
     listSearch.classList.remove('hide');
 }
 
-// function dealListActive(e) {
-//     if(!e.target.matches('span')) return;
-//     if (e.target === spanActive) {
-//         document.querySelector('.allDeals').style.height = '50px';
-//         allDeals.classList.add('activeList');
-//     } 
-// //     if (allDeals.classList.contains('activeList')) {
-// //         // document.querySelector('.allDeals').style.height = '80px';
-// //         allDeals.classList.remove('activeList');
-// //     }
-// }
+function addActiveList(e) {
+    if(e.target === spanActive){
+        document.querySelector('.allDeals').style.height = 'fit-content';
+        allDeals.classList.remove('activeList');
+    } 
+}
 
 dealsDiv.addEventListener('load', createElements);
 inputGame.addEventListener('keyup', displayData);
@@ -195,7 +190,7 @@ listSearch.addEventListener('mouseover', gameInfo);
 form.addEventListener('submit', submitForm);
 form.addEventListener('click', stopPropagation);
 form.addEventListener('keyup', stopPropagation);
-spanActive.addEventListener('click', dealListActive);
+spanActive.addEventListener('click', addActiveList);
 logo.forEach(logo => logo.addEventListener('click', () => window.location = 'index.html'));
 document.body.addEventListener('click', () => listSearch.classList.add('hide'));
 
