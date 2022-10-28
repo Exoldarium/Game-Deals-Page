@@ -458,6 +458,7 @@ body {
 
 .infoText {
     margin-top: 20px;
+    cursor: default;
 }
 .gameName {
     font-size: 40px;
@@ -577,6 +578,13 @@ a {
     width: 100%;
     height: 100%;
     padding: 0;
+}
+
+.linksAbout {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    text-decoration: underline;
+    color: black;
 }
 
 /* hover effect */
