@@ -14,6 +14,7 @@ const displayGames = inputValue;
 inputGame.value = displayGames;
 let showData;
 
+// fetch the endpoint
 fetch(endpoint)
     .then(res => res.json())
     .then(data => games.push(...data))
@@ -84,7 +85,6 @@ function submitForm(e) {
 function gameInfo(e) {
     const gameId = e.target.dataset.index;
     localStorage.setItem('idToPass', gameId);
-    console.log(gameId);
 }
 
 // stops propagation and hides the list

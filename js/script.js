@@ -10,6 +10,7 @@ const randomGameList = document.querySelector('.randomGame');
 const logo = document.querySelectorAll('.logo');
 let showData;
 
+// fetch the endpoint
 fetch(endpoint)
 .then(res => res.json())
 .then(data => games.push(...data))
@@ -26,7 +27,6 @@ function searchData(input, value) {
 // display data in DOM
 function displayData() {
     const matchedArray = searchData(this.value, games);
-    console.log({matchedArray});
     if (inputText.value) {
         showData = matchedArray
         .slice(0, 5)
@@ -57,6 +57,7 @@ function displayData() {
 
 // sort based on the parameters and load next page
 function mapCategory(e) {
+    // depending which element user clicks
     const targetIndex = e.target.dataset.index;
     if (targetIndex == 0) {
         const filter = games.filter(game => game.isOnSale);

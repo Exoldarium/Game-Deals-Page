@@ -20,6 +20,7 @@ const displayGames = inputValue;
 inputGame.value = displayGames;
 let showData;
 
+// fetch the endpoint
 fetch(endpoint)
     .then(res => res.json())
     .then(data => games.push(...data))
@@ -97,6 +98,7 @@ function mapGames() {
         list.innerHTML = showData;
     }
 
+    // filter based on price (lower)
     if (slider.value == 1) {
         showData = listValue
             .filter(games => games.salePrice <= range.value)
@@ -126,7 +128,7 @@ function mapGames() {
         localStorage.setItem('mainSearchItems', JSON.stringify(listValue));
         list.innerHTML = showData;
     }
-
+    // filter based on price (higher)
     if (slider.value == 2) {
         showData = listValue
             .filter(games => games.salePrice <= range.value)
@@ -157,6 +159,7 @@ function mapGames() {
         list.innerHTML = showData;
     }
 
+    // filter based on name
     if (slider.value == 4) {
         showData = listValue
             .filter(games => games.salePrice <= range.value)
@@ -191,6 +194,7 @@ function mapGames() {
         list.innerHTML = showData;
     }
 
+    // filter based on discount (savings)
     if (slider.value == 5) {
         showData = listValue
             .filter(games => games.salePrice <= range.value)
@@ -226,7 +230,6 @@ function mapGames() {
 function gameInfo(e) {
     const gameId = e.target.dataset.index;
     localStorage.setItem('idToPass', gameId);
-    console.log(gameId);
 }
 
 // price range slider
@@ -308,7 +311,6 @@ function setActive(e) {
     mapGames();
 }
 
-console.log({listValue});
 inputGame.addEventListener('keyup', displayData);
 inputGame.addEventListener('click', displayData);
 list.addEventListener('mouseover', gameInfo);

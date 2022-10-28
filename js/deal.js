@@ -18,8 +18,6 @@ const displayGames = inputValue;
 inputGame.value = displayGames;
 let showData;
 
-// console.log(dealsAndStores);
-
 // fetch the full game list 
 fetch(gamepoint)
     .then(res => res.json())
@@ -90,6 +88,7 @@ function createElements(dealItems, storeItems) {
     let stores = storeItems;
     let deals = [dealItems];
     const specificDeals = deals[0].deals;
+    // push images from the store array to deals array
     specificDeals.forEach(deal => {
        stores.forEach(store => {
         if (deal.storeID === store.storeID) {
@@ -97,57 +96,53 @@ function createElements(dealItems, storeItems) {
         }
        });
     });
+    // map the lowest priced deal
     dealsDiv.innerHTML = deals.map(game => {
         return `
-                <div class="dealDiv">
-                    <img src="${game.info.thumb}" class="imgDeal">
+            <div class="dealDiv">
+                <img src="${game.info.thumb}" class="imgDeal">
+            </div>
+            <div class="infoDiv">
+                <div class="infoText gameName">${game.info.title}</div>
+                <div class="infoText">
+                    <span>Normal Price: $${game.deals[0].retailPrice}</span>
                 </div>
-                <div class="infoDiv">
-                    <div class="infoText gameName">${game.info.title}</div>
-                    <div class="infoText">
-                        <span>Normal Price: $${game.deals[0].retailPrice}</span>
-                    </div>
-                    <div class="infoText">
-                        Best Deal: <span>$${game.deals[0].price}<span class="discountPrice">-${Math.round(game.deals[0].savings)}%</span></span>
-                        <span class="dealLink">
-                            <a href="https://www.cheapshark.com/redirect?dealID=${game.deals[0].dealID}">
-                                <img src="https://www.cheapshark.com${game.deals[0].images.banner}" class="imgBanner">
-                            </a>
-                        </span>
-                    </div>
-                    <div class="infoText">
-                        <span>Lowest price ever: $${game.cheapestPriceEver.price} on ${createDate(game.cheapestPriceEver.date)}</span>
-                    </div>
+                <div class="infoText">
+                    Best Deal: <span>$${game.deals[0].price}<span class="discountPrice">-${Math.round(game.deals[0].savings)}%</span></span>
+                    <span class="dealLink">
+                        <a href="https://www.cheapshark.com/redirect?dealID=${game.deals[0].dealID}">
+                            <img src="https://www.cheapshark.com${game.deals[0].images.banner}" class="imgBanner">
+                        </a>
+                    </span>
+                </div>
+                <div class="infoText">
+                    <span>Lowest price ever: $${game.cheapestPriceEver.price} on ${createDate(game.cheapestPriceEver.date)}</span>
+                </div>
+            </div>
         `
     }).join('');
+    // map all the other deals
     allDeals.innerHTML = specificDeals
         .slice(1)
         .map(game => {
-        return `
-            <li class="allDealsList">
-                <a href="https://www.cheapshark.com/redirect?dealID=${game.dealID}" class="allDealsListLinks">
-                    <img src="https://www.cheapshark.com${game.images.icon}">
-                    $${game.price} 
-                    <span class="discountPrice">-${Math.round(game.savings)}%</span>
-                </a>
-            </li>
-        `
+            return `
+                <li class="allDealsList">
+                    <a href="https://www.cheapshark.com/redirect?dealID=${game.dealID}" class="allDealsListLinks">
+                        <img src="https://www.cheapshark.com${game.images.icon}">
+                        $${game.price} 
+                        <span class="discountPrice">-${Math.round(game.savings)}%</span>
+                    </a>
+                </li>
+            `
     }).join('');
-    console.log(specificDeals);
 }
 
 // convert date from ms
 function createDate(value) {
     let date = new Date(value * 1000);
-    let day = date.getDate();
-    let month = date.getMonth();
+    let day = ("0" + (date.getDate() + 1)).slice(-2);
+    let month = ("0" + (date.getMonth() + 1)).slice(-2);
     let year = date.getFullYear(); 
-    if (day < 10) {
-       day = 0 + day;
-    } 
-    if (month < 10) {
-        month = 0 + month;
-    }
     return day + '/' + month + '/' + year;
 }
 
@@ -166,7 +161,6 @@ function submitForm(e) {
 function gameInfo(e) {
     const gameId = e.target.dataset.index;
     localStorage.setItem('idToPass', gameId);
-    console.log(gameId);
 }
 
 // stops propagation and hides the list
@@ -175,6 +169,7 @@ function stopPropagation(e) {
     listSearch.classList.remove('hide');
 }
 
+// extend the game deals and show all prices
 function addActiveList(e) {
     if(e.target === spanActive){
         document.querySelector('.allDeals').style.height = 'fit-content';
