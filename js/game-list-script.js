@@ -2,7 +2,6 @@ const endpoint = 'https://www.cheapshark.com/api/1.0/deals?&upperPrice=50';
 const games = [];
 const inputValue = localStorage.getItem('searchValue');
 const listValue = JSON.parse(localStorage.getItem('mainSearchItems'));
-const filteredValue = JSON.parse(localStorage.getItem('filteredItems'));
 const activeEffect = localStorage.getItem('activeEffect');
 const inputGame = document.querySelector('.textGame');
 const list = document.querySelector('.gameList');
@@ -26,7 +25,7 @@ fetch(endpoint)
     .then(data => games.push(...data))
     .catch((err) => console.warn(err))
 
-// match input with game.title property
+// match user input with game.title property
 function searchData(input, value) {
     return value.filter(game => {
         const regex = new RegExp (input, 'gi');
@@ -98,7 +97,7 @@ function mapGames() {
         list.innerHTML = showData;
     }
 
-    // filter based on price (lower)
+    // sort based on price (lower)
     if (slider.value == 1) {
         showData = listValue
             .filter(games => games.salePrice <= range.value)
@@ -128,7 +127,7 @@ function mapGames() {
         localStorage.setItem('mainSearchItems', JSON.stringify(listValue));
         list.innerHTML = showData;
     }
-    // filter based on price (higher)
+    // sort based on price (higher)
     if (slider.value == 2) {
         showData = listValue
             .filter(games => games.salePrice <= range.value)
@@ -159,7 +158,7 @@ function mapGames() {
         list.innerHTML = showData;
     }
 
-    // filter based on name
+    // sort based on name
     if (slider.value == 4) {
         showData = listValue
             .filter(games => games.salePrice <= range.value)
@@ -194,7 +193,7 @@ function mapGames() {
         list.innerHTML = showData;
     }
 
-    // filter based on discount (savings)
+    // sort based on discount (savings)
     if (slider.value == 5) {
         showData = listValue
             .filter(games => games.salePrice <= range.value)
@@ -226,13 +225,13 @@ function mapGames() {
     }
 }
 
-// submit the search bar form and go to specific game page
+// submit the search bar form and go to specific game page that user clicked on, store gameId in localStorage
 function gameInfo(e) {
     const gameId = e.target.dataset.index;
     localStorage.setItem('idToPass', gameId);
 }
 
-// price range slider
+// price range slider value and label value, store them in localStorage
 function priceRange() {
     const rangeValue = range.value;
     const label = document.querySelector('.rangeLabel');
@@ -241,14 +240,14 @@ function priceRange() {
     mapGames();
 }
 
-// upper, lower, name range slider
+// upper, lower, name range slider values, store them in localStorage
 function parameterSort() {
     const sliderValue = slider.value;    
     localStorage.setItem('sliderValue', sliderValue);
     mapGames();
 }
 
-// save the input value
+// save the input value and load activeEffect from localStorage so that the active effect persists
 function saveInputValue() {
     range.value = localStorage.getItem('rangeValue');
     slider.value = localStorage.getItem('sliderValue');
@@ -269,13 +268,13 @@ function saveInputValue() {
     }
 }
 
-// stops propagation and hides the list
+// stops propagation and hides the list in the search bar
 function stopPropagation(e) {
     e.stopPropagation();
     listSearch.classList.remove('hide');
 }
 
-// submit form and save form input value
+// submit form and save form input value in localStorage, if the list gives no results go to error page
 function submitForm(e) {
     e.preventDefault();
     const valueInput = inputGame.value;
@@ -286,7 +285,7 @@ function submitForm(e) {
     }
 }
 
-// set active effect for each of the buttons
+// set active effect for each of the buttons, using data-index to recognize which input was clicked
 function setActive(e) {
     const target = e.target;
     const targetElement = target.dataset.active;

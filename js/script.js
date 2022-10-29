@@ -24,7 +24,7 @@ function searchData(input, value) {
     });
 }
 
-// display data in DOM
+// display data in DOM, search bar
 function displayData() {
     const matchedArray = searchData(this.value, games);
     if (inputText.value) {
@@ -59,23 +59,24 @@ function displayData() {
 function mapCategory(e) {
     // depending which element user clicks
     const targetIndex = e.target.dataset.index;
+    // filter games that are on sale
     if (targetIndex == 0) {
         const filter = games.filter(game => game.isOnSale);
         localStorage.setItem('mainSearchItems', JSON.stringify(filter));
     }
-
+    // sort games based on dealRating property
     if (targetIndex == 1) {
         const filter = games.sort((firstGame, secondGame) => firstGame.dealRating - secondGame.dealRating);
         localStorage.setItem('mainSearchItems', JSON.stringify(filter));
     }
-    
+    // filter games that are free, price == 0
     if (targetIndex == 2) {
         const filter = games.filter(game => game.salePrice == 0);
         localStorage.setItem('mainSearchItems', JSON.stringify(filter));
     }
 }
 
-// get a random game id
+// get all game ids, push them into array, and select a random one to store in localStorage
 function mapRandomGame() {
     const gameIds = [];
     games.forEach((game) => {
@@ -87,7 +88,7 @@ function mapRandomGame() {
   
 }
 
-// submit form and load next page
+// submit form and load next page, if the search gives no results load error page
 function submitForm(e) {
     e.preventDefault();
     const inputValue = inputText.value;
@@ -98,7 +99,7 @@ function submitForm(e) {
     }
 }
 
-// select a specific game 
+// select a specific game that user clicked or mouseovered on and add to localStorage
 function gameInfo(e) {
     const gameId = e.target.dataset.index;
     localStorage.setItem('idToPass', gameId);

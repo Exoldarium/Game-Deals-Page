@@ -2,8 +2,8 @@ const endpoint = 'https://www.cheapshark.com/api/1.0/deals?&upperPrice=50';
 const games = [];
 const randomGameList = document.querySelector('.randomGame');
 const listGame = document.querySelector('.listGame');
-const inputValue = localStorage.getItem('searchValue');
-const listValue = JSON.parse(localStorage.getItem('mainSearchItems'));
+const inputValue = localStorage.getItem('searchValue'); // get the value that was typed in the search bar
+const listValue = JSON.parse(localStorage.getItem('mainSearchItems')); // get the results from the previous page
 const activeEffect = localStorage.getItem('activeEffect');
 const inputGame = document.querySelector('.textGame');
 const list = document.querySelector('.gameList');
@@ -59,7 +59,7 @@ function displayData() {
     listSearch.innerHTML = showData;
 }
 
-// get a random game id
+// get all game ids, push them into array, and select a random one to store in localStorage
 function mapRandomGame() {
     const gameIds = [];
     games.forEach((game) => {
@@ -70,7 +70,7 @@ function mapRandomGame() {
     localStorage.setItem('idToPass', randomId);
 }
 
-// submit search bar form and load results
+// submit form and save form input value in localStorage, if the list gives no results go to error page
 function submitForm(e) {
     e.preventDefault();
     const valueInput = inputGame.value;
@@ -81,7 +81,7 @@ function submitForm(e) {
     }
 }
 
-// submit the search bar form and go to specific game page
+// submit the search bar form and go to specific game page that user clicked on
 function gameInfo(e) {
     const gameId = e.target.dataset.index;
     localStorage.setItem('idToPass', gameId);

@@ -1,11 +1,11 @@
 const endpointToChange = 'https://www.cheapshark.com/api/1.0/games?id=612';
 const gamepoint = 'https://www.cheapshark.com/api/1.0/deals?&upperPrice=50';
 const storepoint = 'https://www.cheapshark.com/api/1.0/stores';
-const gameId = localStorage.getItem('idToPass');
-const inputValue = localStorage.getItem('searchValue');
+const gameId = localStorage.getItem('idToPass'); // get the game id
+const inputValue = localStorage.getItem('searchValue'); // get the input value
 const listValue = JSON.parse(localStorage.getItem('mainSearchItems'));
-const regexID = /[0-9]+$/;
-const endpoint = endpointToChange.replace(regexID, gameId);
+const regexID = /[0-9]+$/; // remove the id part from the enpointToChange variable
+const endpoint = endpointToChange.replace(regexID, gameId); // replace it with the game id from localStorage
 const games = [];
 const dealsDiv = document.querySelector('.dealsList');
 const allDeals = document.querySelector('.allDealsList');
@@ -40,6 +40,7 @@ const storesData = fetch(storepoint)
     })
     .catch((err) => console.warn(err))
 
+// combined returned promises and add them as function variables to be used later
 Promise.all([dealsData, storesData])
     .then(([dealItems, storeItems]) => createElements(dealItems, storeItems))
     .catch(err => console.error(err));
@@ -52,7 +53,7 @@ function searchData(input, value) {
     });
 }
 
-// display data in DOM
+// display data in DOM, search bar
 function displayData() {
     const matchedArray = searchData(this.value, games);
     if (inputGame.value) {
@@ -85,8 +86,10 @@ function displayData() {
 
 // map the specific game info
 function createElements(dealItems, storeItems) {
+    // add returned promises to variables
     let stores = storeItems;
     let deals = [dealItems];
+    // get only the .deals from the array
     const specificDeals = deals[0].deals;
     // push images from the store array to deals array
     specificDeals.forEach(deal => {
@@ -96,7 +99,7 @@ function createElements(dealItems, storeItems) {
         }
        });
     });
-    // map the lowest priced deal
+    // map the lowest priced deal, add the correct store image
     dealsDiv.innerHTML = deals.map(game => {
         return `
             <div class="dealDiv">
@@ -121,7 +124,7 @@ function createElements(dealItems, storeItems) {
             </div>
         `
     }).join('');
-    // map all the other deals
+    // map all the other deals, add the correct store image
     allDeals.innerHTML = specificDeals
         .slice(1)
         .map(game => {
@@ -137,7 +140,7 @@ function createElements(dealItems, storeItems) {
     }).join('');
 }
 
-// convert date from ms
+// convert date from ms to dd/mm/yyyy
 function createDate(value) {
     let date = new Date(value * 1000);
     let day = ("0" + (date.getDate() + 1)).slice(-2);
@@ -146,7 +149,7 @@ function createDate(value) {
     return day + '/' + month + '/' + year;
 }
 
-// submit search bar form and load results
+// submit search bar form and load results, if the search gives no results load error page
 function submitForm(e) {
     e.preventDefault();
     const valueInput = inputGame.value;
@@ -157,7 +160,7 @@ function submitForm(e) {
     }
 }
 
-// submit the search bar form and go to specific game page
+// submit the search bar form and go to specific game page, add the gameId to local storage based on which game the user clicked on
 function gameInfo(e) {
     const gameId = e.target.dataset.index;
     localStorage.setItem('idToPass', gameId);
