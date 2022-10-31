@@ -14,6 +14,7 @@ const inputGame = document.querySelector('.textGame');
 const form = document.querySelector('.listGameBar');
 const logo = document.querySelectorAll('.logo');
 const spanActive = document.querySelector('.spanDealsTitle');
+const submitButton = document.querySelector('.submit');
 const displayGames = inputValue;
 inputGame.value = displayGames;
 let showData;
@@ -189,6 +190,7 @@ form.addEventListener('submit', submitForm);
 form.addEventListener('click', stopPropagation);
 form.addEventListener('keyup', stopPropagation);
 spanActive.addEventListener('click', addActiveList);
+submitButton.addEventListener('click', submitForm);
 logo.forEach(logo => logo.addEventListener('click', () => window.location = 'index.html'));
 document.body.addEventListener('click', () => listSearch.classList.add('hide'));
 

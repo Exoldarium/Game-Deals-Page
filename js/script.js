@@ -8,6 +8,7 @@ const landing = document.querySelector('.formWrap');
 const offers = document.querySelectorAll('.imgSale');
 const randomGameList = document.querySelector('.randomGame');
 const logo = document.querySelectorAll('.logo');
+const submitButton = document.querySelector('.submit');
 let showData;
 
 // fetch the endpoint
@@ -121,6 +122,7 @@ form.addEventListener('keyup', stopPropagation);
 offers.forEach(offer => offer.addEventListener('click', mapCategory));
 offers.forEach(offer => offer.addEventListener('mouseover', mapCategory));
 randomGameList.addEventListener('mouseover', mapRandomGame);
+submitButton.addEventListener('click', submitForm);
 logo.forEach(logo => logo.addEventListener('click', () => window.location = 'index.html'));
 document.body.addEventListener('click', () => list.classList.add('hide'));
 localStorage.clear();

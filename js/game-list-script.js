@@ -13,6 +13,7 @@ const slider = document.querySelector('.sortSlider');
 const labelRange = document.querySelector('.rangeLabel');
 const spans = document.querySelectorAll('.spans');
 const logo = document.querySelectorAll('.logo');
+const submitButton = document.querySelector('.submit');
 // add local storage to new variable
 const displayGames = inputValue;
 // pass local storage as input
@@ -322,6 +323,7 @@ form.addEventListener('submit', submitForm);
 form.addEventListener('click', stopPropagation);
 form.addEventListener('keyup', stopPropagation);
 spans.forEach(span => span.addEventListener('click', setActive));
+submitButton.addEventListener('click', submitForm);
 window.addEventListener('load', saveInputValue);
 window.addEventListener('load', mapGames);
 logo.forEach(logo => logo.addEventListener('click', () => window.location = 'index.html'));
