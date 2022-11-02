@@ -2,12 +2,13 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Deal Page</title>
         <link rel="stylesheet" href="css/style.css">
         <link rel="icon" href="images/titleLogo.png" type="image/icon type">
     </head>
     <body>
-        <div class="formWrap">
+        <div class="aboutForm">
             <div class="logo">
                 <a href="index.html" class="linkLogo"><img src="images/logo.png" class="logo logoIMG"></a>
             </div>
@@ -15,7 +16,7 @@
                 <input type="text" class="search textGame" name="inputnamesGame" maxlength="20" placeholder>
                 <ul class="list listNav"></ul>
             </form>
-            <input type="submit" class="search submitGame" name="inputnamesGame" value="🔎︎">
+            <input type="submit" class="search submit" name="inputnamesGame" value="🔎︎">
             <div class="menu"> 
                 <a href="about.html" class="aboutLink">
                     <p>About</p>
@@ -24,11 +25,11 @@
         </div>
         <div class="errorDiv">
             <p class="errorMessage">Oops, we couldn't find the game you were looking for! Try searching again or check one of our recommended games!</p>
-            <a href="deal-page.html">
-                <div class="randomGame">
+            <div class="randomGame">
+                <a href="deal-page.html" class="imgLinks">
                     <img src="images/recommended.png" class="imgSale" alt="Blurred deal list" data-index="2">
-                </div>
-            </a>
+                </a>
+            </div>
         </div>
         <div class="formWrap"></div>
 

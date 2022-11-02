@@ -66,6 +66,17 @@ body {
     width: 100%;
 }
 
+.aboutForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    background: #151920;
+    position: relative;
+    height: 70px;
+    width: 100%;
+}
+
 .dealInfo {
     display: flex;
     align-items: flex-start;
@@ -167,7 +178,7 @@ body {
 .discount {
     display: flex;
     align-items: flex-end;
-    margin-left: 20px;
+
     justify-content: center;
 }
 
@@ -210,12 +221,16 @@ body {
     justify-content: center;
 }
 
+.paragraphAbout {
+    text-align: center;
+}
+
 /* error page */
 .errorDiv {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: inherit;
+    height: 100vh;
 }
 
 .errorMessage {
@@ -390,7 +405,7 @@ body {
     max-width: 200px;
 }
 
-.arrow {
+/* .arrow {
     width: 0; 
     height: 0; 
     margin-left: 800px;
@@ -399,7 +414,7 @@ body {
     border-right: 10px solid transparent;
     border-top: 10px solid rgb(175, 174, 174);;
     position: absolute;
-}
+} */
 
 /* images */
 .imgLanding {
@@ -614,6 +629,8 @@ a {
 .activeList {
     z-index: -1;
     opacity: 0;
+    top: -50000;
+    position: absolute;
 }
 
 /* list hide */ 
@@ -643,16 +660,81 @@ a {
     margin-left: 25px;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 760px) {
+    body, .formWrap, .logo, .menu, .dealInfo, .dealsList, .allDeals, html,
+    .landing, .randomGame, .aboutItems, .imgSale, .errorMessage, .errorDiv, 
+    .listGame, .ulDiv {
+        width: 100%;
+    }
+
+    body, .dealInfo, html, .dealsList, .allDealsList, .allDeals {
+        height: fit-content;
+    }
+    
     .dealInfo {
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
+        margin-top: 50px;
+    }
+    
+    .dealsList {
+        flex-direction: column;
+        align-items: center;
+    } 
 
+    .listGameBar, .bar {
+        width: 200px;
+        margin-left: 5px;
+    }
+
+    .logo, .menu, .dealInfo {
+        margin: 0;
+    }
+
+    .imgBanner {
+        position: relative;
+    }
+
+    .allDeals {
+        margin-bottom: 20px;
+    }
+
+    .textGame {
+        width: 200px;
+    }
+
+    .listNav, .game {
+       width: fit-content;
+       margin-left: -80px;
+    }
+
+    .landing {
+        margin-top: 10px;
+    }
+
+    .landingOffers {
         flex-direction: column;
     }
 
-    .dealList {
-
-        flex-direction: column;
+    .listGame {
+        flex-direction: column-reverse;
+        align-items: center; 
+        justify-content: flex-end;
+        margin-top: 5px;
     }
-  }
 
+    .options {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
 
+    .gameList {
+        max-width: 370px;
+    }
+
+    .gameDisplay {
+        display: flex;
+    }
+
+}

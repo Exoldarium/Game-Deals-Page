@@ -9,6 +9,7 @@ const offers = document.querySelectorAll('.imgSale');
 const randomGameList = document.querySelector('.randomGame');
 const logo = document.querySelectorAll('.logo');
 const submitButton = document.querySelector('.submit');
+const logoImg = document.querySelector('.logoIMG');
 let showData;
 
 // fetch the endpoint
@@ -112,6 +113,13 @@ function stopPropagation(e) {
     list.classList.remove('hide');
 }
 
+// change logo image on mobile
+function removeActiveList() {
+    if (screen.width < 760) {
+        logoImg.src = 'images/titleLogo.png';
+    }
+}
+
 inputText.addEventListener('keyup', displayData);
 inputText.addEventListener('click', displayData);
 list.addEventListener('mouseover', gameInfo);
@@ -123,6 +131,7 @@ offers.forEach(offer => offer.addEventListener('click', mapCategory));
 offers.forEach(offer => offer.addEventListener('mouseover', mapCategory));
 randomGameList.addEventListener('mouseover', mapRandomGame);
 submitButton.addEventListener('click', submitForm);
+window.addEventListener('load', removeActiveList);
 logo.forEach(logo => logo.addEventListener('click', () => window.location = 'index.html'));
 document.body.addEventListener('click', () => list.classList.add('hide'));
 localStorage.clear();

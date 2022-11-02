@@ -15,6 +15,7 @@ const form = document.querySelector('.listGameBar');
 const logo = document.querySelectorAll('.logo');
 const spanActive = document.querySelector('.spanDealsTitle');
 const submitButton = document.querySelector('.submit');
+const logoImg = document.querySelector('.logoIMG');
 const displayGames = inputValue;
 inputGame.value = displayGames;
 let showData;
@@ -175,10 +176,18 @@ function stopPropagation(e) {
 
 // extend the game deals and show all prices
 function addActiveList(e) {
-    if(e.target === spanActive){
+    if(e.target === spanActive && screen.width > 760){
         document.querySelector('.allDeals').style.height = 'fit-content';
         allDeals.classList.remove('activeList');
     } 
+}
+
+// remove active effect when on mobile and change logo image
+function removeActiveList() {
+    if (screen.width <= 760) {
+        allDeals.classList.remove('activeList');
+        logoImg.src = 'images/titleLogo.png';
+    }
 }
 
 dealsDiv.addEventListener('load', createElements);
@@ -192,6 +201,7 @@ form.addEventListener('keyup', stopPropagation);
 spanActive.addEventListener('click', addActiveList);
 submitButton.addEventListener('click', submitForm);
 logo.forEach(logo => logo.addEventListener('click', () => window.location = 'index.html'));
+window.addEventListener('load', removeActiveList);
 document.body.addEventListener('click', () => listSearch.classList.add('hide'));
 
 

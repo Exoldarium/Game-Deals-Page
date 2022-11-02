@@ -14,6 +14,7 @@ const labelRange = document.querySelector('.rangeLabel');
 const spans = document.querySelectorAll('.spans');
 const logo = document.querySelectorAll('.logo');
 const submitButton = document.querySelector('.submit');
+const logoImg = document.querySelector('.logoIMG');
 // add local storage to new variable
 const displayGames = inputValue;
 // pass local storage as input
@@ -311,6 +312,13 @@ function setActive(e) {
     mapGames();
 }
 
+// change logo image on mobile
+function removeActiveList() {
+    if (screen.width < 760) {
+        logoImg.src = 'images/titleLogo.png';
+    }
+}
+
 inputGame.addEventListener('keyup', displayData);
 inputGame.addEventListener('click', displayData);
 list.addEventListener('mouseover', gameInfo);
@@ -326,6 +334,7 @@ spans.forEach(span => span.addEventListener('click', setActive));
 submitButton.addEventListener('click', submitForm);
 window.addEventListener('load', saveInputValue);
 window.addEventListener('load', mapGames);
+window.addEventListener('load', removeActiveList);
 logo.forEach(logo => logo.addEventListener('click', () => window.location = 'index.html'));
 document.body.addEventListener('click', () => listSearch.classList.add('hide'));
 
