@@ -306,6 +306,7 @@ body {
 }
 
 .gameList {
+    display: inline-block;
     flex-direction: column;
     border: 1px solid gainsboro;
     padding: 0;
@@ -315,6 +316,7 @@ body {
     font-weight: bold;
     background: gainsboro;
     margin: 0;
+    justify-self: center;
 }
 
 .display {
@@ -731,10 +733,17 @@ a {
 
     .gameList {
         max-width: 370px;
+        justify-self: center;
     }
 
     .gameDisplay {
         display: flex;
+    }
+    
+    .ulDiv {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
 }

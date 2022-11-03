@@ -95,9 +95,10 @@ function submitForm(e) {
     e.preventDefault();
     const inputValue = inputText.value;
     localStorage.setItem('searchValue', inputValue);
-    window.location = 'game-list.html';
-    if (showData.length == 0) {
+    if (inputValue == 0) {
         window.location = 'error-page.html';
+    } else {
+        window.location = 'game-list.html';
     }
 }
 
