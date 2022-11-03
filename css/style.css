@@ -108,6 +108,8 @@ body {
 .allDealsList {
     list-style: none;
     padding: 5px;
+    display: flex;
+    flex-direction: column;
 }
 
 .allDealsListLinks {
@@ -116,6 +118,7 @@ body {
     font-family: 'Quicksand', sans-serif;
     font-weight: bold;
     border-bottom: 1px solid black;
+    display: flex;
 }
 
 .options {
@@ -548,6 +551,11 @@ body {
     border-radius: 4px;
     border: 1px solid #363d4d;
     box-shadow: 0 0 1px black;
+}
+
+.imageDealLogo {
+    width: 20px;
+    height: 20px;
 }
 
 /* menu */

@@ -133,7 +133,7 @@ function createElements(dealItems, storeItems) {
             return `
                 <li class="allDealsList">
                     <a href="https://www.cheapshark.com/redirect?dealID=${game.dealID}" class="allDealsListLinks">
-                        <img src="https://www.cheapshark.com${game.images.icon}">
+                        <img src="https://www.cheapshark.com${game.images.icon}" class="imageDealLogo">
                         $${game.price} 
                         <span class="discountPrice">-${Math.round(game.savings)}%</span>
                     </a>
