@@ -69,32 +69,33 @@ function displayData() {
 // display data in DOM based on parameters (page)
 function mapGames() {   
     let showData;
+    const listToMap = (games) => { 
+        return `
+            <li class="gameDisplay" data-index="${games.gameID}">
+                <a href="deal-page.html" class="linkList" data-index="${games.gameID}">
+                    <span class="gameTitle" data-index="${games.gameID}">
+                        <div class="imageDiv" data-index="${games.gameID}">
+                            <img src="${games.thumb}" class="imgList" data-index="${games.gameID}">
+                        </div>
+                        <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
+                    </span>
+                    <div class="priceDiv" data-index="${games.gameID}">
+                        <span class="normalPrice" data-index="${games.gameID}">$${games.normalPrice}</span>
+                        <span class="salePrice" data-index="${games.gameID}">$${games.salePrice}</span>
+                    </div>
+                    <div class="discount" data-index="${games.gameID}">
+                        <span class="discountSpan" data-index="${games.gameID}">-${Math.round(games.savings)}%</span>
+                    </div>
+                </a>
+            </li>
+        `
+    };
     // set to 3 (half of range slider) so that the first load displays unfiltered list
     if (slider.value == 3) {
         showData = listValue
             .filter(games => games.salePrice <= range.value)
-            // .slice(0, 15)
-            .map(games => {
-                return `
-                    <li class="gameDisplay" data-index="${games.gameID}">
-                        <a href="deal-page.html" class="linkList" data-index="${games.gameID}">
-                            <span class="gameTitle" data-index="${games.gameID}">
-                                <div class="imageDiv" data-index="${games.gameID}">
-                                    <img src="${games.thumb}" class="imgList" data-index="${games.gameID}">
-                                </div>
-                                <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
-                            </span>
-                            <div class="priceDiv" data-index="${games.gameID}">
-                                <span class="normalPrice" data-index="${games.gameID}">$${games.normalPrice}</span>
-                                <span class="salePrice" data-index="${games.gameID}">$${games.salePrice}</span>
-                            </div>
-                            <div class="discount" data-index="${games.gameID}">
-                                <span class="discountSpan" data-index="${games.gameID}">-${Math.round(games.savings)}%</span>
-                            </div>
-                        </a>
-                    </li>
-                `
-            }).join('');
+            .map(games => listToMap(games))
+            .join('');
         localStorage.setItem('mainSearchItems', JSON.stringify(listValue));
         list.innerHTML = showData;
     }
@@ -104,28 +105,8 @@ function mapGames() {
         showData = listValue
             .filter(games => games.salePrice <= range.value)
             .sort((firstGame, secondGame) => firstGame.salePrice - secondGame.salePrice)
-            // .slice(0, 15)
-            .map(games => {
-                return `
-                    <li class="gameDisplay" data-index="${games.gameID}">
-                        <a href="deal-page.html" class="linkList" data-index="${games.gameID}">
-                            <span class="gameTitle" data-index="${games.gameID}">
-                                <div class="imageDiv" data-index="${games.gameID}">
-                                    <img src="${games.thumb}" class="imgList" data-index="${games.gameID}">
-                                </div>
-                                <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
-                            </span>
-                            <div class="priceDiv" data-index="${games.gameID}">
-                                <span class="normalPrice" data-index="${games.gameID}">$${games.normalPrice}</span>
-                                <span class="salePrice" data-index="${games.gameID}">$${games.salePrice}</span>
-                            </div>
-                            <div class="discount" data-index="${games.gameID}">
-                                <span class="discountSpan" data-index="${games.gameID}">-${Math.round(games.savings)}%</span>
-                            </div>
-                        </a>
-                    </li>
-                `
-            }).join('');
+            .map(games => listToMap(games))
+            .join('');
         localStorage.setItem('mainSearchItems', JSON.stringify(listValue));
         list.innerHTML = showData;
     }
@@ -134,28 +115,8 @@ function mapGames() {
         showData = listValue
             .filter(games => games.salePrice <= range.value)
             .sort((firstGame, secondGame) => secondGame.salePrice - firstGame.salePrice)
-            // .slice(0, 15)
-            .map(games => {
-                return `
-                    <li class="gameDisplay" data-index="${games.gameID}">
-                        <a href="deal-page.html" class="linkList" data-index="${games.gameID}">
-                            <span class="gameTitle" data-index="${games.gameID}">
-                                <div class="imageDiv" data-index="${games.gameID}">
-                                    <img src="${games.thumb}" class="imgList" data-index="${games.gameID}">
-                                </div>
-                                <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
-                            </span>
-                            <div class="priceDiv" data-index="${games.gameID}">
-                                <span class="normalPrice" data-index="${games.gameID}">$${games.normalPrice}</span>
-                                <span class="salePrice" data-index="${games.gameID}">$${games.salePrice}</span>
-                            </div>
-                            <div class="discount" data-index="${games.gameID}">
-                                <span class="discountSpan" data-index="${games.gameID}">-${Math.round(games.savings)}%</span>
-                            </div>
-                        </a>
-                    </li>
-                `
-            }).join('');
+            .map(games => listToMap(games))
+            .join('');
         localStorage.setItem('mainSearchItems', JSON.stringify(listValue));
         list.innerHTML = showData;
     }
@@ -169,28 +130,8 @@ function mapGames() {
                 if(firstGame.internalName > secondGame.internalName)  { return 1; }
                 else return 0; 
             })
-            // .slice(0, 15)
-            .map(games => {
-                return `
-                    <li class="gameDisplay" data-index="${games.gameID}">
-                        <a href="deal-page.html" class="linkList" data-index="${games.gameID}">
-                            <span class="gameTitle" data-index="${games.gameID}">
-                                <div class="imageDiv" data-index="${games.gameID}">
-                                    <img src="${games.thumb}" class="imgList" data-index="${games.gameID}">
-                                </div>
-                                <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
-                            </span>
-                            <div class="priceDiv" data-index="${games.gameID}">
-                                <span class="normalPrice" data-index="${games.gameID}">$${games.normalPrice}</span>
-                                <span class="salePrice" data-index="${games.gameID}">$${games.salePrice}</span>
-                            </div>
-                            <div class="discount" data-index="${games.gameID}">
-                                <span class="discountSpan" data-index="${games.gameID}">-${Math.round(games.savings)}%</span>
-                            </div>
-                        </a>
-                    </li>
-                `
-            }).join('');
+            .map(games => listToMap(games))
+            .join('');
         localStorage.setItem('mainSearchItems', JSON.stringify(listValue));
         list.innerHTML = showData;
     }
@@ -200,28 +141,8 @@ function mapGames() {
         showData = listValue
             .filter(games => games.salePrice <= range.value)
             .sort((firstGame, secondGame) => secondGame.savings - firstGame.savings)
-            // .slice(0, 15)
-            .map(games => {
-                return `
-                    <li class="gameDisplay" data-index="${games.gameID}">
-                        <a href="deal-page.html" class="linkList" data-index="${games.gameID}">
-                            <span class="gameTitle" data-index="${games.gameID}">
-                                <div class="imageDiv" data-index="${games.gameID}">
-                                    <img src="${games.thumb}" class="imgList" data-index="${games.gameID}">
-                                </div>
-                                <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
-                            </span>
-                            <div class="priceDiv" data-index="${games.gameID}">
-                                <span class="normalPrice" data-index="${games.gameID}">$${games.normalPrice}</span>
-                                <span class="salePrice" data-index="${games.gameID}">$${games.salePrice}</span>
-                            </div>
-                            <div class="discount" data-index="${games.gameID}">
-                                <span class="discountSpan" data-index="${games.gameID}">-${Math.round(games.savings)}%</span>
-                            </div>
-                        </a>
-                    </li>
-                `
-            }).join('');
+            .map(games => listToMap(games))
+            .join('');
         localStorage.setItem('mainSearchItems', JSON.stringify(listValue));
         list.innerHTML = showData;
     }
