@@ -10,13 +10,14 @@ const randomGameList = document.querySelector('.randomGame');
 const logo = document.querySelectorAll('.logo');
 const submitButton = document.querySelector('.submit');
 const logoImg = document.querySelector('.logoIMG');
+const listValue = JSON.parse(localStorage.getItem('mainSearchItems'));
 let showData;
 
 // fetch the endpoint
 fetch(endpoint)
-.then(res => res.json())
-.then(data => games.push(...data))
-.catch((err) => console.warn(err))
+    .then(res => res.json())
+    .then(data => games.push(...data))
+    .catch((err) => console.warn(err))
 
 // match input with game.title property
 function searchData(input, value) {
@@ -87,17 +88,18 @@ function mapRandomGame() {
     const randomLength = Math.floor(Math.random() * gameIds.length);
     const randomId = gameIds[randomLength];
     localStorage.setItem('idToPass', randomId);
-  
 }
 
 // submit form and load next page, if the search gives no results load error page
 function submitForm(e) {
     e.preventDefault();
+    const listValue = JSON.parse(localStorage.getItem('mainSearchItems'));
     const inputValue = inputText.value;
     localStorage.setItem('searchValue', inputValue);
-    if (inputValue == 0) {
+    if (!listValue) {
         window.location = 'error-page.html';
-    } else {
+    } 
+    if (listValue) {
         window.location = 'game-list.html';
     }
 }
@@ -129,7 +131,6 @@ form.addEventListener('submit', submitForm);
 form.addEventListener('click', stopPropagation);
 form.addEventListener('keyup', stopPropagation);
 offers.forEach(offer => offer.addEventListener('click', mapCategory));
-offers.forEach(offer => offer.addEventListener('mouseover', mapCategory));
 randomGameList.addEventListener('mouseover', mapRandomGame);
 submitButton.addEventListener('click', submitForm);
 window.addEventListener('load', removeActiveList);

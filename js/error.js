@@ -75,13 +75,16 @@ function mapRandomGame() {
 // submit form and save form input value in localStorage, if the list gives no results go to error page
 function submitForm(e) {
     e.preventDefault();
+    const listValue = JSON.parse(localStorage.getItem('mainSearchItems'));
     const valueInput = inputGame.value;
     localStorage.setItem('searchValue', valueInput);
-    if (valueInput == 0) {
+    if (listValue.length < 1) {
         window.location = 'error-page.html';
-    } else {
+    } 
+    if (listValue.length >= 1) {
         window.location = 'game-list.html';
     }
+    mapRandomGame();
 }
 
 // submit the search bar form and go to specific game page that user clicked on

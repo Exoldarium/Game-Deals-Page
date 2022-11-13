@@ -99,12 +99,12 @@ function mapGames() {
         localStorage.setItem('mainSearchItems', JSON.stringify(listValue));
         list.innerHTML = showData;
     }
-
     // sort based on price (lower)
     if (slider.value == 1) {
         showData = listValue
             .filter(games => games.salePrice <= range.value)
             .sort((firstGame, secondGame) => firstGame.salePrice - secondGame.salePrice)
+
             .map(games => listToMap(games))
             .join('');
         localStorage.setItem('mainSearchItems', JSON.stringify(listValue));
@@ -120,7 +120,6 @@ function mapGames() {
         localStorage.setItem('mainSearchItems', JSON.stringify(listValue));
         list.innerHTML = showData;
     }
-
     // sort based on name
     if (slider.value == 4) {
         showData = listValue
@@ -135,7 +134,6 @@ function mapGames() {
         localStorage.setItem('mainSearchItems', JSON.stringify(listValue));
         list.innerHTML = showData;
     }
-
     // sort based on discount (savings)
     if (slider.value == 5) {
         showData = listValue
@@ -200,11 +198,13 @@ function stopPropagation(e) {
 // submit form and save form input value in localStorage, if the list gives no results go to error page
 function submitForm(e) {
     e.preventDefault();
+    const listValue = JSON.parse(localStorage.getItem('mainSearchItems'));
     const valueInput = inputGame.value;
     localStorage.setItem('searchValue', valueInput);
-    if (valueInput == 0) {
+    if (listValue.length < 1) {
         window.location = 'error-page.html';
-    } else {
+    } 
+    if (listValue.length >= 1) {
         window.location = 'game-list.html';
     }
 }
@@ -233,6 +233,7 @@ function setActive(e) {
     localStorage.setItem('sliderValue', slider.value);
     mapGames();
 }
+
 
 // change logo image on mobile
 function removeActiveList() {

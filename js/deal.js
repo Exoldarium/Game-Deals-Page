@@ -2,7 +2,7 @@ const endpointToChange = 'https://www.cheapshark.com/api/1.0/games?id=612';
 const gamepoint = 'https://www.cheapshark.com/api/1.0/deals?&upperPrice=50';
 const storepoint = 'https://www.cheapshark.com/api/1.0/stores';
 const gameId = localStorage.getItem('idToPass'); // get the game id
-const inputValue = localStorage.getItem('searchValue'); // get the input value
+// const inputValue = localStorage.getItem('searchValue');
 const listValue = JSON.parse(localStorage.getItem('mainSearchItems'));
 const regexID = /[0-9]+$/; // remove the id part from the enpointToChange variable
 const endpoint = endpointToChange.replace(regexID, gameId); // replace it with the game id from localStorage
@@ -16,8 +16,10 @@ const logo = document.querySelectorAll('.logo');
 const spanActive = document.querySelector('.spanDealsTitle');
 const submitButton = document.querySelector('.submit');
 const logoImg = document.querySelector('.logoIMG');
-const displayGames = inputValue;
-inputGame.value = displayGames;
+const wrapperDiv = document.querySelector('.dealInfo');
+const randomGameList = document.querySelector('.randomGame');
+// const displayGames = inputValue;
+// inputGame.value = displayGames;
 let showData;
 
 // fetch the full game list 
@@ -154,11 +156,13 @@ function createDate(value) {
 // submit search bar form and load results, if the search gives no results load error page
 function submitForm(e) {
     e.preventDefault();
+    const listValue = JSON.parse(localStorage.getItem('mainSearchItems'));
     const valueInput = inputGame.value;
     localStorage.setItem('searchValue', valueInput);
-    if (valueInput == 0) {
+    if (listValue.length < 1) {
         window.location = 'error-page.html';
-    } else {
+    } 
+    if (listValue.length >= 1) {
         window.location = 'game-list.html';
     }
 }
@@ -182,6 +186,7 @@ function addActiveList(e) {
         allDeals.classList.remove('activeList');
     } 
 }
+
 
 // remove active effect when on mobile and change logo image
 function removeActiveList() {
