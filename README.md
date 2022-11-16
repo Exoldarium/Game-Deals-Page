@@ -1,4 +1,4 @@
-# Project Title
+# Game Deals Page
 
 Game deals fetching App, using [CheapShark API](https://apidocs.cheapshark.com/)
 
