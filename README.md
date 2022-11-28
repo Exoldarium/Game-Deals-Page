@@ -9,10 +9,14 @@ Decide to build this app as my first project. I've decided to build this app wit
 JavaScript, CSS and HTML and as a way to challenge myself.
 
 One of the challenges was being able to correctly show and persist the filtered data that the user searches. I've learned a lot about promises, asynchronous side
-of JavaScript and how to work with an API and display the data i need. I will probaly update and improve the code as i learn more. One of the future goals is to
-add pagination and work on the backend side of the code. For now i have only focused on fronted development. 
+of JavaScript and how to work with an API and display the data i need. I will probaly update and improve the code as i learn more.
 
 The images were designed by my lovely wife.
+
+## To-do
+Add pagination
+Add some sort of log-in function
+
 	
 ## Technologies
 Project is created with:
