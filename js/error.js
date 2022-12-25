@@ -1,4 +1,4 @@
-import { displayData, mapRandomGame, gameInfo, stopPropagation, removeActiveList } from "./modules/searchFunction.js";
+import { displayData, mapRandomGame, gameInfo, stopPropagation, removeActiveList } from "./modules/mainFunctionsModule.js";
 
 const randomGameList = document.querySelector('.randomGame');
 const inputValue = localStorage.getItem('searchValue'); // get the value that was typed in the search bar

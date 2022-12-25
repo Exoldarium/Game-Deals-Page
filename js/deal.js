@@ -1,4 +1,4 @@
-import { displayData, gameInfo, stopPropagation } from "./modules/searchFunction.js";
+import { displayData, gameInfo, stopPropagation } from "./modules/mainFunctionsModule.js";
 
 const endpointToChange = 'https://www.cheapshark.com/api/1.0/games?id=612';
 const storepoint = 'https://www.cheapshark.com/api/1.0/stores';

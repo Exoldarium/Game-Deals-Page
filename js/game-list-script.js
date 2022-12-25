@@ -1,4 +1,4 @@
-import { displayData, gameInfo, stopPropagation, removeActiveList } from "./modules/searchFunction.js";
+import { displayData, gameInfo, stopPropagation, removeActiveList } from "./modules/mainFunctionsModule.js";
 
 const inputValue = localStorage.getItem('searchValue');
 const listValue = JSON.parse(localStorage.getItem('mainSearchItems'));

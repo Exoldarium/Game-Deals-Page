@@ -1,4 +1,4 @@
-import { displayData, games, mapRandomGame, gameInfo, stopPropagation, removeActiveList } from "./modules/searchFunction.js";
+import { displayData, games, mapRandomGame, gameInfo, stopPropagation, removeActiveList } from "./modules/mainFunctionsModule.js";
 
 const inputText = document.querySelector('.textGame');
 const listSearch = document.querySelector('.listNav');
