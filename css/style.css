@@ -2,412 +2,416 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
 
 html {
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    height: 100%;
-    width: 100%;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  height: 100%;
+  width: 100%;
 }
 
-*, *:before, *:after {
-    box-sizing: inherit;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 body {
-    background: linear-gradient(0.25turn, #363d4d, #1f232c, #363d4d);
-    padding: 0;
-    margin: 0;
-    width: 100%;
+  background: linear-gradient(0.25turn, #363d4d, #1f232c, #363d4d);
+  padding: 0;
+  margin: 0;
+  width: 100%;
 }
 
 /* wrappers */
 .landing {
-   display: flex;
-   flex-direction: column;
-   padding: 10px;
-   margin-top: 100px;
-   height: inherit;
-   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-top: 100px;
+  height: inherit;
+  min-height: 100vh;
 }
 
 .landingLogo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 25vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 25vh;
 }
 
 .landingOffers {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 25vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 25vh;
 }
 
 .listGame {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: row;
-    min-height: 100vh;
-    padding-top: 50px;
-    padding-bottom: 50px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: row;
+  min-height: 100vh;
+  padding-top: 50px;
+  padding-bottom: 50px;
 
 }
 
 .formWrap {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    background: #151920;
-    position: relative;
-    height: 70px;
-    z-index: 2;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  background: #151920;
+  position: relative;
+  height: 70px;
+  z-index: 2;
+  width: 100%;
 }
 
 .aboutForm {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    background: #151920;
-    position: relative;
-    height: 70px;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  background: #151920;
+  position: relative;
+  height: 70px;
+  width: 100%;
 }
 
 .dealInfo {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: row;
-    min-height: 100vh;
-    margin-top: 170px;
-    height: inherit;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: row;
+  min-height: 100vh;
+  margin-top: 170px;
+  height: inherit;
 }
 
 .dealsList {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    height: 600px;
-    width: 800px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  height: 600px;
+  width: 800px;
 }
 
 .allDeals {
-    background: rgb(175, 174, 174);
-    border: 1px solid black;
-    border-radius: 4px;
-    box-shadow: 0 0 10px black;
-    height: 15px;
-    margin-top: 25px;
-    max-width: 200px;
+  background: rgb(175, 174, 174);
+  border: 1px solid black;
+  border-radius: 4px;
+  box-shadow: 0 0 10px black;
+  height: 15px;
+  margin-top: 25px;
+  max-width: 200px;
 }
 
 .allDealsList {
-    list-style: none;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
+  list-style: none;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
 }
 
 .allDealsListLinks {
-    text-decoration: none;
-    color: black;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: bold;
-    border-bottom: 1px solid black;
-    display: flex;
+  text-decoration: none;
+  color: black;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  border-bottom: 1px solid black;
+  display: flex;
 }
 
 .options {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    border: 1px solid gainsboro;
-    flex-grow: 0;
-    flex-shrink: 0;
-    box-shadow: 0 0 20px black;
-    border-radius: 4px;
-    padding: 5px 5px 10px 5px;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: bold;
-    margin-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid gainsboro;
+  flex-grow: 0;
+  flex-shrink: 0;
+  box-shadow: 0 0 20px black;
+  border-radius: 4px;
+  padding: 5px 5px 10px 5px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  margin-left: 20px;
 }
 
 .ulDiv {
-    width: 500px;
+  width: 500px;
 }
 
-.priceDiv{
-    display: flex;
-    text-align: end;
-    justify-content: center;
-    font-family: 'Quicksand', sans-serif;
-    align-items: flex-end;
-    flex: 1;
-    flex-direction: column;
-    margin-left: 0;
- }
+.priceDiv {
+  display: flex;
+  text-align: end;
+  justify-content: center;
+  font-family: 'Quicksand', sans-serif;
+  align-items: flex-end;
+  flex: 1;
+  flex-direction: column;
+  margin-left: 0;
+}
 
 .page {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 50vh;
 }
 
 .priceRange {
-    align-items: center;
-    justify-content: center;
-    margin: 10px;
-    background: gainsboro;
-    border: 2px solid black;
-    max-width: 150px;
-    box-shadow: 0 0 10px black;
-    flex-grow: 0;
-    flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  background: gainsboro;
+  border: 2px solid black;
+  max-width: 150px;
+  box-shadow: 0 0 10px black;
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
 .dropDownOptions {
-    display: flex;
-    flex-direction: column;
-    margin: 5px;
-    box-shadow: 0 0 10px black;
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  box-shadow: 0 0 10px black;
 }
 
 .discount {
-    display: flex;
-    align-items: flex-end;
+  display: flex;
+  align-items: flex-end;
 
-    justify-content: center;
+  justify-content: center;
 }
 
 .landingOffers {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    position: relative;
-    z-index: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 .randomGame {
-    width: 70vh;
-    height: 20vh;
-    border: 2px solid gainsboro;
-    margin: 5px 40px 10px 40px;
-    box-shadow: 0 0 30px black;
-    border-radius: 5px;
-    transition: all 0.2s;
+  width: 70vh;
+  height: 20vh;
+  border: 2px solid gainsboro;
+  margin: 5px 40px 10px 40px;
+  box-shadow: 0 0 30px black;
+  border-radius: 5px;
+  transition: all 0.2s;
 }
 
-.about{
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+.about {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .aboutItems {
-    background: rgb(175, 174, 174);
-    border-radius: 4px;
-    border-color: gainsboro;
-    box-shadow: 0px 0px 30px black;
-    width: 600px;
-    height: 600px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  background: rgb(175, 174, 174);
+  border-radius: 4px;
+  border-color: gainsboro;
+  box-shadow: 0px 0px 30px black;
+  width: 600px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .paragraphAbout {
-    text-align: center;
+  text-align: center;
 }
 
 /* error page */
 .errorDiv {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
 }
 
 .errorMessage {
-    margin-top: 150px;
-    margin-bottom: 150px;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 30px;
-    background: gainsboro;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: bold;
+  margin-top: 150px;
+  margin-bottom: 150px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 30px;
+  background: gainsboro;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
 }
 
 /* forms */
-.bar, .listGameBar {
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    height: 20%;
-    margin-bottom: 25px;
-    width: 19.2em;
+.bar,
+.listGameBar {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  height: 20%;
+  margin-bottom: 25px;
+  width: 19.2em;
 }
 
 /* inputs */
 .submit {
-    background: gainsboro;
-    border: gainsboro;
-    border-radius: 5px;
-    cursor: pointer;
-    height: 2.4em;
-    font-size: 15px;
+  background: gainsboro;
+  border: gainsboro;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 2.4em;
+  font-size: 15px;
 }
 
-.text, .textGame {
-    padding: 10px 50px;
-    text-align: center;
-    /* width: 100%; */
-    border-radius: 5px;
-    background: gainsboro;
-    color: black;
+.text,
+.textGame {
+  padding: 10px 50px;
+  text-align: center;
+  /* width: 100%; */
+  border-radius: 5px;
+  background: gainsboro;
+  color: black;
 }
 
 .sortSlider {
-    display: none;
+  display: none;
 }
 
 .rangeInput {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 /* lists */
 .game {
-    box-shadow: 0 15px 20px black;
-    padding: 0;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: bold;
-    border: 1px solid black;
-    background: gainsboro;
-    margin: 0;
-    border-radius: 4px;
+  box-shadow: 0 15px 20px black;
+  padding: 0;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  border: 1px solid black;
+  background: gainsboro;
+  margin: 0;
+  border-radius: 4px;
 }
 
 .listNav {
-    box-shadow: 0 15px 20px black;
-    padding: 0;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: bold;
-    border: 1px solid black;
-    background: gainsboro;
-    margin: 0;
-    border-radius: 4px;
-    width: inherit;
+  box-shadow: 0 15px 20px black;
+  padding: 0;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  border: 1px solid black;
+  background: gainsboro;
+  margin: 0;
+  border-radius: 4px;
+  width: inherit;
 }
 
 .gameList {
-    display: inline-block;
-    flex-direction: column;
-    border: 1px solid gainsboro;
-    padding: 0;
-    border-radius: 5px;
-    box-shadow: 0 0 20px black;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: bold;
-    background: gainsboro;
-    margin: 0;
-    justify-self: center;
+  display: inline-block;
+  flex-direction: column;
+  border: 1px solid gainsboro;
+  padding: 0;
+  border-radius: 5px;
+  box-shadow: 0 0 20px black;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  background: gainsboro;
+  margin: 0;
+  justify-self: center;
 }
 
 .display {
-    list-style: none;
-    border-bottom: 1px solid #2E3441;
-    width: 382px;
-    border-radius: 2px;
+  list-style: none;
+  border-bottom: 1px solid #2E3441;
+  width: 382px;
+  border-radius: 2px;
 }
 
 .gameDisplay {
-    list-style: none;
-    font-size: 17px;
-    border-bottom: 1px solid #2E3441;
-    box-shadow: 0 0 3px black;
-    text-transform: capitalize;
-    /* min-width: 40vh; */
-    /* max-width: 50em; */
-    align-items: center;
-    transition: all 0.2s;
- 
+  list-style: none;
+  font-size: 17px;
+  border-bottom: 1px solid #2E3441;
+  box-shadow: 0 0 3px black;
+  text-transform: capitalize;
+  /* min-width: 40vh; */
+  /* max-width: 50em; */
+  align-items: center;
+  transition: all 0.2s;
+
 }
 
 /* spans */
 .title {
-    font-size: 17px;
-    text-align: left;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    padding-right: 5px;
-    font-family: 'Quicksand', sans-serif;
-    width: 100%;
+  font-size: 17px;
+  text-align: left;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  padding-right: 5px;
+  font-family: 'Quicksand', sans-serif;
+  width: 100%;
 }
 
 .gameTitle {
-    font-size: 17px;
-    text-align: left;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-    padding-left: 10px;
-    width: 100%;
-    font-family: 'Quicksand', sans-serif;
-    flex-basis: content;
+  font-size: 17px;
+  text-align: left;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  width: 100%;
+  font-family: 'Quicksand', sans-serif;
+  flex-basis: content;
 
 }
 
 .spaceSpan {
-    padding-left: 5px;
+  padding-left: 5px;
 }
 
 .spanLine {
-    height: 1px;
-    border: 1px solid gainsboro;
-    width: 120px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    border-radius: 10px;
+  height: 1px;
+  border: 1px solid gainsboro;
+  width: 120px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
 }
 
 .spans {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: bold;
-    border-radius: 1px;
-    border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  border-radius: 1px;
+  border: 1px solid black;
 }
 
 .normalPrice {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 
 .discountSpan {
-    text-align: center;
-    color: darkgreen;
+  text-align: center;
+  color: darkgreen;
 }
 
-.spanDealsTitle{
-    font-family: 'Quicksand', sans-serif;
-    display: flex;
-    justify-content: center;
-    font-weight: bold;
-    background: rgb(175, 174, 174);
-    cursor: pointer;
-    border-radius: 2px;
-    max-width: 200px;
+.spanDealsTitle {
+  font-family: 'Quicksand', sans-serif;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  background: rgb(175, 174, 174);
+  cursor: pointer;
+  border-radius: 2px;
+  max-width: 200px;
 }
 
 /* .arrow {
@@ -423,335 +427,364 @@ body {
 
 /* images */
 .imgLanding {
-    height:55px;
+  height: 55px;
 }
 
 .imgList {
-    height:55px;
+  height: 55px;
 }
 
 .imgSale {
-    height: 100%;
-    width: 100%;
-    border: 1px solid black;
-    z-index: -1;
+  height: 100%;
+  width: 100%;
+  border: 1px solid black;
+  z-index: -1;
 }
 
 .imgDeal {
-    max-height: inherit;
-    max-width: inherit;
+  max-height: inherit;
+  max-width: inherit;
 }
 
 .dealDiv {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 300px;
-    height: 300px;
-    max-width: 100%;
-    max-height: 100%;
-    background: rgb(175, 174, 174);
-    border: 2px solid black;
-    border-radius: 4px;
-    box-shadow: 0 0 10px black;
-    margin: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 300px;
+  max-width: 100%;
+  max-height: 100%;
+  background: rgb(175, 174, 174);
+  border: 2px solid black;
+  border-radius: 4px;
+  box-shadow: 0 0 10px black;
+  margin: 25px;
 }
 
 .infoDiv {
-    margin: 25px;
-    height: fit-content;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: bold;
-    background: rgb(175, 174, 174);
-    border: 2px solid black;
-    box-shadow: 0 0 10px black;
-    border-radius: 4px;
-    padding: 10px;
+  margin: 25px;
+  height: fit-content;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  background: rgb(175, 174, 174);
+  border: 2px solid black;
+  box-shadow: 0 0 10px black;
+  border-radius: 4px;
+  padding: 10px;
 
 }
 
 .infoText {
-    margin-top: 20px;
-    cursor: default;
+  margin-top: 20px;
+  cursor: default;
 }
+
 .gameName {
-    font-size: 40px;
-    font-weight: 900;
+  font-size: 40px;
+  font-weight: 900;
 }
 
 .discountPrice {
-    color: darkgreen;
-    position: inherit;
-    margin-left: 10px;
+  color: darkgreen;
+  position: inherit;
+  margin-left: 10px;
 }
 
 .imageDiv {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 145px;
-    background: #3e4758;
-    margin-left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 145px;
+  background: #3e4758;
+  margin-left: 0;
 }
 
 .offers {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 35vh;
-    height: 50vh;
-    border: 2px solid gainsboro;
-    margin: 5px 40px 10px 40px;
-    box-shadow: 0 0 30px black;
-    border-radius: 5px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35vh;
+  height: 50vh;
+  border: 2px solid gainsboro;
+  margin: 5px 40px 10px 40px;
+  box-shadow: 0 0 30px black;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
 }
 
 .paragraphLanding {
-    position: absolute;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: bolder;
-    font-size: 30px;
-    color: black;
-    text-shadow: 0px 1px 0px black;
-    width: 320px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(.25turn, transparent, rgb(105, 105, 105), transparent);
+  position: absolute;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bolder;
+  font-size: 30px;
+  color: black;
+  text-shadow: 0px 1px 0px black;
+  width: 320px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(.25turn, transparent, rgb(105, 105, 105), transparent);
 }
 
 .logoIMG {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .logo {
-    width: 175px;
-    height: 45px;
-    cursor: pointer;
-    flex: 1 1 0;
-    display: flex;
-    justify-content: flex-end;
-    margin-left: 20px;
-    margin-right: 40px;
+  width: 175px;
+  height: 45px;
+  cursor: pointer;
+  flex: 1 1 0;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 20px;
+  margin-right: 40px;
 }
 
 .logoabout {
-    margin-left: 200px;
+  margin-left: 200px;
 }
 
 .imgBanner {
-    height: 30px;
+  height: 30px;
 
-    background: black;
-    border-radius: 4px;
-    border: 1px solid #363d4d;
-    box-shadow: 0 0 1px black;
+  background: black;
+  border-radius: 4px;
+  border: 1px solid #363d4d;
+  box-shadow: 0 0 1px black;
 }
 
 .imageDealLogo {
-    width: 20px;
-    height: 20px;
+  width: 20px;
+  height: 20px;
 }
 
 /* menu */
 .menu {
-    color: gainsboro;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: bold;
-    flex: 1 1 0;
-    display: flex;
-    justify-content: flex-start;
-    margin-left: 40px;
+  color: gainsboro;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  flex: 1 1 0;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 40px;
 }
 
 /* links */
 .linkLanding {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    height: inherit;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  height: inherit;
 }
 
 .linkList {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
 }
 
 a {
-    padding: 5px;
+  padding: 5px;
 }
 
 .aboutLink {
-    text-decoration: none;
-    color: gainsboro;
+  text-decoration: none;
+  color: gainsboro;
 }
 
 .imgLinks {
-    width: 100%;
-    height: 100%;
-    padding: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
 }
 
 .linksAbout {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: bold;
-    text-decoration: underline;
-    color: black;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  text-decoration: underline;
+  color: black;
 }
 
 .linkLogo {
-    padding: 0;
+  padding: 0;
 }
 
 /* hover effect */
-.linkList:hover, .linkLanding:hover, .linkNav:hover, .allDealsListLinks:hover {
-    background: rgb(139, 159, 179);
+.linkList:hover,
+.linkLanding:hover,
+.linkNav:hover,
+.allDealsListLinks:hover {
+  background: rgb(139, 159, 179);
 }
+
 .spans:hover {
-    background: rgb(139, 159, 179);
+  background: rgb(139, 159, 179);
 }
 
 /* active effect */
 .activeEffect {
-    background-color: rgb(139, 159, 179) !important;
+  background-color: rgb(139, 159, 179) !important;
 }
 
-.offers:hover, .randomGame:hover {
-    transform: scale(1.07);
-    transition: all 0.2s;
-    cursor: pointer;
+.offers:hover,
+.randomGame:hover {
+  transform: scale(1.07);
+  transition: all 0.2s;
+  cursor: pointer;
 }
 
 .activeList {
-    z-index: -1;
-    opacity: 0;
-    top: -50000;
-    position: absolute;
+  z-index: -1;
+  opacity: 0;
+  top: -50000;
+  position: absolute;
 }
 
-/* list hide */ 
+/* list hide */
 .hide {
-    position: absolute;
-    opacity: 0;
-    top: -5000px;
+  position: absolute;
+  opacity: 0;
+  top: -5000px;
 }
 
 /* buttons */
 .labels {
-    border: 1px solid black;
-    background: gainsboro;
-    cursor: pointer;
-    font-size: 20px;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: bold;
-    border-radius: 3px;
+  border: 1px solid black;
+  background: gainsboro;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: bold;
+  border-radius: 3px;
 }
 
 .slideOpen {
-    background: gainsboro;
+  background: gainsboro;
 }
 
 /* labels */
 .rangeLabel {
-    margin-left: 25px;
+  margin-left: 25px;
 }
 
 @media screen and (max-width: 760px) {
-    body, .formWrap, .logo, .menu, .dealInfo, .dealsList, .allDeals, html,
-    .landing, .randomGame, .aboutItems, .imgSale, .errorMessage, .errorDiv, 
-    .listGame, .ulDiv {
-        width: 100%;
-    }
 
-    body, .dealInfo, html, .dealsList, .allDealsList, .allDeals {
-        height: fit-content;
-    }
-    
-    .dealInfo {
-        flex-direction: column;
-        align-items: center;
-        max-width: 100%;
-        margin-top: 50px;
-    }
-    
-    .dealsList {
-        flex-direction: column;
-        align-items: center;
-    } 
+  body,
+  .formWrap,
+  .logo,
+  .menu,
+  .dealInfo,
+  .dealsList,
+  .allDeals,
+  html,
+  .landing,
+  .randomGame,
+  .aboutItems,
+  .imgSale,
+  .errorMessage,
+  .errorDiv,
+  .listGame,
+  .ulDiv {
+    width: 100%;
+  }
 
-    .listGameBar, .bar {
-        width: 200px;
-        margin-left: 5px;
-    }
+  body,
+  .dealInfo,
+  html,
+  .dealsList,
+  .allDealsList,
+  .allDeals {
+    height: fit-content;
+  }
 
-    .logo, .menu, .dealInfo {
-        margin: 0;
-    }
+  .dealInfo {
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    margin-top: 50px;
+  }
 
-    .imgBanner {
-        position: relative;
-    }
+  .dealsList {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .allDeals {
-        margin-bottom: 20px;
-    }
+  .listGameBar,
+  .bar {
+    width: 200px;
+    margin-left: 5px;
+  }
 
-    .textGame {
-        width: 200px;
-    }
+  .logo,
+  .menu,
+  .dealInfo {
+    margin: 0;
+  }
 
-    .listNav, .game {
-       width: fit-content;
-       margin-left: -80px;
-    }
+  .imgBanner {
+    position: relative;
+  }
 
-    .landing {
-        margin-top: 10px;
-    }
+  .allDeals {
+    margin-bottom: 20px;
+  }
 
-    .landingOffers {
-        flex-direction: column;
-    }
+  .textGame {
+    width: 200px;
+  }
 
-    .listGame {
-        flex-direction: column-reverse;
-        align-items: center; 
-        justify-content: flex-end;
-        margin-top: 5px;
-    }
+  .listNav,
+  .game {
+    width: fit-content;
+    margin-left: -80px;
+  }
 
-    .options {
-        margin-left: 0;
-        margin-bottom: 10px;
-    }
+  .landing {
+    margin-top: 10px;
+  }
 
-    .gameList {
-        max-width: 370px;
-        justify-self: center;
-    }
+  .landingOffers {
+    flex-direction: column;
+  }
 
-    .gameDisplay {
-        display: flex;
-    }
-    
-    .ulDiv {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+  .listGame {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 5px;
+  }
+
+  .options {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  .gameList {
+    max-width: 370px;
+    justify-self: center;
+  }
+
+  .gameDisplay {
+    display: flex;
+  }
+
+  .ulDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
 }

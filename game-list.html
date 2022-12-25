@@ -1,53 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Deals Here</title>
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="icon" href="images/titleLogo.png" type="image/icon type">
-    </head>
-    <body>
-        <div class="formWrap">
-            <div class="logo">
-                <a href="index.html" class="linkLogo"><img src="images/logo.png" class="logo logoIMG"></a>
-            </div>
-            <form class="search listGameBar">
-                <input type="text" class="search textGame" name="inputnamesGame" maxlength="20" placeholder>
-                <ul class="list listNav"></ul>
-            </form>
-            <input type="submit" class="search submit" name="inputnames" value="🔎︎">
-            <div class="menu"> 
-                <a href="about.html" class="aboutLink">
-                    <p>About</p>
-                </a>
-            </div>
-        </div>
-        <div class="wrapperList listGame">
-            <div class="ulDiv">
-                <ul class="list gameList">
-                    <li class="gameDisplay">Nothing here</li>
-                </ul>
-            </div>
-            <div class="options">
-                <div class="range priceRange">
-                    <label for="rangeInput" class="rangeLabel"></label>
-                    <input type="range" class="rangeInput" min="10" max="99" step="5">
-                </div>
-                <span class="spanLine"></span>
-                <div class="dropDownOptions">
-                    <input type="range" class="sortSlider" name="item" min="1" max="5" step="1" id="sliderInput">
-                    <label for="sliderInput" class="labels lower">
-                        <span class="spans lower" data-active="0">Lower Price</span>
-                        <span class="spans higher" data-active="1">Higher Price</span>
-                        <span class="spans name" data-active="2">Name</span>
-                        <span class="spans release" data-active="3">Discount</span>
-                    </label>
-                </div>
-            </div>
-        </div>
-        <div class="formWrap"></div>
-        
-        <script src="js/game-list-script.js"></script>
-    </body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deals Here</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="images/titleLogo.png" type="image/icon type">
+</head>
+
+<body>
+  <div class="formWrap">
+    <div class="logo">
+      <a href="index.html" class="linkLogo"><img src="images/logo.png" class="logo logoIMG"></a>
+    </div>
+    <form class="search listGameBar">
+      <input type="text" class="search textGame" name="inputnamesGame" maxlength="20" placeholder>
+      <ul class="list listNav"></ul>
+    </form>
+    <input type="submit" class="search submit" name="inputnames" value="🔎︎">
+    <div class="menu">
+      <a href="about.html" class="aboutLink">
+        <p>About</p>
+      </a>
+    </div>
+  </div>
+  <div class="wrapperList listGame">
+    <div class="ulDiv">
+      <ul class="list gameList">
+        <li class="gameDisplay">Nothing here</li>
+      </ul>
+    </div>
+    <div class="options">
+      <div class="range priceRange">
+        <label for="rangeInput" class="rangeLabel"></label>
+        <input type="range" class="rangeInput" min="10" max="99" step="5">
+      </div>
+      <span class="spanLine"></span>
+      <div class="dropDownOptions">
+        <input type="range" class="sortSlider" name="item" min="1" max="5" step="1" id="sliderInput">
+        <label for="sliderInput" class="labels lower">
+          <span class="spans lower" data-active="0">Lower Price</span>
+          <span class="spans higher" data-active="1">Higher Price</span>
+          <span class="spans name" data-active="2">Name</span>
+          <span class="spans release" data-active="3">Discount</span>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="formWrap"></div>
+
+  <script src="js/game-list-script.js"></script>
+</body>
+
 </html>
