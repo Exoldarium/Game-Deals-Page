@@ -1,12 +1,10 @@
+import { displayData, gameInfo, stopPropagation } from "./modules/searchFunction.js";
+
 const endpointToChange = 'https://www.cheapshark.com/api/1.0/games?id=612';
-const gamepoint = 'https://www.cheapshark.com/api/1.0/deals?&upperPrice=50';
 const storepoint = 'https://www.cheapshark.com/api/1.0/stores';
 const gameId = localStorage.getItem('idToPass'); // get the game id
-// const inputValue = localStorage.getItem('searchValue');
-const listValue = JSON.parse(localStorage.getItem('mainSearchItems'));
 const regexID = /[0-9]+$/; // remove the id part from the enpointToChange variable
-const endpoint = endpointToChange.replace(regexID, gameId); // replace it with the game id from localStorage
-const games = [];
+const gamepoint = endpointToChange.replace(regexID, gameId); // replace it with the game id from localStorag
 const dealsDiv = document.querySelector('.dealsList');
 const allDeals = document.querySelector('.allDealsList');
 const listSearch = document.querySelector('.listNav');
@@ -16,20 +14,9 @@ const logo = document.querySelectorAll('.logo');
 const spanActive = document.querySelector('.spanDealsTitle');
 const submitButton = document.querySelector('.submit');
 const logoImg = document.querySelector('.logoIMG');
-const wrapperDiv = document.querySelector('.dealInfo');
-const randomGameList = document.querySelector('.randomGame');
-// const displayGames = inputValue;
-// inputGame.value = displayGames;
-let showData;
-
-// fetch the full game list 
-fetch(gamepoint)
-  .then(res => res.json())
-  .then(data => games.push(...data))
-  .catch((err) => console.warn(err))
 
 // fetch the specific game
-const dealsData = fetch(endpoint)
+const dealsData = fetch(gamepoint)
   .then(res => res.json())
   .then(data => {
     return data;
@@ -48,46 +35,6 @@ const storesData = fetch(storepoint)
 Promise.all([dealsData, storesData])
   .then(([dealItems, storeItems]) => createElements(dealItems, storeItems))
   .catch(err => console.error(err));
-
-// match input with game.title property
-function searchData(input, value) {
-  return value.filter(game => {
-    const regex = new RegExp(input, 'gi');
-    return game.title.match(regex);
-  });
-}
-
-// display data in DOM, search bar
-function displayData() {
-  const matchedArray = searchData(this.value, games);
-  if (inputGame.value) {
-    showData = matchedArray
-      .slice(0, 5)
-      .map(games => {
-        return `
-          <li class="display" data-index="${games.gameID}">
-            <a href="deal-page.html" class="linkLanding" data-index="${games.gameID}">
-              <span class="title" data-index="${games.gameID}">
-                <div class="imageDiv" data-index="${games.gameID}">
-                  <img src="${games.thumb}" class="imgLanding" data-index="${games.gameID}">
-                </div>
-                <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
-                  <div class="priceDiv" data-index="${games.gameID}">
-                    <span class="normalPrice" data-index="${games.gameID}">$${games.normalPrice}</span>
-                    <span class="salePrice" data-index="${games.gameID}">$${games.salePrice}</span>
-                  </div>
-                </span>
-            </a>
-          </li>
-         `
-      }).join('');
-
-  } else {
-    showData = matchedArray.slice(0, 0);
-  }
-  localStorage.setItem('mainSearchItems', JSON.stringify(matchedArray));
-  listSearch.innerHTML = showData;
-}
 
 // map the specific game info
 function createElements(dealItems, storeItems) {
@@ -168,18 +115,6 @@ function submitForm(e) {
   }
 }
 
-// submit the search bar form and go to specific game page, add the gameId to local storage based on which game the user clicked on
-function gameInfo(e) {
-  const gameId = e.target.dataset.index;
-  localStorage.setItem('idToPass', gameId);
-}
-
-// stops propagation and hides the list
-function stopPropagation(e) {
-  e.stopPropagation();
-  listSearch.classList.remove('hide');
-}
-
 // extend the game deals and show all prices
 function addActiveList(e) {
   if (e.target === spanActive && screen.width > 760) {
@@ -187,7 +122,6 @@ function addActiveList(e) {
     allDeals.classList.remove('activeList');
   }
 }
-
 
 // remove active effect when on mobile and change logo image
 function removeActiveList() {

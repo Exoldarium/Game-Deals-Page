@@ -1,5 +1,5 @@
-const endpoint = 'https://www.cheapshark.com/api/1.0/deals?&upperPrice=50';
-const games = [];
+import { displayData, gameInfo, stopPropagation, removeActiveList } from "./modules/searchFunction.js";
+
 const inputValue = localStorage.getItem('searchValue');
 const listValue = JSON.parse(localStorage.getItem('mainSearchItems'));
 const activeEffect = localStorage.getItem('activeEffect');
@@ -8,63 +8,15 @@ const list = document.querySelector('.gameList');
 const listSearch = document.querySelector('.listNav');
 const form = document.querySelector('.listGameBar');
 const range = document.querySelector('.rangeInput');
-const rating = document.querySelector('.ratingRange');
 const slider = document.querySelector('.sortSlider');
 const labelRange = document.querySelector('.rangeLabel');
 const spans = document.querySelectorAll('.spans');
 const logo = document.querySelectorAll('.logo');
 const submitButton = document.querySelector('.submit');
-const logoImg = document.querySelector('.logoIMG');
 // add local storage to new variable
 const displayGames = inputValue;
 // pass local storage as input
 inputGame.value = displayGames;
-let showData;
-
-// fetch the endpoint
-fetch(endpoint)
-  .then(res => res.json())
-  .then(data => games.push(...data))
-  .catch((err) => console.warn(err))
-
-// match user input with game.title property
-function searchData(input, value) {
-  return value.filter(game => {
-    const regex = new RegExp(input, 'gi');
-    return game.title.match(regex);
-  });
-}
-
-// display data in DOM (search bar)
-function displayData() {
-  const matchedArray = searchData(this.value, games);
-  if (inputGame.value) {
-    showData = matchedArray
-      .slice(0, 5)
-      .map(games => {
-        return `
-          <li class="display" data-index="${games.gameID}">
-            <a href="deal-page.html" class="linkLanding" data-index="${games.gameID}">
-              <span class="title" data-index="${games.gameID}">
-                <div class="imageDiv" data-index="${games.gameID}">
-                  <img src="${games.thumb}" class="imgLanding" data-index="${games.gameID}">
-                </div>
-                <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
-                  <div class="priceDiv" data-index="${games.gameID}">
-                    <span class="normalPrice" data-index="${games.gameID}">$${games.normalPrice}</span>
-                    <span class="salePrice" data-index="${games.gameID}">$${games.salePrice}</span>
-                </div>
-              </span>
-            </a>
-          </li>
-            `
-      }).join('');
-  } else {
-    showData = matchedArray.slice(0, 0);
-  }
-  localStorage.setItem('mainSearchItems', JSON.stringify(matchedArray));
-  listSearch.innerHTML = showData;
-}
 
 // display data in DOM based on parameters (page)
 function mapGames() {
@@ -145,12 +97,6 @@ function mapGames() {
   }
 }
 
-// submit the search bar form and go to specific game page that user clicked on, store gameId in localStorage
-function gameInfo(e) {
-  const gameId = e.target.dataset.index;
-  localStorage.setItem('idToPass', gameId);
-}
-
 // price range slider value and label value, store them in localStorage
 function priceRange() {
   const rangeValue = range.value;
@@ -186,12 +132,6 @@ function saveInputValue() {
       spans[3].classList.add('activeEffect');
     }
   }
-}
-
-// stops propagation and hides the list in the search bar
-function stopPropagation(e) {
-  e.stopPropagation();
-  listSearch.classList.remove('hide');
 }
 
 // submit form and save form input value in localStorage, if the list gives no results go to error page
@@ -231,14 +171,6 @@ function setActive(e) {
   }
   localStorage.setItem('sliderValue', slider.value);
   mapGames();
-}
-
-
-// change logo image on mobile
-function removeActiveList() {
-  if (screen.width < 760) {
-    logoImg.src = 'images/titleLogo.png';
-  }
 }
 
 inputGame.addEventListener('keyup', displayData);

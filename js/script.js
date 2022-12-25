@@ -1,62 +1,12 @@
-const endpoint = 'https://www.cheapshark.com/api/1.0/deals?&upperPrice=50';
-const games = [];
-const gameIds = [];
-const inputText = document.querySelector('.text');
-const list = document.querySelector('.game');
+import { displayData, games, mapRandomGame, gameInfo, stopPropagation, removeActiveList } from "./modules/searchFunction.js";
+
+const inputText = document.querySelector('.textGame');
+const listSearch = document.querySelector('.listNav');
 const form = document.querySelector('.bar');
-const landing = document.querySelector('.formWrap');
 const offers = document.querySelectorAll('.imgSale');
 const randomGameList = document.querySelector('.randomGame');
 const logo = document.querySelectorAll('.logo');
 const submitButton = document.querySelector('.submit');
-const logoImg = document.querySelector('.logoIMG');
-const listValue = JSON.parse(localStorage.getItem('mainSearchItems'));
-let showData;
-
-// fetch the endpoint
-fetch(endpoint)
-  .then(res => res.json())
-  .then(data => games.push(...data))
-  .catch((err) => console.warn(err))
-
-// match input with game.title property
-function searchData(input, value) {
-  return value.filter(game => {
-    const regex = new RegExp(input, 'gi');
-    return game.title.match(regex);
-  });
-}
-
-// display data in DOM, search bar
-function displayData() {
-  const matchedArray = searchData(this.value, games);
-  if (inputText.value) {
-    showData = matchedArray
-      .slice(0, 5)
-      .map(games => {
-        return `
-          <li class="display" data-index="${games.gameID}">
-            <a href="deal-page.html" class="linkLanding" data-index="${games.gameID}">
-              <span class="title" data-index="${games.gameID}">
-                <div class="imageDiv" data-index="${games.gameID}">
-                  <img src="${games.thumb}" class="imgLanding" data-index="${games.gameID}">
-                </div>
-                <span class="spaceSpan" data-index="${games.gameID}">${games.title}</span>
-                  <div class="priceDiv" data-index="${games.gameID}">
-                    <span class="normalPrice" data-index="${games.gameID}">$${games.normalPrice}</span>
-                    <span class="salePrice" data-index="${games.gameID}">$${games.salePrice}</span>
-                  </div>
-                </span>
-            </a>
-          </li>
-        `
-    }).join('');
-  } else {
-    showData = matchedArray.slice(0, 0);
-  }
-  localStorage.setItem('mainSearchItems', JSON.stringify(matchedArray));
-  list.innerHTML = showData;
-}
 
 // sort based on the parameters and load next page
 function mapCategory(e) {
@@ -79,17 +29,6 @@ function mapCategory(e) {
   }
 }
 
-// get all game ids, push them into array, and select a random one to store in localStorage
-function mapRandomGame() {
-  const gameIds = [];
-  games.forEach((game) => {
-    gameIds.push(game.gameID);
-  })
-  const randomLength = Math.floor(Math.random() * gameIds.length);
-  const randomId = gameIds[randomLength];
-  localStorage.setItem('idToPass', randomId);
-}
-
 // submit form and load next page, if the search gives no results load error page
 function submitForm(e) {
   e.preventDefault();
@@ -104,29 +43,10 @@ function submitForm(e) {
   }
 }
 
-// select a specific game that user clicked or mouseovered on and add to localStorage
-function gameInfo(e) {
-  const gameId = e.target.dataset.index;
-  localStorage.setItem('idToPass', gameId);
-}
-
-// stops propagation and hides the list
-function stopPropagation(e) {
-  e.stopPropagation();
-  list.classList.remove('hide');
-}
-
-// change logo image on mobile
-function removeActiveList() {
-  if (screen.width < 760) {
-    logoImg.src = 'images/titleLogo.png';
-  }
-}
-
 inputText.addEventListener('keyup', displayData);
 inputText.addEventListener('click', displayData);
-list.addEventListener('mouseover', gameInfo);
-list.addEventListener('click', gameInfo);
+listSearch.addEventListener('mouseover', gameInfo);
+listSearch.addEventListener('click', gameInfo);
 form.addEventListener('submit', submitForm);
 form.addEventListener('click', stopPropagation);
 form.addEventListener('keyup', stopPropagation);
@@ -135,5 +55,5 @@ randomGameList.addEventListener('mouseover', mapRandomGame);
 submitButton.addEventListener('click', submitForm);
 window.addEventListener('load', removeActiveList);
 logo.forEach(logo => logo.addEventListener('click', () => window.location = 'index.html'));
-document.body.addEventListener('click', () => list.classList.add('hide'));
+document.body.addEventListener('click', () => listSearch.classList.add('hide'));
 localStorage.clear();
