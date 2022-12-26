@@ -4,6 +4,10 @@ Game deals fetching App, using [CheapShark API](https://apidocs.cheapshark.com/)
 
 [The Website](https://exoldarium.github.io/Game-Deals-Page/)
 
+![alt text](./images/captureDeals.JPG)
+![alt text](./images/captureDeals2.JPG)
+![alt text](./images/captureDeals3.JPG)
+
 ## General info
 Decide to build this app as my first project. I've decided to build this app without using any framworks,  compilers and libraries as a way to learn more about 
 JavaScript, CSS and HTML and as a way to challenge myself.
