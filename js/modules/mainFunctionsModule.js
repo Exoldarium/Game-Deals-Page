@@ -59,7 +59,6 @@ export function mapRandomGame() {
   const randomLength = Math.floor(Math.random() * gameIds.length);
   const randomId = gameIds[randomLength];
   localStorage.setItem('idToPass', randomId);
-  console.log(randomId);
 }
 
 // submit the search bar form and go to specific game page that user clicked on, store gameId in localStorage
